@@ -14,7 +14,7 @@
             --accent: #c5a059;
             --white: #ffffff;
             --gray: #f9f9f9;
-            --overlay: rgba(10, 25, 47, 0.88);
+            --overlay: rgba(10, 25, 47, 0.9);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
@@ -23,7 +23,7 @@
         /* Navigation */
         nav {
             background: var(--white);
-            height: 75px;
+            height: 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -34,18 +34,22 @@
             z-index: 1000;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); letter-spacing: 2px; }
+        .logo { font-size: 1.6rem; font-weight: 700; color: var(--primary); letter-spacing: 2px; }
+        
+        /* Clean Toggle Button (Menu Text Removed) */
         .menu-btn {
             background: var(--primary);
             color: white;
-            padding: 10px 22px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
             border-radius: 4px;
-            font-weight: 600;
+            font-size: 1.5rem;
             transition: 0.3s;
-            border: 1px solid var(--primary);
         }
-        .menu-btn:hover { background: transparent; color: var(--primary); }
 
         /* Compact Sidebar */
         .sidebar {
@@ -68,25 +72,24 @@
             padding: 18px 0;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             transition: 0.3s;
-            letter-spacing: 1px;
         }
         .sidebar a:hover { color: var(--accent); padding-left: 10px; }
         .close-sidebar { color: white; font-size: 2rem; cursor: pointer; align-self: flex-end; margin-bottom: 30px; }
 
         /* Section Handling */
-        section { display: none; padding-top: 75px; min-height: 100vh; }
+        section { display: none; padding-top: 80px; min-height: 100vh; }
         section.active { display: block; animation: pageFade 0.5s ease-in-out; }
         @keyframes pageFade { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Hero Styling */
+        /* Hero Styling - Fixed Line Breaking */
         .hero {
-            height: 90vh;
+            min-height: 90vh;
             background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600') center/cover no-repeat;
-            display: flex; align-items: center; justify-content: center; padding: 0 5%;
+            display: flex; align-items: center; justify-content: center; padding: 40px 5%;
         }
         .hero-content {
             background: var(--overlay);
-            padding: 60px;
+            padding: 60px 40px;
             border-radius: 4px;
             max-width: 900px;
             color: white;
@@ -94,35 +97,37 @@
             border: 1px solid var(--accent);
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--accent); margin-bottom: 25px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--accent); margin-bottom: 25px; line-height: 1.2; }
         .hero p { font-size: 1.15rem; line-height: 1.8; margin-bottom: 20px; font-weight: 300; }
 
-        /* Common Elements */
-        .container { padding: 80px 8%; max-width: 1400px; margin: 0 auto; }
+        /* Container Styling */
+        .container { padding: 100px 8%; max-width: 1400px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--primary); margin-bottom: 15px; }
         .accent-line { width: 80px; height: 3px; background: var(--accent); margin: 0 auto; }
 
+        /* Grids & Cards */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         .card { background: white; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.4s; border: 1px solid #eee; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 45px rgba(0,0,0,0.1); }
+        .card:hover { transform: translateY(-10px); }
         .card img { width: 100%; height: 250px; object-fit: cover; }
         .card-body { padding: 30px; }
-        .card-body h3 { font-size: 1.4rem; margin-bottom: 12px; color: var(--primary); }
         
-        /* Buttons */
+        /* Premium Buttons */
         .btn-group { display: flex; gap: 12px; margin-top: 25px; }
-        .btn { flex: 1; text-align: center; padding: 14px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; border-radius: 2px; }
+        .btn { flex: 1; text-align: center; padding: 14px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
         .btn-call { background: var(--primary); color: white; }
         .btn-wa { background: #25d366; color: white; }
-        .btn-main { display: block; width: 260px; margin: 50px auto; background: var(--accent); color: white; text-align: center; padding: 18px; text-decoration: none; font-weight: 700; letter-spacing: 1px; transition: 0.3s; }
-        .btn-main:hover { letter-spacing: 2px; background: #b08d4a; }
+        .btn-main { display: block; width: 260px; margin: 40px auto; background: var(--accent); color: white; text-align: center; padding: 18px; text-decoration: none; font-weight: 700; letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; }
 
-        /* About & Contact Specifics */
+        /* Home Previews (About & Contact) */
+        .preview-box { background: var(--gray); padding: 80px 10%; margin-top: 60px; border-top: 1px solid #eee; text-align: center; }
+        .preview-box h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .preview-box p { max-width: 800px; margin: 0 auto 30px; line-height: 2; font-size: 1.1rem; }
+
+        /* About Page Texture */
         #about { background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600') center/cover fixed; }
         .long-text { line-height: 2.4; font-size: 1.2rem; color: #444; text-align: justify; margin-bottom: 30px; }
-        
-        .contact-card { background: white; padding: 50px; border: 1px solid #eee; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border-top: 5px solid var(--accent); }
 
         footer { background: var(--primary); color: white; text-align: center; padding: 40px; font-size: 0.9rem; letter-spacing: 1px; }
 
@@ -136,7 +141,7 @@
 
     <nav>
         <div class="logo">ABHINAV ESTATE</div>
-        <div class="menu-btn" onclick="toggleSidebar()">☰ MENU</div>
+        <div class="menu-btn" onclick="toggleSidebar()">☰</div>
     </nav>
 
     <div class="sidebar" id="sidebar">
@@ -151,7 +156,7 @@
         <div class="hero">
             <div class="hero-content">
                 <h1>The Gold Standard of Real Estate</h1>
-                <p>Welcome to Abhinav Estate. We specialize in curating the finest residential and commercial properties for clients who demand excellence. Our process is built on decades of trust, professional market analysis, and a commitment to your long-term success.</p>
+                <p>Welcome to Abhinav Estate. We specialize in curating the finest residential and commercial properties for clients who demand excellence. Our process is built on decades of trust and professional market analysis.</p>
                 <p>Experience a seamless journey from discovery to ownership with Mumbai's most trusted property consultancy.</p>
             </div>
         </div>
@@ -197,26 +202,25 @@
                 </div>
             </div>
             <a href="javascript:void(0)" class="btn-main" onclick="showPage('properties')">VIEW ALL PROPERTIES</a>
+        </div>
 
-            <div class="section-header" style="margin-top: 100px;">
-                <h2>Our Professional Legacy</h2>
-                <div class="accent-line"></div>
-            </div>
-            <div class="long-text" style="text-align: center; max-width: 900px; margin: 0 auto;">
-                <p>For years, Abhinav Estate has stood as a beacon of reliability in the property market. We bridge the gap between complex legalities and your dream home, ensuring every transaction is handled with the utmost transparency and professional care. We don't just sell property; we secure your future.</p>
-                <a href="javascript:void(0)" class="btn-main" onclick="showPage('about')">LEARN MORE ABOUT US</a>
-            </div>
+        <div class="preview-box">
+            <h2>Our Professional Legacy</h2>
+            <p>For years, Abhinav Estate has stood as a beacon of reliability in the property market. We bridge the gap between complex legalities and your dream home, ensuring every transaction is handled with the utmost transparency and professional care.</p>
+            <a href="javascript:void(0)" class="btn-main" onclick="showPage('about')">VIEW ABOUT US</a>
+        </div>
+
+        <div class="preview-box" style="background: white;">
+            <h2>Connect With Our Experts</h2>
+            <p>Our consultants are available 24/7 to assist you. Whether you're looking for an investment or a sanctuary, we are just one message away.</p>
+            <a href="javascript:void(0)" class="btn-main" onclick="showPage('contact')">VIEW CONTACT US</a>
         </div>
     </section>
 
     <section id="properties">
         <div class="container">
-            <div class="section-header">
-                <h2>Our Premium Portfolio</h2>
-                <div class="accent-line"></div>
-            </div>
-            <div class="grid" id="full-inventory">
-                </div>
+            <div class="section-header"><h2>Our Premium Portfolio</h2><div class="accent-line"></div></div>
+            <div class="grid" id="full-inventory"></div>
         </div>
     </section>
 
@@ -225,8 +229,7 @@
             <div class="section-header"><h2>About Abhinav Estate</h2><div class="accent-line"></div></div>
             <div class="long-text">
                 <p>Founded on the principles of absolute integrity, **Abhinav Estate** has evolved from a boutique consultancy into a leading name in the premium real estate market. We recognize that property is often the largest financial commitment of your life. That is why our team of experts provides exhaustive due diligence, ensuring every listing in our portfolio meets the highest standards of safety, value, and luxury.</p>
-                <p>Our methodology combines traditional values of trust with modern data analytics. We help you look beyond the aesthetics, analyzing neighborhood growth, infrastructure developments, and long-term appreciation potential. At Abhinav Estate, we pride ourselves on building lifelong relationships. We are not just your brokers; we are your strategic advisors in the world of luxury real estate.</p>
-                <p>Whether it's a high-rise luxury apartment, a commercial headquarters, or a sprawling suburban plot, Abhinav Estate ensures a smooth, stress-free experience. We handle the documentation, the legal vetting, and the negotiations, leaving you free to focus on the excitement of your new acquisition. Trust Abhinav Estate—where every square foot is a promise of quality.</p>
+                <p>Our methodology combines traditional values of trust with modern data analytics. At Abhinav Estate, we pride ourselves on building lifelong relationships. Trust Abhinav Estate—where every square foot is a promise of quality.</p>
             </div>
         </div>
     </section>
@@ -234,14 +237,13 @@
     <section id="contact">
         <div class="container">
             <div class="section-header"><h2>Contact Our Advisors</h2><div class="accent-line"></div></div>
-            <div class="contact-card">
-                <p class="long-text">Our professional consultants are available 24/7 to assist with your inquiries. Whether you are looking for a property valuation, a site visit, or investment advice, we are just a call away.</p>
+            <div style="background: white; padding: 50px; border-top: 5px solid var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                 <div style="font-size: 1.3rem; line-height: 2;">
-                    <p><strong>📞 Direct Line:</strong> +91 9833838360</p>
-                    <p><strong>✉️ Professional Email:</strong> abhinavestate@gmail.com</p>
-                    <p><strong>📍 Corporate Office:</strong> Premium Business Hub, Suite 101, Mumbai, MH</p>
+                    <p><strong>📞 Phone:</strong> +91 9833838360</p>
+                    <p><strong>✉️ Email:</strong> abhinavestate@gmail.com</p>
+                    <p><strong>📍 Office:</strong> Premium Business Hub, Suite 101, Mumbai, MH</p>
                 </div>
-                <div class="btn-group" style="width: 100%; max-width: 500px; margin-top: 40px;">
+                <div class="btn-group" style="max-width: 500px; margin-top: 40px;">
                     <a href="tel:9833838360" class="btn btn-call">Call Now</a>
                     <a href="https://wa.me/919833838360" class="btn btn-wa">WhatsApp Now</a>
                 </div>
@@ -254,43 +256,29 @@
     </footer>
 
     <script>
-        // Sidebar Toggle
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('active');
-        }
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); }
 
-        // Navigation Logic
         function showPage(pageId, saveToHistory = true) {
             const sections = document.querySelectorAll('section');
             sections.forEach(sec => sec.classList.remove('active'));
-            
             document.getElementById(pageId).classList.add('active');
             document.getElementById('sidebar').classList.remove('active');
             window.scrollTo(0,0);
-
-            // SEO & Refresh Fix: Save state in localStorage
             localStorage.setItem('lastPage', pageId);
-
-            // Browser Back Button Logic
-            if (saveToHistory) {
-                history.pushState({pageId: pageId}, null, "");
-            }
+            if (saveToHistory) { history.pushState({pageId: pageId}, null, ""); }
         }
 
-        // Refresh Handler: Stay on current page
         window.onload = () => {
             const lastPage = localStorage.getItem('lastPage') || 'home';
             showPage(lastPage, false);
-            
-            // Populate 15 Properties
             const inv = document.getElementById('full-inventory');
             for(let i=1; i<=15; i++) {
                 inv.innerHTML += `
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?w=600&sig=${i}" alt="Property ${i}">
                     <div class="card-body">
-                        <h3>Abhinav Premium Listing #${i}</h3>
-                        <p>Luxury features, prime connectivity, and 24/7 security concierge.</p>
+                        <h3>Premium Listing #${i}</h3>
+                        <p>Luxury features and 24/7 security concierge in prime heart of city.</p>
                         <div class="btn-group">
                             <a href="tel:9833838360" class="btn btn-call">Call Now</a>
                             <a href="https://wa.me/919833838360" class="btn btn-wa">Inquiry Now</a>
@@ -300,15 +288,10 @@
             }
         };
 
-        // Handle Back Button: Always go back to Home first
         window.onpopstate = function(event) {
-            if (event.state && event.state.pageId) {
-                showPage(event.state.pageId, false);
-            } else {
-                showPage('home', false);
-            }
+            if (event.state && event.state.pageId) { showPage(event.state.pageId, false); }
+            else { showPage('home', false); }
         };
     </script>
 </body>
 </html>
-
