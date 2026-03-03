@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav Estate | Trusted Real Estate Services</title>
+    <meta name="description" content="Abhinav Estate offers premium property listings, expert consultation, and trusted real estate services. Find your dream home today.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <style>
+        :root {
+            --primary: #002c52; /* Trustworthy Navy */
+            --accent: #c5a059;  /* Professional Gold */
+            --text: #333;
+            --light: #f4f7f6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+        /* Navigation */
+        nav {
+            background: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-transform: uppercase; }
+
+        .menu-toggle { cursor: pointer; font-size: 1.5rem; color: var(--primary); }
+
+        /* Full Screen Overlay Menu */
+        .nav-overlay {
+            position: fixed;
+            top: 0; right: -100%;
+            width: 100%; height: 100%;
+            background: var(--primary);
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .nav-overlay.active { right: 0; }
+        .nav-overlay a { color: #fff; font-size: 2rem; margin: 1rem; text-decoration: none; font-weight: 600; }
+        .close-menu { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 2rem; cursor: pointer; }
+
+        /* Sections */
+        section { padding: 80px 10%; display: none; }
+        section.active { display: block; }
+
+        /* Home Page Hero */
+        #home-hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,44,82,0.7), rgba(0,44,82,0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        #home-hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        #home-hero p { max-width: 800px; font-size: 1.1rem; margin-bottom: 20px; }
+
+        /* Property Grid */
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 2.5rem; color: var(--primary); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 20px; }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .btn-wa { background: #25d366; } /* WhatsApp Green */
+        .view-all { display: block; width: 200px; margin: 40px auto; text-align: center; border: 2px solid var(--primary); color: var(--primary); background: transparent; font-weight: 600; }
+
+        /* Footer Info */
+        .preview-box { background: var(--light); padding: 40px; border-radius: 15px; margin-top: 20px; }
+        footer { background: var(--primary); color: #fff; text-align: center; padding: 20px; margin-top: 50px; }
+
+        @media (max-width: 768px) {
+            #home-hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Abhinav Estate</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰ MENU</div>
+    </nav>
+
+    <div class="nav-overlay" id="navOverlay">
+        <span class="close-menu" onclick="toggleMenu()">✕</span>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('properties')">Properties</a>
+        <a href="#" onclick="showPage('about')">About Us</a>
+        <a href="#" onclick="showPage('contact')">Contact</a>
+    </div>
+
+    <section id="home" class="active">
+        <div id="home-hero">
+            <h1>Expertise. Trust. Results.</h1>
+            <p>Welcome to Abhinav Estate, where we redefine the art of finding your perfect sanctuary. With years of experience in the real estate market, we pride ourselves on delivering unmatched professionalism and transparent dealings. Whether you are looking for a luxury villa, a modern apartment, or a strategic commercial space, we bridge the gap between your dreams and reality.</p>
+            <p>Our commitment to excellence ensures that every client receives personalized attention. We don't just sell properties; we build lifelong relationships based on trust and integrity.</p>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 50px;">Featured Properties</h2>
+        <div class="grid" id="home-preview">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=500" alt="Property">
+                <div class="card-content"><h3>Modern Luxury Villa</h3><p>Located in the heart of the city with premium amenities.</p></div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500" alt="Property">
+                <div class="card-content"><h3>Skyline Apartment</h3><p>Breath-taking views and 24/7 security services.</p></div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500" alt="Property">
+                <div class="card-content"><h3>Executive Penthouse</h3><p>Spacious 4BHK with private terrace and pool access.</p></div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500" alt="Property">
+                <div class="card-content"><h3>Green Valley Estate</h3><p>Surrounded by nature, perfect for a peaceful lifestyle.</p></div>
+            </div>
+        </div>
+        <a href="#" class="btn view-all" onclick="showPage('properties')">VIEW ALL PROPERTIES</a>
+
+        <div class="preview-box">
+            <h2>About Abhinav Estate</h2>
+            <p>We are a leading real estate firm dedicated to helping individuals find their dream homes with zero hassle. Our team of experts analyzes market trends to give you the best value...</p>
+            <a href="#" class="btn" onclick="showPage('about')">View All About Us</a>
+        </div>
+
+        <div class="preview-box" style="background: #fff; border: 1px solid #ddd;">
+            <h2>Contact Our Experts</h2>
+            <p>Have questions? Our consultants are available 24/7 to guide you through the buying and selling process.</p>
+            <a href="#" class="btn" onclick="showPage('contact')">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="properties">
+        <h2 class="section-title">Our Exclusive Listings</h2>
+        <div class="grid" id="full-property-list">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500" alt="Property">
+                <div class="card-content">
+                    <h3>Royal Residency</h3>
+                    <p>Details: 3 BHK, 1500 sqft, Fully Furnished, Prime Location.</p>
+                    <a href="tel:9833838360" class="btn">Call Now</a>
+                    <a href="https://wa.me/919833838360?text=I'm%20interested%20in%20Royal%20Residency" class="btn btn-wa">Inquiry Now</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500" alt="Property">
+                <div class="card-content">
+                    <h3>Abhinav Heights</h3>
+                    <p>Details: 2 BHK, 1100 sqft, Modern Architecture, Gym Included.</p>
+                    <a href="tel:9833838360" class="btn">Call Now</a>
+                    <a href="https://wa.me/919833838360?text=I'm%20interested%20in%20Abhinav%20Heights" class="btn btn-wa">Inquiry Now</a>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Abhinav Estate</h2>
+        <p>At **Abhinav Estate**, we believe that real estate is not just about property; it's about people. Our journey started with a simple vision: to make property buying as transparent and joyful as possible. Today, we stand as a beacon of trust in the industry.</p>
+        <p style="margin-top: 20px;">Our extensive portfolio includes residential plots, luxury apartments, and commercial hubs. We utilize cutting-edge technology and deep market insights to ensure our clients make informed decisions. When you choose Abhinav Estate, you choose a partner who cares about your future. We handle all documentation and legalities, providing you a stress-free experience from the first visit to the final handshake.</p>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Connect With Us</h2>
+        <p>Your dream home is just a message away. At Abhinav Estate, we value your time and queries. Whether you are a first-time buyer or a seasoned investor, our team is ready to provide you with the data and support you need. Visit our office or reach out through the details below.</p>
+        
+        <div class="preview-box" style="margin-top: 40px;">
+            <h3>Contact Details</h3>
+            <p><strong>Phone:</strong> +91 9833838360</p>
+            <p><strong>Email:</strong> abhinavestate@gmail.com</p>
+            <p><strong>Office Hours:</strong> Mon - Sat (10:00 AM - 7:00 PM)</p>
+            <a href="tel:9833838360" class="btn">Call Us Directly</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Abhinav Estate. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navOverlay').classList.toggle('active');
+        }
+
+        function showPage(pageId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(sec => sec.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(pageId).classList.add('active');
+            
+            // Close menu
+            toggleMenu();
+            
+            // Scroll to top
+            window.scrollTo(0,0);
+        }
+    </script>
+</body>
+</html>
