@@ -15,6 +15,7 @@
             --white: #ffffff;
             --gray: #f9f9f9;
             --overlay: rgba(10, 25, 47, 0.9);
+            --wa-color: #25d366;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
@@ -36,7 +37,6 @@
         }
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--primary); letter-spacing: 2px; }
         
-        /* Clean Toggle Button (Menu Text Removed) */
         .menu-btn {
             background: var(--primary);
             color: white;
@@ -76,12 +76,43 @@
         .sidebar a:hover { color: var(--accent); padding-left: 10px; }
         .close-sidebar { color: white; font-size: 2rem; cursor: pointer; align-self: flex-end; margin-bottom: 30px; }
 
+        /* Floating Buttons Styling */
+        .floating-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        .floating-btn:hover { transform: scale(1.1); }
+        .float-call { background: var(--primary); border: 1px solid var(--accent); }
+        .float-wa { background: var(--wa-color); }
+        
+        /* Hide floating buttons when menu active or on contact page */
+        .floating-container.hidden { opacity: 0; pointer-events: none; transform: translateY(20px); }
+
         /* Section Handling */
         section { display: none; padding-top: 80px; min-height: 100vh; }
         section.active { display: block; animation: pageFade 0.5s ease-in-out; }
         @keyframes pageFade { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Hero Styling - Fixed Line Breaking */
+        /* Hero Styling */
         .hero {
             min-height: 90vh;
             background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600') center/cover no-repeat;
@@ -117,15 +148,13 @@
         .btn-group { display: flex; gap: 12px; margin-top: 25px; }
         .btn { flex: 1; text-align: center; padding: 14px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
         .btn-call { background: var(--primary); color: white; }
-        .btn-wa { background: #25d366; color: white; }
+        .btn-wa { background: var(--wa-color); color: white; }
         .btn-main { display: block; width: 260px; margin: 40px auto; background: var(--accent); color: white; text-align: center; padding: 18px; text-decoration: none; font-weight: 700; letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; }
 
-        /* Home Previews (About & Contact) */
         .preview-box { background: var(--gray); padding: 80px 10%; margin-top: 60px; border-top: 1px solid #eee; text-align: center; }
         .preview-box h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
         .preview-box p { max-width: 800px; margin: 0 auto 30px; line-height: 2; font-size: 1.1rem; }
 
-        /* About Page Texture */
         #about { background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600') center/cover fixed; }
         .long-text { line-height: 2.4; font-size: 1.2rem; color: #444; text-align: justify; margin-bottom: 30px; }
 
@@ -134,10 +163,16 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .container { padding: 60px 5%; }
+            .floating-btn { width: 50px; height: 50px; font-size: 20px; }
         }
     </style>
 </head>
 <body>
+
+    <div class="floating-container" id="floatingButtons">
+        <a href="tel:9833838360" class="floating-btn float-call" title="Call Us">📞</a>
+        <a href="https://wa.me/919833838360" class="floating-btn float-wa" title="WhatsApp Us">💬</a>
+    </div>
 
     <nav>
         <div class="logo">ABHINAV ESTATE</div>
@@ -256,15 +291,38 @@
     </footer>
 
     <script>
-        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); }
+        const fab = document.getElementById('floatingButtons');
+
+        function toggleSidebar() { 
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+            // Hide FAB when sidebar is open
+            if(sidebar.classList.contains('active')) {
+                fab.classList.add('hidden');
+            } else {
+                updateFABVisibility(localStorage.getItem('lastPage') || 'home');
+            }
+        }
+
+        function updateFABVisibility(pageId) {
+            // Hide on contact page, show on others
+            if(pageId === 'contact') {
+                fab.classList.add('hidden');
+            } else {
+                fab.classList.remove('hidden');
+            }
+        }
 
         function showPage(pageId, saveToHistory = true) {
             const sections = document.querySelectorAll('section');
             sections.forEach(sec => sec.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             document.getElementById('sidebar').classList.remove('active');
+            
             window.scrollTo(0,0);
             localStorage.setItem('lastPage', pageId);
+            updateFABVisibility(pageId);
+
             if (saveToHistory) { history.pushState({pageId: pageId}, null, ""); }
         }
 
