@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abhinav Estate | Luxury Real Estate & Trusted Consultancy</title>
-    <meta name="description" content="Discover premium living with Abhinav Estate. Your trusted partner for luxury residential and commercial properties in Mumbai. Call +919833838360.">
+    <meta name="description" content="Discover premium living with Abhinav Estate. Luxury residential and commercial properties in Mumbai. Starting from ₹2.5 Cr. Call +919833838360.">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     
@@ -145,10 +145,11 @@
         .card img { width: 100%; height: 250px; object-fit: cover; }
         .card-body { padding: 30px; }
         
-        /* Simplified Property Details */
+        /* Property Details */
         .prop-title { font-size: 1.4rem; margin-bottom: 8px; color: var(--primary); }
         .prop-meta { font-size: 0.85rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; display: block; }
-        .prop-location { font-size: 1rem; color: var(--text-muted); margin-bottom: 15px; font-weight: 500; }
+        .prop-location { font-size: 1rem; color: var(--text-muted); margin-bottom: 5px; font-weight: 500; }
+        .prop-price { font-size: 1.2rem; color: var(--primary); font-weight: 700; margin-bottom: 15px; display: block; }
         .prop-features { font-size: 0.9rem; color: #555; margin-bottom: 20px; border-top: 1px solid #eee; padding-top: 12px; }
 
         /* Buttons */
@@ -157,6 +158,11 @@
         .btn-call { background: var(--primary); color: white; }
         .btn-wa { background: var(--wa-color); color: white; }
         .btn-main { display: block; width: 260px; margin: 40px auto; background: var(--accent); color: white; text-align: center; padding: 18px; text-decoration: none; font-weight: 700; letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; }
+
+        /* Premium BG for Properties Page */
+        #properties { 
+            background: linear-gradient(rgba(249, 249, 249, 0.9), rgba(249, 249, 249, 0.9)), url('https://images.unsplash.com/photo-1551133990-7ccc95176406?auto=format&fit=crop&w=1600') center/cover fixed;
+        }
 
         .preview-box { background: var(--gray); padding: 80px 10%; margin-top: 60px; border-top: 1px solid #eee; text-align: center; }
         .preview-box h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
@@ -198,8 +204,8 @@
         <div class="hero">
             <div class="hero-content">
                 <h1>The Gold Standard of Real Estate</h1>
-                <p>Welcome to Abhinav Estate. We specialize in curating the finest residential and commercial properties for clients who demand excellence.</p>
-                <p>Experience a seamless journey with Mumbai's most trusted property consultancy.</p>
+                <p>Curating the finest residential and commercial properties for clients who demand excellence.</p>
+                <p>Mumbai's most trusted property consultancy.</p>
             </div>
         </div>
 
@@ -212,26 +218,26 @@
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600" alt="Sapphire Heights">
                     <div class="card-body">
-                        <span class="prop-meta">5 BHK • Luxury Villa</span>
+                        <span class="prop-meta">5 BHK • Villa</span>
                         <h3 class="prop-title">Sapphire Heights</h3>
                         <p class="prop-location">Worli, Mumbai</p>
-                        <p class="prop-features">Private Pool, Sea View, 4 Car Parking</p>
+                        <span class="prop-price">₹12.50 Cr*</span>
                         <div class="btn-group">
                             <a href="tel:9833838360" class="btn btn-call">Call Now</a>
-                            <a href="https://wa.me/919833838360" class="btn btn-wa">WhatsApp</a>
+                            <a href="https://wa.me/919833838360?text=Can%20I%20get%2C%20more%20info%3F" class="btn btn-wa">WhatsApp</a>
                         </div>
                     </div>
                 </div>
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=600" alt="The Horizon Suite">
                     <div class="card-body">
-                        <span class="prop-meta">4 BHK • Sky Penthouse</span>
+                        <span class="prop-meta">4 BHK • Penthouse</span>
                         <h3 class="prop-title">The Horizon Suite</h3>
                         <p class="prop-location">Bandra West, Mumbai</p>
-                        <p class="prop-features">Automated Homes, Terrace Garden, Club Access</p>
+                        <span class="prop-price">₹8.75 Cr*</span>
                         <div class="btn-group">
                             <a href="tel:9833838360" class="btn btn-call">Call Now</a>
-                            <a href="https://wa.me/919833838360" class="btn btn-wa">WhatsApp</a>
+                            <a href="https://wa.me/919833838360?text=Can%20I%20get%2C%20more%20info%3F" class="btn btn-wa">WhatsApp</a>
                         </div>
                     </div>
                 </div>
@@ -241,27 +247,15 @@
                         <span class="prop-meta">3 BHK • Premium Flat</span>
                         <h3 class="prop-title">Imperial Gardens</h3>
                         <p class="prop-location">Powai, Mumbai</p>
-                        <p class="prop-features">Garden View, Gym, 24/7 Concierge</p>
+                        <span class="prop-price">₹4.20 Cr*</span>
                         <div class="btn-group">
                             <a href="tel:9833838360" class="btn btn-call">Call Now</a>
-                            <a href="https://wa.me/919833838360" class="btn btn-wa">WhatsApp</a>
+                            <a href="https://wa.me/919833838360?text=Can%20I%20get%2C%20more%20info%3F" class="btn btn-wa">WhatsApp</a>
                         </div>
                     </div>
                 </div>
             </div>
             <a href="javascript:void(0)" class="btn-main" onclick="showPage('properties')">VIEW ALL PROPERTIES</a>
-        </div>
-
-        <div class="preview-box">
-            <h2>Our Professional Legacy</h2>
-            <p>For years, Abhinav Estate has stood as a beacon of reliability in the property market. We handle every transaction with the utmost transparency and care.</p>
-            <a href="javascript:void(0)" class="btn-main" onclick="showPage('about')">VIEW ABOUT US</a>
-        </div>
-
-        <div class="preview-box" style="background: white;">
-            <h2>Connect With Our Experts</h2>
-            <p>Our consultants are available 24/7 to assist you. Whether you're looking for an investment or a sanctuary, we are just one message away.</p>
-            <a href="javascript:void(0)" class="btn-main" onclick="showPage('contact')">VIEW CONTACT US</a>
         </div>
     </section>
 
@@ -276,8 +270,8 @@
         <div class="container">
             <div class="section-header"><h2>About Abhinav Estate</h2><div class="accent-line"></div></div>
             <div class="long-text">
-                <p>Founded on the principles of absolute integrity, **Abhinav Estate** is a leading name in the premium real estate market. We ensure every listing in our portfolio meets the highest standards of safety, value, and luxury.</p>
-                <p>Trust Abhinav Estate—where every square foot is a promise of quality.</p>
+                <p>Founded on absolute integrity, **Abhinav Estate** is a leader in premium real estate. We ensure every listing meets the highest standards of safety, value, and luxury.</p>
+                <p>Where every square foot is a promise of quality.</p>
             </div>
         </div>
     </section>
@@ -342,26 +336,26 @@
             showPage(lastPage, false);
             const inv = document.getElementById('full-inventory');
             
-            const locations = ["Juhu", "South Mumbai", "Colaba", "Lower Parel", "Andheri East", "Malabar Hill", "Santacruz", "Prabhadevi"];
+            const locations = ["Juhu", "Colaba", "Lower Parel", "Andheri", "Malabar Hill", "Santacruz"];
             const types = ["2 BHK", "3 BHK", "4 BHK", "Duplex"];
-            const styles = ["Modern Apartment", "Classic Luxury", "Contemporary Suite", "Executive Flat"];
+            const prices = ["₹2.50 Cr", "₹4.80 Cr", "₹7.20 Cr", "₹15.00 Cr", "₹3.10 Cr"];
 
-            for(let i=1; i<=15; i++) {
+            for(let i=1; i<=12; i++) {
                 const loc = locations[i % locations.length];
                 const type = types[i % types.length];
-                const style = styles[i % styles.length];
+                const price = prices[i % prices.length];
 
                 inv.innerHTML += `
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?w=600&sig=${i}" alt="Property ${i}">
                     <div class="card-body">
-                        <span class="prop-meta">${type} • ${style}</span>
-                        <h3 class="prop-title">Premium Listing #${i}</h3>
+                        <span class="prop-meta">${type} • Premium Listing</span>
+                        <h3 class="prop-title">Exclusive Residence #${i}</h3>
                         <p class="prop-location">${loc}, Mumbai</p>
-                        <p class="prop-features">Marble Floors, High Security, Gym Access</p>
+                        <span class="prop-price">${price}*</span>
                         <div class="btn-group">
                             <a href="tel:9833838360" class="btn btn-call">Call Now</a>
-                            <a href="https://wa.me/919833838360" class="btn btn-wa">Inquiry Now</a>
+                            <a href="https://wa.me/919833838360?text=Can%20I%20get%2C%20more%20info%3F" class="btn btn-wa">Inquiry Now</a>
                         </div>
                     </div>
                 </div>`;
