@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abhinav Estate | Luxury Real Estate & Trusted Consultancy</title>
-    <meta name="description" content="Discover premium living with Abhinav Estate. Your trusted partner for luxury residential and commercial properties. Call +919833838360.">
+    <meta name="description" content="Discover premium living with Abhinav Estate. Your trusted partner for luxury residential and commercial properties in Mumbai. Call +919833838360.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -16,10 +16,15 @@
             --gray: #f9f9f9;
             --overlay: rgba(10, 25, 47, 0.9);
             --wa-color: #25d366;
+            --text-muted: #666;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { color: #333; overflow-x: hidden; background-color: var(--white); scroll-behavior: smooth; }
+        body { color: #333; overflow-x: hidden; background-color: var(--white); scroll-behavior: smooth; font-weight: 400; line-height: 1.6; }
+
+        /* Elegant Typography Adjustments */
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
+        p { font-weight: 400; letter-spacing: 0.2px; }
 
         /* Navigation */
         nav {
@@ -76,7 +81,7 @@
         .sidebar a:hover { color: var(--accent); padding-left: 10px; }
         .close-sidebar { color: white; font-size: 2rem; cursor: pointer; align-self: flex-end; margin-bottom: 30px; }
 
-        /* Floating Buttons Styling */
+        /* Floating Buttons */
         .floating-container {
             position: fixed;
             bottom: 30px;
@@ -103,8 +108,6 @@
         .floating-btn:hover { transform: scale(1.1); }
         .float-call { background: var(--primary); border: 1px solid var(--accent); }
         .float-wa { background: var(--wa-color); }
-        
-        /* Hide floating buttons when menu active or on contact page */
         .floating-container.hidden { opacity: 0; pointer-events: none; transform: translateY(20px); }
 
         /* Section Handling */
@@ -128,31 +131,36 @@
             border: 1px solid var(--accent);
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--accent); margin-bottom: 25px; line-height: 1.2; }
-        .hero p { font-size: 1.15rem; line-height: 1.8; margin-bottom: 20px; font-weight: 300; }
+        .hero h1 { font-size: 3.2rem; color: var(--accent); margin-bottom: 25px; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px; font-weight: 300; }
 
-        /* Container Styling */
+        /* Container & Grid */
         .container { padding: 100px 8%; max-width: 1400px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--primary); margin-bottom: 15px; }
+        .section-header h2 { font-size: 2.8rem; color: var(--primary); margin-bottom: 15px; }
         .accent-line { width: 80px; height: 3px; background: var(--accent); margin: 0 auto; }
 
-        /* Grids & Cards */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         .card { background: white; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.4s; border: 1px solid #eee; }
         .card:hover { transform: translateY(-10px); }
         .card img { width: 100%; height: 250px; object-fit: cover; }
         .card-body { padding: 30px; }
         
-        /* Premium Buttons */
-        .btn-group { display: flex; gap: 12px; margin-top: 25px; }
+        /* Property Details Styling */
+        .prop-title { font-size: 1.4rem; margin-bottom: 8px; color: var(--primary); }
+        .prop-meta { font-size: 0.85rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
+        .prop-location { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 15px; font-style: italic; }
+        .prop-features { font-size: 0.9rem; line-height: 1.6; color: #444; margin-bottom: 20px; border-top: 1px solid #f0f0f0; padding-top: 15px; }
+
+        /* Buttons */
+        .btn-group { display: flex; gap: 12px; }
         .btn { flex: 1; text-align: center; padding: 14px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
         .btn-call { background: var(--primary); color: white; }
         .btn-wa { background: var(--wa-color); color: white; }
         .btn-main { display: block; width: 260px; margin: 40px auto; background: var(--accent); color: white; text-align: center; padding: 18px; text-decoration: none; font-weight: 700; letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; }
 
         .preview-box { background: var(--gray); padding: 80px 10%; margin-top: 60px; border-top: 1px solid #eee; text-align: center; }
-        .preview-box h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .preview-box h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
         .preview-box p { max-width: 800px; margin: 0 auto 30px; line-height: 2; font-size: 1.1rem; }
 
         #about { background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600') center/cover fixed; }
@@ -161,7 +169,7 @@
         footer { background: var(--primary); color: white; text-align: center; padding: 40px; font-size: 0.9rem; letter-spacing: 1px; }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.4rem; }
             .container { padding: 60px 5%; }
             .floating-btn { width: 50px; height: 50px; font-size: 20px; }
         }
@@ -198,15 +206,17 @@
 
         <div class="container">
             <div class="section-header">
-                <h2>Featured Listings</h2>
+                <h2>Featured Residences</h2>
                 <div class="accent-line"></div>
             </div>
             <div class="grid">
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600" alt="Villa">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600" alt="Sapphire Luxury Villa">
                     <div class="card-body">
-                        <h3>Sapphire Luxury Villa</h3>
-                        <p>Prime 5BHK Estate with Private Infinity Pool.</p>
+                        <span class="prop-meta">5 BHK • Ultra-Luxury Villa</span>
+                        <h3 class="prop-title">Sapphire Heights</h3>
+                        <p class="prop-location">Worli, Mumbai, Maharashtra</p>
+                        <p class="prop-features">Private infinity pool, temperature-controlled wine cellar, and panoramic Arabian Sea views.</p>
                         <div class="btn-group">
                             <a href="tel:9833838360" class="btn btn-call">Call Now</a>
                             <a href="https://wa.me/919833838360" class="btn btn-wa">WhatsApp</a>
@@ -214,10 +224,12 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=600" alt="Apartment">
+                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=600" alt="Horizon Penthouse">
                     <div class="card-body">
-                        <h3>The Horizon Penthouse</h3>
-                        <p>Panoramic City Views & Ultra-Modern Design.</p>
+                        <span class="prop-meta">4 BHK • Sky Penthouse</span>
+                        <h3 class="prop-title">The Horizon Suite</h3>
+                        <p class="prop-location">Bandra West, Mumbai, Maharashtra</p>
+                        <p class="prop-features">Double-height ceilings, automated smart-home features, and 360-degree city skyline views.</p>
                         <div class="btn-group">
                             <a href="tel:9833838360" class="btn btn-call">Call Now</a>
                             <a href="https://wa.me/919833838360" class="btn btn-wa">WhatsApp</a>
@@ -225,10 +237,12 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" alt="Mansion">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" alt="Imperial Gardens">
                     <div class="card-body">
-                        <h3>Imperial Gardens</h3>
-                        <p>Elite Residential Community in a Lush Green Sector.</p>
+                        <span class="prop-meta">3 BHK • Premium Apartment</span>
+                        <h3 class="prop-title">Imperial Gardens</h3>
+                        <p class="prop-location">Powai, Mumbai, Maharashtra</p>
+                        <p class="prop-features">Lush green balcony gardens, Olympic-sized swimming pool, and 24/7 elite concierge service.</p>
                         <div class="btn-group">
                             <a href="tel:9833838360" class="btn btn-call">Call Now</a>
                             <a href="https://wa.me/919833838360" class="btn btn-wa">WhatsApp</a>
@@ -296,7 +310,6 @@
         function toggleSidebar() { 
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('active');
-            // Hide FAB when sidebar is open
             if(sidebar.classList.contains('active')) {
                 fab.classList.add('hidden');
             } else {
@@ -305,7 +318,6 @@
         }
 
         function updateFABVisibility(pageId) {
-            // Hide on contact page, show on others
             if(pageId === 'contact') {
                 fab.classList.add('hidden');
             } else {
@@ -330,13 +342,25 @@
             const lastPage = localStorage.getItem('lastPage') || 'home';
             showPage(lastPage, false);
             const inv = document.getElementById('full-inventory');
+            
+            // Professional Property Data Array
+            const locations = ["Juhu", "South Mumbai", "Colaba", "Lower Parel", "Andheri East", "Malabar Hill", "Santacruz", "Prabhadevi"];
+            const types = ["2 BHK", "3 BHK", "4 BHK", "Duplex"];
+            const styles = ["Modern Minimalist", "Classic Luxury", "Contemporary Sky-Home", "Executive Suite"];
+
             for(let i=1; i<=15; i++) {
+                const loc = locations[i % locations.length];
+                const type = types[i % types.length];
+                const style = styles[i % styles.length];
+
                 inv.innerHTML += `
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?w=600&sig=${i}" alt="Property ${i}">
                     <div class="card-body">
-                        <h3>Premium Listing #${i}</h3>
-                        <p>Luxury features and 24/7 security concierge in prime heart of city.</p>
+                        <span class="prop-meta">${type} • ${style}</span>
+                        <h3 class="prop-title">Premium Listing #${i}</h3>
+                        <p class="prop-location">${loc}, Mumbai, Maharashtra</p>
+                        <p class="prop-features">Includes premium Italian marble flooring, 24/7 high-tech surveillance, and world-class clubhouse access.</p>
                         <div class="btn-group">
                             <a href="tel:9833838360" class="btn btn-call">Call Now</a>
                             <a href="https://wa.me/919833838360" class="btn btn-wa">Inquiry Now</a>
@@ -353,3 +377,4 @@
     </script>
 </body>
 </html>
+
