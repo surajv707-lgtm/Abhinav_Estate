@@ -361,9 +361,10 @@
                 const type = types[i % types.length];
                 const price = prices[i % prices.length];
 
+                // IMAGE UPDATE: Replaced Unsplash URL with your provided ibb link
                 inv.innerHTML += `
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?w=600&sig=${i}" alt="Property ${i}">
+                    <img src="https://i.ibb.co/ycqSfZvK/images.jpg" alt="Property ${i}">
                     <div class="card-body">
                         <span class="prop-meta">${type} • Premium Listing</span>
                         <h3 class="prop-title">Exclusive Residence #${i}</h3>
@@ -385,4 +386,5 @@
     </script>
 </body>
 </html>
+
 
