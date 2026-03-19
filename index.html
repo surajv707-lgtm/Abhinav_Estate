@@ -1,145 +1,234 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abhinav Estates | Buy Rent Properties</title>
-<meta name="description" content="Find best residential and commercial properties for sale and rent with Abhinav Estates. Trusted real estate platform.">
-<link rel="stylesheet" href="style.css">
-</head>
+<title>Abhinav Estates | Premium Properties</title>
+<meta name="description" content="Abhinav Estates - Buy, Sell, Rent Residential & Commercial Properties Easily."><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 
-<body>
+body{background:#0f172a;color:#fff;}
 
-<!-- NAVBAR -->
-<header>
-  <div class="logo">Abhinav Estates</div>
-  <div class="menu-toggle" onclick="openMenu()">☰</div>
-</header>
-
-<!-- SIDE MENU -->
-<div id="sideMenu">
-  <span onclick="closeMenu()" class="close-btn">✖</span>
-  
-  <a href="index.html">Home</a>
-
-  <div class="dropdown">
-    <a href="project.html">Project</a>
-    <div class="sub">
-      <a href="residential.html">Residential</a>
-      <a href="residential-sale.html">Residential Sale</a>
-      <a href="residential-rent.html">Residential Rent</a>
-
-      <a href="commercial.html">Commercial</a>
-      <a href="commercial-sale.html">Commercial Sale</a>
-      <a href="commercial-rent.html">Commercial Rent</a>
-    </div>
-  </div>
-
-  <a href="service.html">Service</a>
-  <a href="about.html">About Us</a>
-  <a href="contact.html">Contact Us</a>
-
-  <a href="list-project.html" class="list-btn">List Project</a>
-</div>
-
-<!-- HERO SECTION -->
-<section class="hero">
-  <div class="overlay">
-    <h1>Find Your Dream Property</h1>
-
-    <div class="search-type">
-      <button onclick="setType('rent')">Rent</button>
-      <button onclick="setType('sale')">Sale</button>
-      <button onclick="setType('commercial')">Commercial</button>
-    </div>
-
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search location...">
-      <button onclick="searchProperty()">Search</button>
-    </div>
-  </div>
-</section>
-
-<!-- PREVIEW BOXES -->
-<section class="preview-section">
-
-  <div class="box service">Service</div>
-  <div class="box about">About Us</div>
-  <div class="box contact">Contact</div>
-
-</section>
-
-<!-- RESIDENTIAL -->
-<section class="property-section">
-  <h2>Residential Sale</h2>
-
-  <div class="cards">
-    <div class="card">2BHK Flat</div>
-    <div class="card">3BHK Apartment</div>
-    <div class="card">Luxury Villa</div>
-  </div>
-
-  <button class="view-btn">View All</button>
-</section>
-
-<!-- COMMERCIAL -->
-<section class="property-section">
-  <h2>Commercial Sale</h2>
-
-  <div class="cards">
-    <div class="card">Office Space</div>
-    <div class="card">Shop</div>
-    <div class="card">Showroom</div>
-  </div>
-
-  <button class="view-btn">View All</button>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <h3>Abhinav Estates</h3>
-  <p>Trusted Real Estate Partner</p>
-
-  <div class="footer-links">
-    <a href="#">Home</a>
-    <a href="#">Project</a>
-    <a href="#">Service</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </div>
-
-  <p>© 2026 Abhinav Estates. All rights reserved.</p>
-</footer>
-
-<script>
-let selectedType = "sale";
-
-function setType(type){
-  selectedType = type;
+/* NAV */
+header{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:15px 20px;
+ background:linear-gradient(90deg,#d4af37,#0f172a);
 }
 
-function searchProperty(){
-  let input = document.getElementById("searchInput").value;
+.logo{font-size:22px;font-weight:bold;}
 
-  if(selectedType === "rent"){
-    window.location.href = "residential-rent.html";
-  }
-  else if(selectedType === "sale"){
-    window.location.href = "residential-sale.html";
-  }
-  else{
-    window.location.href = "commercial-sale.html";
-  }
+.menu-toggle{font-size:28px;cursor:pointer;}
+
+/* SIDE MENU */
+#menu{
+ position:fixed;
+ top:0;
+ right:-100%;
+ width:50%;
+ height:100%;
+ background:#020617;
+ padding:20px;
+ transition:0.4s;
+ z-index:999;
 }
+
+#menu a{
+ display:block;
+ padding:12px;
+ text-decoration:none;
+ color:#fff;
+ border-bottom:1px solid #1e293b;
+}
+
+.close{font-size:22px;cursor:pointer;margin-bottom:10px;}
+
+.list-btn{
+ background:red;
+ text-align:center;
+ border-radius:6px;
+ margin-top:10px;
+}
+
+/* HERO */
+.hero{
+ height:65vh;
+ background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+
+.overlay{
+ background:rgba(0,0,0,0.65);
+ padding:25px;
+ border-radius:12px;
+ text-align:center;
+}
+
+h1{margin-bottom:15px;}
+
+/* SEARCH */
+.types button{
+ margin:5px;
+ padding:8px 15px;
+ border:none;
+ border-radius:20px;
+ cursor:pointer;
+ background:#1e293b;
+ color:#fff;
+}
+
+.types button.active{background:#d4af37;color:#000;}
+
+.search-box{
+ margin-top:15px;
+ display:flex;
+}
+
+.search-box input{
+ padding:12px;
+ width:220px;
+ border:none;
+ border-radius:6px 0 0 6px;
+ background:#38bdf8;
+ color:#000;
+}
+
+.search-box button{
+ padding:12px;
+ border:none;
+ background:#d4af37;
+ border-radius:0 6px 6px 0;
+ cursor:pointer;
+}
+
+/* PREVIEW */
+.preview{
+ display:flex;
+ gap:15px;
+ padding:20px;
+}
+
+.box{
+ flex:1;
+ padding:30px;
+ border-radius:12px;
+ font-size:20px;
+ font-weight:bold;
+ text-align:center;
+}
+
+.service{background:#e0f2fe;color:#0369a1;}
+.about{background:#fce7f3;color:#be185d;}
+.contact{background:#dcfce7;color:#166534;}
+
+/* PROPERTY */
+.section{padding:20px;}
+
+.section h2{margin-bottom:15px;}
+
+.cards{
+ display:flex;
+ gap:15px;
+}
+
+.card{
+ flex:1;
+ background:#1e293b;
+ padding:20px;
+ border-radius:10px;
+ text-align:center;
+}
+
+.view{
+ margin-top:15px;
+ padding:10px 20px;
+ background:#d4af37;
+ border:none;
+ border-radius:6px;
+ cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+ text-align:center;
+ padding:20px;
+ background:#020617;
+ margin-top:20px;
+}
+
+</style></head><body><header>
+ <div class="logo">Abhinav Estates</div>
+ <div class="menu-toggle" onclick="openMenu()">☰</div>
+</header><div id="menu">
+ <div class="close" onclick="closeMenu()">✖</div>
+ <a href="#">Home</a>
+ <a href="#">Project</a>
+ <a href="#">Residential Sale</a>
+ <a href="#">Residential Rent</a>
+ <a href="#">Commercial Sale</a>
+ <a href="#">Commercial Rent</a>
+ <a href="#">Service</a>
+ <a href="#">About Us</a>
+ <a href="#">Contact Us</a>
+ <a href="#" class="list-btn">List Project</a>
+</div><section class="hero">
+ <div class="overlay">
+  <h1>Find Your Dream Property</h1>  <div class="types">
+   <button onclick="setType(this,'rent')">Rent</button>
+   <button class="active" onclick="setType(this,'sale')">Sale</button>
+   <button onclick="setType(this,'commercial')">Commercial</button>
+  </div>  <div class="search-box">
+   <input type="text" placeholder="Search city, area...">
+   <button onclick="search()">Search</button>
+  </div>
+ </div>
+</section><section class="preview">
+ <div class="box service">Service</div>
+ <div class="box about">About Us</div>
+ <div class="box contact">Contact</div>
+</section><section class="section">
+ <h2>Residential Sale</h2>
+ <div class="cards">
+  <div class="card">2BHK Flat</div>
+  <div class="card">3BHK Flat</div>
+  <div class="card">Luxury Villa</div>
+ </div>
+ <button class="view">View All</button>
+</section><section class="section">
+ <h2>Commercial Sale</h2>
+ <div class="cards">
+  <div class="card">Office</div>
+  <div class="card">Shop</div>
+  <div class="card">Showroom</div>
+ </div>
+ <button class="view">View All</button>
+</section><footer>
+ <h3>Abhinav Estates</h3>
+ <p>Trusted Property Dealer</p>
+</footer><script>
+let type='sale';
 
 function openMenu(){
-  document.getElementById("sideMenu").style.right = "0";
+ document.getElementById('menu').style.right='0';
 }
 
 function closeMenu(){
-  document.getElementById("sideMenu").style.right = "-50%";
+ document.getElementById('menu').style.right='-100%';
 }
-</script>
 
-</body>
+function setType(btn,t){
+ type=t;
+ document.querySelectorAll('.types button').forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+}
+
+function search(){
+ if(type==='rent') location.href='residential-rent.html';
+ else if(type==='sale') location.href='residential-sale.html';
+ else location.href='commercial-sale.html';
+}
+</script></body>
 </html>
