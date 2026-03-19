@@ -1,234 +1,132 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abhinav Estates | Premium Properties</title>
-<meta name="description" content="Abhinav Estates - Buy, Sell, Rent Residential & Commercial Properties Easily."><style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 
-body{background:#0f172a;color:#fff;}
+<title>Abhinav Estates | Buy & Sell Properties</title>
 
-/* NAV */
-header{
- display:flex;
- justify-content:space-between;
- align-items:center;
- padding:15px 20px;
- background:linear-gradient(90deg,#d4af37,#0f172a);
-}
+<!-- SEO -->
+<meta name="description" content="Abhinav Estates - Buy, sell and explore residential and commercial properties.">
+<meta name="keywords" content="real estate, flats, property, buy house">
+<meta name="author" content="Abhinav Estates">
 
-.logo{font-size:22px;font-weight:bold;}
+<!-- LINK CSS -->
+<link rel="stylesheet" href="style.css">
 
-.menu-toggle{font-size:28px;cursor:pointer;}
+</head>
 
-/* SIDE MENU */
-#menu{
- position:fixed;
- top:0;
- right:-100%;
- width:50%;
- height:100%;
- background:#020617;
- padding:20px;
- transition:0.4s;
- z-index:999;
-}
+<body>
 
-#menu a{
- display:block;
- padding:12px;
- text-decoration:none;
- color:#fff;
- border-bottom:1px solid #1e293b;
-}
+<header>
+  <div class="navbar">
+    <div class="logo">Abhinav Estates</div>
 
-.close{font-size:22px;cursor:pointer;margin-bottom:10px;}
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-.list-btn{
- background:red;
- text-align:center;
- border-radius:6px;
- margin-top:10px;
-}
-
-/* HERO */
-.hero{
- height:65vh;
- background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
- display:flex;
- align-items:center;
- justify-content:center;
-}
-
-.overlay{
- background:rgba(0,0,0,0.65);
- padding:25px;
- border-radius:12px;
- text-align:center;
-}
-
-h1{margin-bottom:15px;}
-
-/* SEARCH */
-.types button{
- margin:5px;
- padding:8px 15px;
- border:none;
- border-radius:20px;
- cursor:pointer;
- background:#1e293b;
- color:#fff;
-}
-
-.types button.active{background:#d4af37;color:#000;}
-
-.search-box{
- margin-top:15px;
- display:flex;
-}
-
-.search-box input{
- padding:12px;
- width:220px;
- border:none;
- border-radius:6px 0 0 6px;
- background:#38bdf8;
- color:#000;
-}
-
-.search-box button{
- padding:12px;
- border:none;
- background:#d4af37;
- border-radius:0 6px 6px 0;
- cursor:pointer;
-}
-
-/* PREVIEW */
-.preview{
- display:flex;
- gap:15px;
- padding:20px;
-}
-
-.box{
- flex:1;
- padding:30px;
- border-radius:12px;
- font-size:20px;
- font-weight:bold;
- text-align:center;
-}
-
-.service{background:#e0f2fe;color:#0369a1;}
-.about{background:#fce7f3;color:#be185d;}
-.contact{background:#dcfce7;color:#166534;}
-
-/* PROPERTY */
-.section{padding:20px;}
-
-.section h2{margin-bottom:15px;}
-
-.cards{
- display:flex;
- gap:15px;
-}
-
-.card{
- flex:1;
- background:#1e293b;
- padding:20px;
- border-radius:10px;
- text-align:center;
-}
-
-.view{
- margin-top:15px;
- padding:10px 20px;
- background:#d4af37;
- border:none;
- border-radius:6px;
- cursor:pointer;
-}
-
-/* FOOTER */
-footer{
- text-align:center;
- padding:20px;
- background:#020617;
- margin-top:20px;
-}
-
-</style></head><body><header>
- <div class="logo">Abhinav Estates</div>
- <div class="menu-toggle" onclick="openMenu()">☰</div>
-</header><div id="menu">
- <div class="close" onclick="closeMenu()">✖</div>
- <a href="#">Home</a>
- <a href="#">Project</a>
- <a href="#">Residential Sale</a>
- <a href="#">Residential Rent</a>
- <a href="#">Commercial Sale</a>
- <a href="#">Commercial Rent</a>
- <a href="#">Service</a>
- <a href="#">About Us</a>
- <a href="#">Contact Us</a>
- <a href="#" class="list-btn">List Project</a>
-</div><section class="hero">
- <div class="overlay">
-  <h1>Find Your Dream Property</h1>  <div class="types">
-   <button onclick="setType(this,'rent')">Rent</button>
-   <button class="active" onclick="setType(this,'sale')">Sale</button>
-   <button onclick="setType(this,'commercial')">Commercial</button>
-  </div>  <div class="search-box">
-   <input type="text" placeholder="Search city, area...">
-   <button onclick="search()">Search</button>
+    <div class="menu" id="menu">
+      <a href="#">Home</a>
+      <a href="#residential">Residential</a>
+      <a href="#commercial">Commercial</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
- </div>
-</section><section class="preview">
- <div class="box service">Service</div>
- <div class="box about">About Us</div>
- <div class="box contact">Contact</div>
-</section><section class="section">
- <h2>Residential Sale</h2>
- <div class="cards">
-  <div class="card">2BHK Flat</div>
-  <div class="card">3BHK Flat</div>
-  <div class="card">Luxury Villa</div>
- </div>
- <button class="view">View All</button>
-</section><section class="section">
- <h2>Commercial Sale</h2>
- <div class="cards">
-  <div class="card">Office</div>
-  <div class="card">Shop</div>
-  <div class="card">Showroom</div>
- </div>
- <button class="view">View All</button>
-</section><footer>
- <h3>Abhinav Estates</h3>
- <p>Trusted Property Dealer</p>
-</footer><script>
-let type='sale';
+</header>
 
-function openMenu(){
- document.getElementById('menu').style.right='0';
-}
+<!-- HERO -->
+<section class="hero">
+  <h1>Find Your Dream Property</h1>
+  <p>Best deals on flats & commercial spaces</p>
 
-function closeMenu(){
- document.getElementById('menu').style.right='-100%';
-}
+  <div class="search-bar">
+    <input type="text" placeholder="Search properties...">
+    <button>Search</button>
+  </div>
+</section>
 
-function setType(btn,t){
- type=t;
- document.querySelectorAll('.types button').forEach(b=>b.classList.remove('active'));
- btn.classList.add('active');
-}
+<!-- RESIDENTIAL -->
+<section class="section residential" id="residential">
+  <h2>Residential Sale</h2>
 
-function search(){
- if(type==='rent') location.href='residential-rent.html';
- else if(type==='sale') location.href='residential-sale.html';
- else location.href='commercial-sale.html';
+  <div class="cards">
+    <div class="card">
+      <img src="https://via.placeholder.com/300">
+      <h3>2BHK Flat</h3>
+      <p>₹45 Lakhs - Mumbai</p>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300">
+      <h3>3BHK Apartment</h3>
+      <p>₹75 Lakhs</p>
+    </div>
+  </div>
+
+  <a href="#" class="btn">View All</a>
+</section>
+
+<!-- COMMERCIAL -->
+<section class="section commercial" id="commercial">
+  <h2>Commercial Sale</h2>
+
+  <div class="cards">
+    <div class="card">
+      <img src="https://via.placeholder.com/300">
+      <h3>Office Space</h3>
+      <p>₹1 Cr</p>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300">
+      <h3>Shop</h3>
+      <p>₹30 Lakhs</p>
+    </div>
+  </div>
+
+  <a href="#" class="btn">View All</a>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <h2>Our Services</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Property Buying</h3>
+      <p>Find best homes easily.</p>
+    </div>
+
+    <div class="card">
+      <h3>Property Selling</h3>
+      <p>Sell your property fast.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about">
+  <h2>About Us</h2>
+  <p>Abhinav Estates is a trusted real estate platform.</p>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: info@abhinavestates.com</p>
+  <p>Phone: +91 9999999999</p>
+</section>
+
+<footer>
+  <p>© 2026 Abhinav Estates</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("active");
 }
-</script></body>
+</script>
+
+</body>
 </html>
