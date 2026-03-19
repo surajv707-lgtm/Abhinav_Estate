@@ -19,20 +19,56 @@
 <body>
 
 <header>
-  <div class="navbar">
-    <div class="logo">Abhinav Estates</div>
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+    <h1 class="logo">Abhinav Estates</h1>
 
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-    <div class="menu" id="menu">
-      <a href="#">Home</a>
-      <a href="#residential">Residential</a>
-      <a href="#commercial">Commercial</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+
+      <li class="dropdown">
+        <a href="project.html">Project ▾</a>
+        <ul class="dropdown-menu">
+          <li class="dropdown">
+            <a href="#">Residential ▸</a>
+            <ul class="sub-menu">
+              <li><a href="residential-sale.html">Residential Sale</a></li>
+              <li><a href="residential-rent.html">Residential Rent</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#">Commercial ▸</a>
+            <ul class="sub-menu">
+              <li><a href="commercial-sale.html">Commercial Sale</a></li>
+              <li><a href="commercial-rent.html">Commercial Rent</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li><a href="service.html">Service</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+
+      <li><a href="list-project.html" class="btn-red">List Project</a></li>
+    </ul>
+  </nav>
+
+  <!-- SIDE MENU -->
+  <div id="sideMenu" class="side-menu">
+    <a href="index.html">Home</a>
+    <a href="project.html">Project</a>
+    <a href="service.html">Service</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="list-project.html" class="btn-red">List Project</a>
   </div>
 </header>
+
 
 <!-- HERO -->
 <section class="hero">
