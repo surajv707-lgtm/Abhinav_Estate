@@ -23,8 +23,8 @@
 <header>
   <nav class="navbar">
     <h1 class="logo">Abhinav Estates</h1>
-
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -183,5 +183,11 @@ function toggleMenu() {
 }
 </script>
 
+<script>
+function toggleMenu() {
+  document.querySelector(".menu").classList.toggle("show");
+}
+</script>
+  
 </body>
 </html>
