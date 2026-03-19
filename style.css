@@ -1,172 +1,278 @@
+/* =======================
+   RESET & GLOBAL
+======================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  background: #f5f7fa;
+  background: #0b2a45;
+  color: #fff;
+  line-height: 1.6;
 }
 
-/* NAVBAR */
-.navbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px;
-  background:linear-gradient(to right, gold, #1e3a8a);
+/* =======================
+   NAVBAR
+======================= */
+header {
+  background: #081f33;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.logo{
-  font-size:22px;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.nav-links{
-  list-style:none;
-  display:flex;
-  gap:15px;
+.logo {
+  font-size: 22px;
+  font-weight: bold;
 }
 
-.nav-links a{
-  text-decoration:none;
-  color:white;
+/* MENU */
+.menu {
+  display: flex;
+  gap: 20px;
 }
 
-/* BUTTON */
-.btn-red{
-  background:red;
-  padding:8px 12px;
-  border-radius:5px;
+.menu a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+  transition: 0.3s;
 }
 
-/* DROPDOWN */
-.dropdown-menu, .sub-menu{
-  display:none;
-  position:absolute;
-  background:#1e293b;
-  padding:10px;
+.menu a:hover {
+  color: #00d4ff;
 }
 
-.dropdown:hover .dropdown-menu{
-  display:block;
-}
-
-.dropdown-menu li:hover .sub-menu{
-  display:block;
-  left:150px;
-  top:0;
-}
-
-
-/* MOBILE MENU */
+/* MOBILE MENU BUTTON */
 .menu-toggle {
   display: none;
-  font-size: 25px;
+  font-size: 24px;
   cursor: pointer;
 }
 
-@media(max-width:768px){
+/* =======================
+   HERO SECTION
+======================= */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  margin: 20px;
+  border-radius: 12px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* =======================
+   RADIO BUTTON (SALE/RENT)
+======================= */
+.property-type {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.property-type label {
+  background: rgba(255,255,255,0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.property-type input {
+  display: none;
+}
+
+.property-type span {
+  color: #fff;
+  font-size: 14px;
+}
+
+/* ACTIVE */
+.property-type input:checked + span {
+  background: #081f33;
+  border-radius: 20px;
+  padding: 8px 16px;
+}
+
+/* =======================
+   SEARCH BOX
+======================= */
+.search-box {
+  margin-top: 10px;
+}
+
+.search-box input {
+  width: 80%;
+  max-width: 400px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.search-box button {
+  margin-top: 10px;
+  padding: 10px 25px;
+  background: #081f33;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-box button:hover {
+  background: #00c3ff;
+}
+
+/* =======================
+   SECTION TITLE
+======================= */
+.section {
+  padding: 30px 20px;
+}
+
+.section h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* =======================
+   PROPERTY CARDS
+======================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: #ffffff;
+  color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.card-content h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* =======================
+   VIEW ALL BUTTON
+======================= */
+.view-all {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.view-all button {
+  padding: 10px 20px;
+  border: none;
+  background: #00c3ff;
+  color: #000;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =======================
+   SERVICES / ABOUT / CONTACT BOXES
+======================= */
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.box {
+  padding: 20px;
+  border-radius: 10px;
+  color: #000;
+}
+
+/* DIFFERENT LIGHT COLORS */
+.box:nth-child(1) { background: #ffe0e0; }
+.box:nth-child(2) { background: #e0ffe5; }
+.box:nth-child(3) { background: #e0f0ff; }
+.box:nth-child(4) { background: #fff5e0; }
+
+/* =======================
+   FOOTER
+======================= */
+footer {
+  background: #081f33;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+
+/* =======================
+   MOBILE RESPONSIVE
+======================= */
+@media(max-width: 768px) {
+
   .menu {
-    display: none;
-    flex-direction: column;
-    background: #0a2540;
     position: absolute;
     top: 60px;
-    right: 10px;
-    padding: 10px;
+    right: 0;
+    background: #081f33;
+    width: 200px;
+    flex-direction: column;
+    display: none;
+    padding: 15px;
   }
 
-  .menu.active {
+  .menu.show {
     display: flex;
   }
 
   .menu-toggle {
     display: block;
   }
-}
 
-
-
-
-/* HERO */
-.hero {
-  padding: 40px;
-  text-align: center;
-  background: linear-gradient(to right, #4facfe, #00f2fe);
-  color: white;
-}
-
-.search-bar {
-  margin-top: 20px;
-}
-
-.search-bar input {
-  padding: 12px;
-  width: 250px;
-  border-radius: 5px;
-  border: none;
-}
-
-.search-bar button {
-  padding: 12px;
-  background: #0a2540;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-
-/* SECTIONS */
-.section {
-  padding: 30px;
-}
-
-.section h2 {
-  margin-bottom: 20px;
-}
-
-/* CARDS */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-}
-
-.card {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* BUTTON */
-.btn {
-  display: block;
-  text-align: center;
-  margin-top: 20px;
-  padding: 10px;
-  background: #0a2540;
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-/* COLORS */
-.residential { background: #eaf6ff; }
-.commercial { background: #fff4e6; }
-.services { background: #e8fff1; }
-.about { background: #f3e8ff; }
-.contact { background: #fff0f5; }
-
-/* FOOTER */
-footer {
-  background: #0a2540;
-  color: white;
-  text-align: center;
-  padding: 15px;
+  .search-box input {
+    width: 100%;
+  }
 }
