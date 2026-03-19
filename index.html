@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Abhinav Estates | Buy, Sell & Rent Properties</title>
-<meta name="description" content="Abhinav Estates - Find Residential & Commercial properties for sale and rent. Trusted real estate services.">
-
+<title>Abhinav Estates | Buy Rent Properties</title>
+<meta name="description" content="Find best residential and commercial properties for sale and rent with Abhinav Estates. Trusted real estate platform.">
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,113 +12,103 @@
 
 <!-- NAVBAR -->
 <header>
-  <nav class="navbar">
-    <h1 class="logo">Abhinav Estates</h1>
-
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-
-      <li class="dropdown">
-        <a href="project.html">Project ▾</a>
-        <ul class="dropdown-menu">
-          <li class="dropdown">
-            <a href="#">Residential ▸</a>
-            <ul class="sub-menu">
-              <li><a href="residential-sale.html">Residential Sale</a></li>
-              <li><a href="residential-rent.html">Residential Rent</a></li>
-            </ul>
-          </li>
-
-          <li class="dropdown">
-            <a href="#">Commercial ▸</a>
-            <ul class="sub-menu">
-              <li><a href="commercial-sale.html">Commercial Sale</a></li>
-              <li><a href="commercial-rent.html">Commercial Rent</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-
-      <li><a href="service.html">Service</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-
-      <li><a href="list-project.html" class="btn-red">List Project</a></li>
-    </ul>
-  </nav>
-
-  <!-- SIDE MENU -->
-  <div id="sideMenu" class="side-menu">
-    <a href="index.html">Home</a>
-    <a href="project.html">Project</a>
-    <a href="service.html">Service</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact Us</a>
-    <a href="list-project.html" class="btn-red">List Project</a>
-  </div>
+  <div class="logo">Abhinav Estates</div>
+  <div class="menu-toggle" onclick="openMenu()">☰</div>
 </header>
+
+<!-- SIDE MENU -->
+<div id="sideMenu">
+  <span onclick="closeMenu()" class="close-btn">✖</span>
+  
+  <a href="index.html">Home</a>
+
+  <div class="dropdown">
+    <a href="project.html">Project</a>
+    <div class="sub">
+      <a href="residential.html">Residential</a>
+      <a href="residential-sale.html">Residential Sale</a>
+      <a href="residential-rent.html">Residential Rent</a>
+
+      <a href="commercial.html">Commercial</a>
+      <a href="commercial-sale.html">Commercial Sale</a>
+      <a href="commercial-rent.html">Commercial Rent</a>
+    </div>
+  </div>
+
+  <a href="service.html">Service</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact Us</a>
+
+  <a href="list-project.html" class="list-btn">List Project</a>
+</div>
 
 <!-- HERO SECTION -->
 <section class="hero">
   <div class="overlay">
+    <h1>Find Your Dream Property</h1>
 
-    <div class="search-options">
+    <div class="search-type">
       <button onclick="setType('rent')">Rent</button>
       <button onclick="setType('sale')">Sale</button>
       <button onclick="setType('commercial')">Commercial</button>
     </div>
 
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search property...">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search location...">
       <button onclick="searchProperty()">Search</button>
     </div>
-
   </div>
 </section>
 
-<!-- PREVIEW SECTION -->
-<section class="preview">
-  <div class="box">Service</div>
-  <div class="box">About Us</div>
-  <div class="box">Contact</div>
+<!-- PREVIEW BOXES -->
+<section class="preview-section">
+
+  <div class="box service">Service</div>
+  <div class="box about">About Us</div>
+  <div class="box contact">Contact</div>
+
 </section>
 
 <!-- RESIDENTIAL -->
-<section class="properties">
+<section class="property-section">
   <h2>Residential Sale</h2>
+
   <div class="cards">
-    <div class="card">Luxury Flat</div>
-    <div class="card">Villa</div>
+    <div class="card">2BHK Flat</div>
+    <div class="card">3BHK Apartment</div>
+    <div class="card">Luxury Villa</div>
   </div>
-  <a href="residential-sale.html" class="view-btn">View All</a>
+
+  <button class="view-btn">View All</button>
 </section>
 
 <!-- COMMERCIAL -->
-<section class="properties">
+<section class="property-section">
   <h2>Commercial Sale</h2>
+
   <div class="cards">
-    <div class="card">Office</div>
+    <div class="card">Office Space</div>
     <div class="card">Shop</div>
+    <div class="card">Showroom</div>
   </div>
-  <a href="commercial-sale.html" class="view-btn">View All</a>
+
+  <button class="view-btn">View All</button>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <h2>Abhinav Estates</h2>
-  <p>Trusted Real Estate Platform for Buying, Selling & Renting Properties.</p>
+  <h3>Abhinav Estates</h3>
+  <p>Trusted Real Estate Partner</p>
 
   <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="project.html">Project</a>
-    <a href="service.html">Service</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <a href="#">Home</a>
+    <a href="#">Project</a>
+    <a href="#">Service</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
   </div>
 
-  <p>© 2026 Abhinav Estates. All Rights Reserved.</p>
+  <p>© 2026 Abhinav Estates. All rights reserved.</p>
 </footer>
 
 <script>
@@ -131,6 +119,8 @@ function setType(type){
 }
 
 function searchProperty(){
+  let input = document.getElementById("searchInput").value;
+
   if(selectedType === "rent"){
     window.location.href = "residential-rent.html";
   }
@@ -142,8 +132,12 @@ function searchProperty(){
   }
 }
 
-function toggleMenu(){
-  document.getElementById("sideMenu").classList.toggle("active");
+function openMenu(){
+  document.getElementById("sideMenu").style.right = "0";
+}
+
+function closeMenu(){
+  document.getElementById("sideMenu").style.right = "-50%";
 }
 </script>
 
