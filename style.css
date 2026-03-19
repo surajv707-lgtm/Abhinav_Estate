@@ -1,154 +1,147 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
 }
 
-body{
-  background:#0f172a;
-  color:white;
+body {
+  background: #f5f7fa;
 }
 
 /* NAVBAR */
-header{
-  display:flex;
-  justify-content:space-between;
-  padding:15px 20px;
-  background:linear-gradient(90deg,gold,#0f172a);
+header {
+  background: #0a2540;
+  color: white;
+  padding: 15px;
 }
 
-.logo{
-  font-size:20px;
-  font-weight:bold;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.menu-toggle{
-  font-size:24px;
-  cursor:pointer;
+.logo {
+  font-size: 22px;
+  font-weight: bold;
 }
 
-/* SIDE MENU */
-#sideMenu{
-  position:fixed;
-  top:0;
-  right:-50%;
-  width:50%;
-  height:100%;
-  background:#111;
-  padding:20px;
-  transition:0.3s;
+.menu {
+  display: flex;
+  gap: 20px;
 }
 
-#sideMenu a{
-  display:block;
-  margin:15px 0;
-  color:white;
-  text-decoration:none;
+.menu a {
+  color: white;
+  text-decoration: none;
 }
 
-.close-btn{
-  float:right;
-  cursor:pointer;
+/* MOBILE MENU */
+.menu-toggle {
+  display: none;
+  font-size: 25px;
+  cursor: pointer;
 }
 
-.list-btn{
-  background:red;
-  padding:10px;
-  text-align:center;
-  border-radius:5px;
+@media(max-width:768px){
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: #0a2540;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    padding: 10px;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }
 
 /* HERO */
-.hero{
-  background:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa');
-  height:60vh;
-  background-size:cover;
-  position:relative;
+.hero {
+  padding: 40px;
+  text-align: center;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
 }
 
-.overlay{
-  background:rgba(0,0,0,0.6);
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+.search-bar {
+  margin-top: 20px;
 }
 
-/* SEARCH */
-.search-type button{
-  margin:5px;
-  padding:10px;
-  border:none;
-  border-radius:5px;
+.search-bar input {
+  padding: 12px;
+  width: 250px;
+  border-radius: 5px;
+  border: none;
 }
 
-.search-box{
-  margin-top:10px;
+.search-bar button {
+  padding: 12px;
+  background: #0a2540;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-.search-box input{
-  padding:10px;
-  border:none;
-  border-radius:5px;
-  background:#38bdf8;
+/* SECTIONS */
+.section {
+  padding: 30px;
 }
 
-.search-box button{
-  padding:10px;
-  background:gold;
-  border:none;
-  border-radius:5px;
+.section h2 {
+  margin-bottom: 20px;
 }
 
-/* PREVIEW BOX */
-.preview-section{
-  display:flex;
-  justify-content:space-around;
-  margin:20px;
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
 }
 
-.box{
-  padding:20px;
-  border-radius:10px;
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.service{ background:#38bdf8; }
-.about{ background:#f472b6; }
-.contact{ background:#4ade80; }
-
-/* PROPERTY */
-.property-section{
-  padding:20px;
+.card img {
+  width: 100%;
+  border-radius: 10px;
 }
 
-.cards{
-  display:flex;
-  gap:10px;
+/* BUTTON */
+.btn {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background: #0a2540;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
-.card{
-  background:#1e293b;
-  padding:20px;
-  border-radius:10px;
-}
-
-.view-btn{
-  margin-top:10px;
-  padding:10px;
-  background:gold;
-  border:none;
-}
+/* COLORS */
+.residential { background: #eaf6ff; }
+.commercial { background: #fff4e6; }
+.services { background: #e8fff1; }
+.about { background: #f3e8ff; }
+.contact { background: #fff0f5; }
 
 /* FOOTER */
-footer{
-  background:#020617;
-  padding:20px;
-  text-align:center;
-}
-
-.footer-links a{
-  margin:5px;
-  color:white;
+footer {
+  background: #0a2540;
+  color: white;
+  text-align: center;
+  padding: 15px;
 }
