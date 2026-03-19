@@ -3,117 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhinav Estates | Premium Residential & Commercial Property</title>
+    <title>Abhinav Estates | Premium Real Estate Solutions</title>
     
-    <meta name="description" content="Abhinav Estates offers the best deals on luxury flats, residential homes, and commercial office spaces. Find your dream property today.">
-    <meta name="keywords" content="real estate, buy flat, commercial space, luxury apartments, Abhinav Estates">
+    <meta name="description" content="Abhinav Estates - Your trusted partner for Residential and Commercial property sales and rentals. Find your dream home or office today.">
+    <meta name="keywords" content="Abhinav Estates, Real Estate, Buy House, Commercial Property, Rent Flat">
     
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header class="navbar">
         <div class="logo">Abhinav Estates</div>
-        
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <nav class="nav-links" id="navLinks">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <button class="drop-btn" onclick="toggleSub('projectSub')">Project ▾</button>
-                    <ul class="submenu" id="projectSub">
-                        <li class="dropdown">
-                            <button class="drop-btn" onclick="toggleSub('resSub', 'commSub')">Residential ▸</button>
-                            <ul class="submenu-inner" id="resSub">
-                                <li><a href="residential-sale.html" target="_blank">Residential Sale</a></li>
-                                <li><a href="residential-rent.html" target="_blank">Residential Rent</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <button class="drop-btn" onclick="toggleSub('commSub', 'resSub')">Commercial ▸</button>
-                            <ul class="submenu-inner" id="commSub">
-                                <li><a href="commercial-sale.html" target="_blank">Commercial Sale</a></li>
-                                <li><a href="commercial-rent.html" target="_blank">Commercial Rent</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="service.html">Service</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li class="list-btn-container">
-                    <a href="list-project.html" class="btn-list-project">List Project</a>
-                </li>
-            </ul>
-        </nav>
+        <div class="menu-toggle" onclick="openNav()">☰</div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Find Your Dream Property</h1>
-                <p>Trustworthy deals on luxury flats & commercial spaces.</p>
-                
-                <div class="search-container">
-                    <div class="search-tabs">
-                        <button class="tab active">Sale</button>
-                        <button class="tab">Rent</button>
-                        <button class="tab">Commercial</button>
-                    </div>
-                    <div class="search-bar">
-                        <input type="text" placeholder="Locality, Project or Builder...">
-                        <button class="search-btn">Search</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <nav id="rightNav" class="side-nav">
+        <div class="close-btn" onclick="closeNav()">&times;</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            
+            <li class="dropdown">
+                <div class="drop-label" onclick="toggleProject()">Project ▾</div>
+                <ul id="projectMenu" class="submenu">
+                    <li>
+                        <div class="drop-label" onclick="toggleResidential()">Residential ▸</div>
+                        <ul id="resOptions" class="submenu-inner">
+                            <li><a href="residential-sale.html" target="_blank">Residential Sale</a></li>
+                            <li><a href="residential-rent.html" target="_blank">Residential Rent</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="drop-label" onclick="toggleCommercial()">Commercial ▸</div>
+                        <ul id="commOptions" class="submenu-inner">
+                            <li><a href="commercial-sale.html" target="_blank">Commercial Sale</a></li>
+                            <li><a href="commercial-rent.html" target="_blank">Commercial Rent</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
 
-        <section class="section service-preview">
-            <h2>Our Expert Services</h2>
-            <div class="card-grid">
-                <div class="info-card">
-                    <h3>Property Buying</h3>
-                    <p>We provide verified listings and end-to-end support to find your perfect home without hidden costs.</p>
-                    <a href="service.html" class="view-btn">View All Services</a>
-                </div>
-                <div class="info-card">
-                    <h3>Consultancy</h3>
-                    <p>Get data-driven insights on market trends and investment ROI from our real estate experts.</p>
-                    <a href="service.html" class="view-btn">View All Services</a>
-                </div>
-            </div>
-        </section>
+            <li><a href="service.html" target="_blank">Service</a></li>
+            <li><a href="about.html" target="_blank">About Us</a></li>
+            <li><a href="contact.html" target="_blank">Contact Us</a></li>
+            <li class="btn-container"><a href="list-project.html" class="red-btn" target="_blank">List Project</a></li>
+        </ul>
+    </nav>
 
-        <section class="section about-preview gray-bg">
-            <div class="info-card wide">
-                <h2>About Abhinav Estates</h2>
-                <p>Abhinav Estates is a premier platform built on transparency. We specialize in connecting buyers with high-value properties across the region.</p>
-                <a href="about.html" class="view-btn">Learn More About Us</a>
-            </div>
-        </section>
-
-        <section class="section contact-preview">
-            <div class="info-card contact-card">
-                <h2>Connect With Us</h2>
-                <p>Ready to move? Contact our team for personalized property tours.</p>
-                <div class="contact-links">
-                    <span>📧 info@abhinavestates.com</span>
-                    <span>📞 +91 9999999999</span>
+    <section class="hero">
+        <div class="hero-overlay">
+            <div class="search-box-container">
+                <div class="search-tabs">
+                    <button class="tab-btn active" onclick="setSearchType('rent', this)">Rent</button>
+                    <button class="tab-btn" onclick="setSearchType('sale', this)">Sale</button>
+                    <button class="tab-btn" onclick="setSearchType('commercial', this)">Commercial</button>
                 </div>
-                <a href="contact.html" class="view-btn">Visit Contact Page</a>
+                <div class="search-bar">
+                    <input type="text" id="propertySearch" placeholder="Search locality or project...">
+                    <button class="gold-search-btn" onclick="executeSearch()">Search</button>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <section class="previews">
+        <div class="p-box pink-light">
+            <h3>Our Services</h3>
+            <p>From legal consulting to property management, we handle it all.</p>
+            <a href="service.html" class="view-all">View All</a>
+        </div>
+        <div class="p-box green-light">
+            <h3>About Us</h3>
+            <p>Abhinav Estates is built on a foundation of trust and transparency.</p>
+            <a href="about.html" class="view-all">View All</a>
+        </div>
+        <div class="p-box blue-light">
+            <h3>Contact Us</h3>
+            <p>Get in touch with our expert agents for a free consultation.</p>
+            <a href="contact.html" class="view-all">View All</a>
+        </div>
+    </section>
+
+    <section class="listing-preview">
+        <h2>Residential Sale Preview</h2>
+        <div class="property-grid">
+            <div class="prop-card">Luxury 3BHK Apartment - ₹1.2 Cr</div>
+            <div class="prop-card">Modern Villa - ₹4.5 Cr</div>
+        </div>
+        <a href="residential-sale.html" class="view-all-btn">View All Residential</a>
+    </section>
+
+    <section class="listing-preview yellow-bg">
+        <h2>Commercial Sale Preview</h2>
+        <div class="property-grid">
+            <div class="prop-card">Grade-A Office Space - ₹80L</div>
+            <div class="prop-card">Retail Shop Front - ₹55L</div>
+        </div>
+        <a href="commercial-sale.html" class="view-all-btn">View All Commercial</a>
+    </section>
 
     <footer>
-        <p>© 2026 Abhinav Estates. All Rights Reserved.</p>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h4>Abhinav Estates</h4>
+                <p>Premium Real Estate Services</p>
+                <p>Email: info@abhinavestates.com</p>
+                <p>Phone: +91 9999999999</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <p class="copy">© 2026 Abhinav Estates. All Rights Reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        let currentSearchType = 'rent';
+
+        function openNav() { document.getElementById("rightNav").style.width = "50%"; }
+        function closeNav() { document.getElementById("rightNav").style.width = "0"; }
+
+        function toggleProject() { document.getElementById("projectMenu").classList.toggle("active"); }
+        
+        function toggleResidential() {
+            document.getElementById("resOptions").classList.toggle("active");
+            document.getElementById("commOptions").classList.remove("active"); // Exclusive logic
+        }
+
+        function toggleCommercial() {
+            document.getElementById("commOptions").classList.toggle("active");
+            document.getElementById("resOptions").classList.remove("active"); // Exclusive logic
+        }
+
+        function setSearchType(type, btn) {
+            currentSearchType = type;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function executeSearch() {
+            if (currentSearchType === 'rent') window.open('residential-rent.html', '_blank');
+            else if (currentSearchType === 'sale') window.open('residential-sale.html', '_blank');
+            else if (currentSearchType === 'commercial') window.open('commercial-sale.html', '_blank');
+        }
+    </script>
 </body>
 </html>
