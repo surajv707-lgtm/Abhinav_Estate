@@ -1,278 +1,154 @@
-/* =======================
-   RESET & GLOBAL
-======================= */
+/* --- Base Reset & Colors --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
 }
 
 body {
-  background: #0b2a45;
-  color: #fff;
+  background-color: #0f172a; /* Professional dark slate */
+  color: #f1f5f9; /* High-contrast white text */
   line-height: 1.6;
 }
 
-/* =======================
-   NAVBAR
-======================= */
-header {
-  background: #081f33;
-  padding: 15px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+a {
+  text-decoration: none;
+  color: #cbd5e1;
+  transition: color 0.3s ease;
 }
 
-nav {
+a:hover {
+  color: #38bdf8; /* Light blue accent for hover state */
+}
+
+/* --- Header & Navbar --- */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: #020617; /* Darkest navy */
+  position: relative;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); /* Adds depth */
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
-/* MENU */
-.menu {
-  display: flex;
-  gap: 20px;
-}
-
-.menu a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 15px;
-  transition: 0.3s;
-}
-
-.menu a:hover {
-  color: #00d4ff;
-}
-
-/* MOBILE MENU BUTTON */
 .menu-toggle {
-  display: none;
-  font-size: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
   cursor: pointer;
+  display: none; /* Hidden by default on desktop */
 }
 
-/* =======================
-   HERO SECTION
-======================= */
-.hero {
-  text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  margin: 20px;
-  border-radius: 12px;
-}
-
-.hero h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-/* =======================
-   RADIO BUTTON (SALE/RENT)
-======================= */
-.property-type {
+/* --- Navigation Menu (Desktop & Mobile) --- */
+.nav-menu ul {
   display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
 }
 
-.property-type label {
-  background: rgba(255,255,255,0.2);
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s;
+.nav-menu li {
+  position: relative;
 }
 
-.property-type input {
+/* Dropdown Menu CSS */
+.submenu {
   display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1e293b;
+  padding: 1rem;
+  border-radius: 4px;
+  min-width: 150px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
-.property-type span {
-  color: #fff;
-  font-size: 14px;
+.dropdown:hover .submenu {
+  display: block;
 }
 
-/* ACTIVE */
-.property-type input:checked + span {
-  background: #081f33;
-  border-radius: 20px;
-  padding: 8px 16px;
+.submenu li {
+  margin-bottom: 0.5rem;
 }
 
-/* =======================
-   SEARCH BOX
-======================= */
-.search-box {
-  margin-top: 10px;
-}
-
-.search-box input {
-  width: 80%;
-  max-width: 400px;
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-}
-
-.search-box button {
-  margin-top: 10px;
-  padding: 10px 25px;
-  background: #081f33;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.search-box button:hover {
-  background: #00c3ff;
-}
-
-/* =======================
-   SECTION TITLE
-======================= */
-.section {
-  padding: 30px 20px;
-}
-
-.section h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-/* =======================
-   PROPERTY CARDS
-======================= */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-}
-
-.card {
-  background: #ffffff;
-  color: #000;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-}
-
-.card-content {
-  padding: 10px;
-}
-
-.card-content h3 {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.card-content p {
-  font-size: 14px;
-  color: #555;
-}
-
-/* =======================
-   VIEW ALL BUTTON
-======================= */
-.view-all {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.view-all button {
-  padding: 10px 20px;
-  border: none;
-  background: #00c3ff;
-  color: #000;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* =======================
-   SERVICES / ABOUT / CONTACT BOXES
-======================= */
-.boxes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-}
-
-.box {
-  padding: 20px;
-  border-radius: 10px;
-  color: #000;
-}
-
-/* DIFFERENT LIGHT COLORS */
-.box:nth-child(1) { background: #ffe0e0; }
-.box:nth-child(2) { background: #e0ffe5; }
-.box:nth-child(3) { background: #e0f0ff; }
-.box:nth-child(4) { background: #fff5e0; }
-
-/* =======================
-   FOOTER
-======================= */
-footer {
-  background: #081f33;
-  text-align: center;
-  padding: 15px;
-  margin-top: 30px;
-}
-
-/* =======================
-   MOBILE RESPONSIVE
-======================= */
-@media(max-width: 768px) {
-
-  .menu {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #081f33;
-    width: 200px;
-    flex-direction: column;
-    display: none;
-    padding: 15px;
-  }
-
-  .menu.show {
-    display: flex;
-  }
-
+/* --- Mobile View Fix --- */
+@media (max-width: 768px) {
   .menu-toggle {
+    display: block; /* Show hamburger on mobile */
+  }
+
+  .nav-menu {
+    display: none; /* Hide full menu initially */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #020617;
+    padding: 2rem;
+    z-index: 1000;
+  }
+
+  /* This class toggles on via JS when hamburger is clicked */
+  .nav-menu.active {
     display: block;
   }
 
-  .search-box input {
-    width: 100%;
+  .nav-menu ul {
+    flex-direction: column; /* Stack links vertically */
+    gap: 1.5rem;
   }
+
+  .submenu {
+    position: static;
+    display: block; /* Always show submenus inline on mobile */
+    background: transparent;
+    padding-left: 1rem;
+    box-shadow: none;
+    border-left: 2px solid #334155; /* Subtle indenting line */
+    margin-top: 0.5rem;
+  }
+}
+
+/* --- Hero Section & Property Cards --- */
+.hero {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb); /* Trustworthy Blue Gradient */
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 12px;
+  margin: 2rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.property-card {
+  background: #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2rem 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.property-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background-color: #334155; /* Placeholder color for broken images */
+}
+
+.card-details {
+  padding: 1.5rem;
+  color: #fff;
 }
