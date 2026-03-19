@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhinav Estates | Premium Real Estate & Property Management</title>
+    <title>Abhinav Estates | Premium Real Estate Buy & Sell</title>
     
-    <meta name="description" content="Abhinav Estates provides expert real estate services for buying, selling, and renting residential and commercial properties with trust and transparency.">
-    <meta name="keywords" content="Abhinav Estates, Real Estate Mumbai, Luxury Flats, Commercial Office, Property Rent">
+    <meta name="description" content="Find premium residential and commercial properties with Abhinav Estates. Expert real estate services for buying, selling, and renting.">
+    <meta name="keywords" content="Abhinav Estates, Mumbai Real Estate, Buy 2BHK, Office Space for Sale">
     
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -55,27 +55,27 @@
                 <button class="tab-btn" onclick="setMode('sale', this)">Sale</button>
                 <button class="tab-btn" onclick="setMode('comm', this)">Commercial</button>
             </div>
-            <div class="search-container">
-                <input type="text" id="mainSearch" placeholder="Search by City, Locality or Project...">
+            <div class="search-wrapper">
+                <input type="text" id="mainSearch" placeholder="Search Locality, Project...">
+                <button class="gold-inner-btn" onclick="doSearch()">Search</button>
             </div>
-            <button class="gold-search-btn" onclick="doSearch()">Search Properties</button>
         </div>
     </section>
 
     <section class="previews">
         <div class="box pink">
             <h3>Our Services</h3>
-            <p>We offer end-to-end property solutions including legal documentation, home loan assistance, and property management for NRIs and local investors.</p>
+            <p>End-to-end property solutions including legal paperwork and loan assistance.</p>
             <a href="service.html">View Details</a>
         </div>
         <div class="box green">
             <h3>About Us</h3>
-            <p>Founded on the principles of integrity, Abhinav Estates has helped over 500+ families find their perfect home through transparent dealings.</p>
+            <p>Trusted for over 10 years in the luxury real estate market with transparent dealings.</p>
             <a href="about.html">Read Story</a>
         </div>
         <div class="box blue">
             <h3>Contact Us</h3>
-            <p>Have a question? Our dedicated relationship managers are available 24/7 to guide you through your property journey.</p>
+            <p>Available 24/7. Call: +91 9999999999 or Email: info@abhinavestates.com</p>
             <a href="contact.html">Get in Touch</a>
         </div>
     </section>
@@ -85,55 +85,71 @@
             <h2 class="section-title">Residential Sale Preview</h2>
             <div class="card-grid">
                 <div class="card">
-                    <img src="https://via.placeholder.com/250x150" alt="Flat">
-                    <h4>Skyline Heights</h4>
-                    <p>2 BHK | 1200 Sq.Ft</p>
-                    <span class="price">₹85 Lakhs</span>
+                    <div class="card-left">
+                        <h4>Skyline 2BHK</h4>
+                        <p>📍 Andheri West</p>
+                        <span class="price">₹95 Lakhs</span>
+                    </div>
+                    <div class="card-right">
+                        <p>1250 sqft</p>
+                        <p>Pool View</p>
+                        <button class="call-btn">Contact</button>
+                    </div>
                 </div>
                 <div class="card">
-                    <img src="https://via.placeholder.com/250x150" alt="Flat">
-                    <h4>Green Valley</h4>
-                    <p>3 BHK | 1800 Sq.Ft</p>
-                    <span class="price">₹1.2 Cr</span>
+                    <div class="card-left">
+                        <h4>Royal Villa</h4>
+                        <p>📍 Juhu</p>
+                        <span class="price">₹5.2 Cr</span>
+                    </div>
+                    <div class="card-right">
+                        <p>4500 sqft</p>
+                        <p>Private Garden</p>
+                        <button class="call-btn">Contact</button>
+                    </div>
                 </div>
                 <div class="card">
-                    <img src="https://via.placeholder.com/250x150" alt="Flat">
-                    <h4>Royal Residency</h4>
-                    <p>1 BHK | 650 Sq.Ft</p>
-                    <span class="price">₹45 Lakhs</span>
-                </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/250x150" alt="Flat">
-                    <h4>Ocean View</h4>
-                    <p>4 BHK Villa</p>
-                    <span class="price">₹3.5 Cr</span>
+                    <div class="card-left">
+                        <h4>Green Terrace</h4>
+                        <p>📍 Powai</p>
+                        <span class="price">₹1.8 Cr</span>
+                    </div>
+                    <div class="card-right">
+                        <p>1800 sqft</p>
+                        <p>Near Lake</p>
+                        <button class="call-btn">Contact</button>
+                    </div>
                 </div>
             </div>
             <a href="residential-sale.html" class="all-btn">View All Residential</a>
         </div>
 
-        <div class="list-section yellow-bg">
+        <div class="list-section yellow-tint">
             <h2 class="section-title">Commercial Sale Preview</h2>
             <div class="card-grid">
                 <div class="card">
-                    <h4>IT Tech Park</h4>
-                    <p>Office | 2500 Sq.Ft</p>
-                    <span class="price">₹2.1 Cr</span>
+                    <div class="card-left">
+                        <h4>Biz Center</h4>
+                        <p>📍 BKC</p>
+                        <span class="price">₹2.5 Cr</span>
+                    </div>
+                    <div class="card-right">
+                        <p>Office Space</p>
+                        <p>High ROI</p>
+                        <button class="call-btn">Enquire</button>
+                    </div>
                 </div>
                 <div class="card">
-                    <h4>Central Mall Shop</h4>
-                    <p>Retail | 400 Sq.Ft</p>
-                    <span class="price">₹65 Lakhs</span>
-                </div>
-                <div class="card">
-                    <h4>Business Hub</h4>
-                    <p>Coworking Space</p>
-                    <span class="price">₹1.5 Cr</span>
-                </div>
-                <div class="card">
-                    <h4>Warehouse North</h4>
-                    <p>Storage | 5000 Sq.Ft</p>
-                    <span class="price">₹4.0 Cr</span>
+                    <div class="card-left">
+                        <h4>Retail Hub</h4>
+                        <p>📍 Colaba</p>
+                        <span class="price">₹75 Lakhs</span>
+                    </div>
+                    <div class="card-right">
+                        <p>Shop Front</p>
+                        <p>Main Road</p>
+                        <button class="call-btn">Enquire</button>
+                    </div>
                 </div>
             </div>
             <a href="commercial-sale.html" class="all-btn">View All Commercial</a>
@@ -144,51 +160,38 @@
         <div class="footer-grid">
             <div class="foot-col">
                 <h3>Abhinav Estates</h3>
-                <p>Your premium gateway to luxury real estate. We bridge the gap between dream and reality.</p>
-                <p>📍 Mumbai, Maharashtra, India</p>
+                <p>Premium Real Estate Experience.</p>
+                <p>📍 Mumbai, India</p>
+                <p>📞 +91 9999999999</p>
             </div>
             <div class="foot-col">
-                <h4>Quick Links</h4>
+                <h4>Navigation</h4>
                 <ul class="foot-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="service.html">Services</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="list-project.html">List Your Project</a></li>
-                </ul>
-            </div>
-            <div class="foot-col">
-                <h4>Property Types</h4>
-                <ul class="foot-links">
-                    <li><a href="residential-sale.html">Residential Sale</a></li>
-                    <li><a href="residential-rent.html">Residential Rent</a></li>
-                    <li><a href="commercial-sale.html">Commercial Sale</a></li>
-                    <li><a href="commercial-rent.html">Commercial Rent</a></li>
+                    <li><a href="list-project.html">List Project</a></li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 Abhinav Estates. All Rights Reserved.</p>
-        </div>
+        <p class="copy">© 2026 Abhinav Estates</p>
     </footer>
 
     <script>
         let searchMode = 'rent';
         function openNav() { document.getElementById("sideNav").style.width = "50%"; }
         function closeNav() { document.getElementById("sideNav").style.width = "0"; }
-
         function toggleItem(id, siblingId) {
             if (siblingId) document.getElementById(siblingId).classList.remove("open");
             document.getElementById(id).classList.toggle("open");
             event.stopPropagation();
         }
-
         function setMode(mode, btn) {
             searchMode = mode;
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
         }
-
         function doSearch() {
             if (searchMode === 'rent') window.open('residential-rent.html', '_blank');
             else if (searchMode === 'sale') window.open('residential-sale.html', '_blank');
