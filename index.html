@@ -3,114 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhinav Estates | Premium Real Estate Buy & Sell</title>
+    <title>Abhinav Estates | Premium Residential & Commercial Property</title>
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Abhinav Estates is your trusted partner for buying and selling premium residential and commercial properties. Explore luxury flats and office spaces.">
-    <meta name="keywords" content="Real Estate Mumbai, Buy 2BHK Flat, Commercial Office Space, Abhinav Estates, Property Rent">
-    <meta name="author" content="Abhinav Estates">
-
-    <!-- Google Fonts for Professional Look -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Abhinav Estates offers the best deals on luxury flats, residential homes, and commercial office spaces. Find your dream property today.">
+    <meta name="keywords" content="real estate, buy flat, commercial space, luxury apartments, Abhinav Estates">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <header class="navbar">
         <div class="logo">Abhinav Estates</div>
-        <div class="menu-toggle" onclick="toggleMain()" aria-label="Toggle Menu">☰</div>
+        
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-        <ul class="nav-links" id="mainMenu">
-            <li><a href="index.html">Home</a></li>
-
-            <li class="dropdown">
-                <div class="drop-trigger" onclick="toggleSub('projectMenu')">Project ▾</div>
-                <ul class="dropdown-menu" id="projectMenu">
-                    
-                    <li class="dropdown">
-                        <div class="drop-trigger" onclick="toggleSub('resMenu', 'commMenu')">Residential ▸</div>
-                        <ul class="sub-menu" id="resMenu">
-                            <li><a href="residential-sale.html" target="_blank">Residential Sale</a></li>
-                            <li><a href="residential-rent.html" target="_blank">Residential Rent</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <div class="drop-trigger" onclick="toggleSub('commMenu', 'resMenu')">Commercial ▸</div>
-                        <ul class="sub-menu" id="commMenu">
-                            <li><a href="commercial-sale.html" target="_blank">Commercial Sale</a></li>
-                            <li><a href="commercial-rent.html" target="_blank">Commercial Rent</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-
-            <li><a href="service.html">Service</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li class="list-item"><a href="list-project.html" class="btn-list">List Project</a></li>
-        </ul>
+        <nav class="nav-links" id="navLinks">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <button class="drop-btn" onclick="toggleSub('projectSub')">Project ▾</button>
+                    <ul class="submenu" id="projectSub">
+                        <li class="dropdown">
+                            <button class="drop-btn" onclick="toggleSub('resSub', 'commSub')">Residential ▸</button>
+                            <ul class="submenu-inner" id="resSub">
+                                <li><a href="residential-sale.html" target="_blank">Residential Sale</a></li>
+                                <li><a href="residential-rent.html" target="_blank">Residential Rent</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <button class="drop-btn" onclick="toggleSub('commSub', 'resSub')">Commercial ▸</button>
+                            <ul class="submenu-inner" id="commSub">
+                                <li><a href="commercial-sale.html" target="_blank">Commercial Sale</a></li>
+                                <li><a href="commercial-rent.html" target="_blank">Commercial Rent</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li class="list-btn-container">
+                    <a href="list-project.html" class="btn-list-project">List Project</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Find Your Dream Property</h1>
-            <p>Trustworthy deals on luxury flats & commercial spaces.</p>
-            
-            <div class="search-container">
-                <div class="type-selector">
-                    <button class="type-btn active">Sale</button>
-                    <button class="type-btn">Rent</button>
-                    <button class="type-btn">Commercial</button>
-                </div>
-                <div class="search-box">
-                    <input type="text" placeholder="Locality, Project or Builder...">
-                    <button class="search-go">Search</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PREVIEW SECTIONS -->
     <main>
-        <!-- SERVICES -->
-        <section class="section">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Find Your Dream Property</h1>
+                <p>Trustworthy deals on luxury flats & commercial spaces.</p>
+                
+                <div class="search-container">
+                    <div class="search-tabs">
+                        <button class="tab active">Sale</button>
+                        <button class="tab">Rent</button>
+                        <button class="tab">Commercial</button>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Locality, Project or Builder...">
+                        <button class="search-btn">Search</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section service-preview">
             <h2>Our Expert Services</h2>
-            <div class="preview-grid">
-                <div class="preview-box">
+            <div class="card-grid">
+                <div class="info-card">
                     <h3>Property Buying</h3>
-                    <p>We provide verified listings and end-to-end support to find your perfect home without the hassle of hidden costs.</p>
-                    <a href="service.html" class="view-all">View All Services</a>
+                    <p>We provide verified listings and end-to-end support to find your perfect home without hidden costs.</p>
+                    <a href="service.html" class="view-btn">View All Services</a>
                 </div>
-                <div class="preview-box">
+                <div class="info-card">
                     <h3>Consultancy</h3>
-                    <p>Get data-driven insights on market trends and investment ROI from our senior real estate consultants.</p>
-                    <a href="service.html" class="view-all">View All Services</a>
+                    <p>Get data-driven insights on market trends and investment ROI from our real estate experts.</p>
+                    <a href="service.html" class="view-btn">View All Services</a>
                 </div>
             </div>
         </section>
 
-        <!-- ABOUT -->
-        <section class="section bg-dark-alt">
-            <div class="preview-box wide">
+        <section class="section about-preview gray-bg">
+            <div class="info-card wide">
                 <h2>About Abhinav Estates</h2>
-                <p>Abhinav Estates is a premier real estate platform built on the pillars of transparency and integrity. We specialize in connecting buyers with high-value properties across the region, ensuring every transaction is secure and profitable.</p>
-                <a href="about.html" class="view-all">Learn More About Us</a>
+                <p>Abhinav Estates is a premier platform built on transparency. We specialize in connecting buyers with high-value properties across the region.</p>
+                <a href="about.html" class="view-btn">Learn More About Us</a>
             </div>
         </section>
 
-        <!-- CONTACT -->
-        <section class="section">
-            <div class="preview-box contact-preview">
+        <section class="section contact-preview">
+            <div class="info-card contact-card">
                 <h2>Connect With Us</h2>
-                <p>Ready to move? Contact our dedicated support team for personalized property tours and legal documentation assistance.</p>
-                <div class="info-tags">
+                <p>Ready to move? Contact our team for personalized property tours.</p>
+                <div class="contact-links">
                     <span>📧 info@abhinavestates.com</span>
                     <span>📞 +91 9999999999</span>
                 </div>
-                <a href="contact.html" class="view-all">Visit Contact Page</a>
+                <a href="contact.html" class="view-btn">Visit Contact Page</a>
             </div>
         </section>
     </main>
@@ -119,38 +114,6 @@
         <p>© 2026 Abhinav Estates. All Rights Reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        // Toggle Main Mobile Menu
-        function toggleMain() {
-            document.getElementById("mainMenu").classList.toggle("active");
-        }
-
-        // Toggle Submenus with Exclusive Logic
-        function toggleSub(targetId, siblingId = null) {
-            const target = document.getElementById(targetId);
-            
-            // If opening Residential, close Commercial (and vice versa)
-            if (siblingId) {
-                const sibling = document.getElementById(siblingId);
-                if (sibling) sibling.classList.remove("active");
-            }
-
-            target.classList.toggle("active");
-            
-            // Stop click from closing main menu
-            event.stopPropagation();
-        }
-
-        // Close all menus if clicking outside
-        window.onclick = function(event) {
-            if (!event.target.matches('.menu-toggle') && !event.target.matches('.drop-trigger')) {
-                const dropdowns = document.getElementsByClassName("dropdown-menu active");
-                const submenus = document.getElementsByClassName("sub-menu active");
-                for (let d of dropdowns) d.classList.remove("active");
-                for (let s of submenus) s.classList.remove("active");
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
