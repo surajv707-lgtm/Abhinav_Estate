@@ -1,154 +1,143 @@
-/* --- Base Reset & Colors --- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+/* --- Root Variables --- */
+:root {
+    --bg-main: #020617;
+    --bg-card: #0f172a;
+    --accent: #38bdf8;
+    --text-light: #f1f5f9;
+    --text-dim: #94a3b8;
+    --red-btn: #ef4444;
 }
 
-body {
-  background-color: #0f172a; /* Professional dark slate */
-  color: #f1f5f9; /* High-contrast white text */
-  line-height: 1.6;
+/* --- Base Setup --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    background-color: var(--bg-main); 
+    color: var(--text-light); 
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
 }
 
-a {
-  text-decoration: none;
-  color: #cbd5e1;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #38bdf8; /* Light blue accent for hover state */
-}
-
-/* --- Header & Navbar --- */
+/* --- Navbar (Toggle on Right) --- */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 2rem;
-  background-color: #020617; /* Darkest navy */
-  position: relative;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); /* Adds depth */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: var(--bg-main);
+    border-bottom: 1px solid #1e293b;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+.logo { font-size: 1.4rem; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; }
+.menu-toggle { font-size: 2rem; cursor: pointer; color: white; }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.menu-toggle {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 2rem;
-  cursor: pointer;
-  display: none; /* Hidden by default on desktop */
-}
-
-/* --- Navigation Menu (Desktop & Mobile) --- */
-.nav-menu ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-menu li {
-  position: relative;
-}
-
-/* Dropdown Menu CSS */
-.submenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #1e293b;
-  padding: 1rem;
-  border-radius: 4px;
-  min-width: 150px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-
-.dropdown:hover .submenu {
-  display: block;
-}
-
-.submenu li {
-  margin-bottom: 0.5rem;
-}
-
-/* --- Mobile View Fix --- */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block; /* Show hamburger on mobile */
-  }
-
-  .nav-menu {
-    display: none; /* Hide full menu initially */
+/* --- Navigation Links --- */
+.nav-links {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #020617;
-    padding: 2rem;
-    z-index: 1000;
-  }
+    background: var(--bg-card);
+    padding: 2rem 5%;
+    list-style: none;
+}
+.nav-links.active { display: block; }
+.nav-links li { margin-bottom: 1.2rem; }
+.nav-links a, .drop-trigger { 
+    color: var(--text-light); 
+    text-decoration: none; 
+    font-size: 1.1rem;
+    font-weight: 500;
+}
 
-  /* This class toggles on via JS when hamburger is clicked */
-  .nav-menu.active {
+/* --- Dropdown Logic --- */
+.dropdown-menu, .sub-menu { 
+    display: none; 
+    padding: 10px 0 0 15px; 
+    list-style: none;
+    border-left: 2px solid var(--accent);
+    margin-top: 10px;
+}
+.dropdown-menu.active, .sub-menu.active { display: block; }
+
+/* --- Buttons --- */
+.btn-list {
+    background: var(--red-btn);
+    color: white !important;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
     display: block;
-  }
-
-  .nav-menu ul {
-    flex-direction: column; /* Stack links vertically */
-    gap: 1.5rem;
-  }
-
-  .submenu {
-    position: static;
-    display: block; /* Always show submenus inline on mobile */
-    background: transparent;
-    padding-left: 1rem;
-    box-shadow: none;
-    border-left: 2px solid #334155; /* Subtle indenting line */
-    margin-top: 0.5rem;
-  }
+}
+.view-all {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid var(--accent);
+    padding: 8px 20px;
+    border-radius: 6px;
 }
 
-/* --- Hero Section & Property Cards --- */
+/* --- Hero Section --- */
 .hero {
-  background: linear-gradient(135deg, #0ea5e9, #2563eb); /* Trustworthy Blue Gradient */
-  color: white;
-  padding: 4rem 2rem;
-  text-align: center;
-  border-radius: 12px;
-  margin: 2rem 1rem;
+    padding: 100px 5%;
+    text-align: center;
+    background: linear-gradient(rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.7)), url('https://images.unsplash.com/photo-1582408921715-18e7806365c1?auto=format&fit=crop&w=1000');
+    background-size: cover;
+    background-position: center;
+}
+.hero h1 { font-size: 2.8rem; margin-bottom: 15px; }
+.hero p { color: var(--text-dim); font-size: 1.2rem; }
+
+/* --- Preview Boxes --- */
+.section { padding: 80px 5%; text-align: center; }
+.bg-dark-alt { background: #010409; }
+.preview-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; 
+    margin-top: 40px; 
+}
+.preview-box {
+    background: #1e293b;
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #334155;
+    text-align: left;
+}
+.preview-box h3 { color: var(--accent); margin-bottom: 15px; }
+.preview-box p { color: var(--text-dim); }
+.wide { max-width: 800px; margin: 0 auto; text-align: center; }
+
+/* --- Search UI --- */
+.search-container { 
+    max-width: 600px; 
+    margin: 40px auto 0; 
+    background: white; 
+    padding: 8px; 
+    border-radius: 50px; 
+    display: flex;
+}
+.search-container input { 
+    border: none; 
+    outline: none; 
+    padding: 10px 20px; 
+    flex: 1; 
+    border-radius: 50px;
+    font-size: 1rem;
+}
+.search-go { 
+    background: var(--accent); 
+    border: none; 
+    padding: 10px 25px; 
+    border-radius: 50px; 
+    color: white; 
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.property-card {
-  background: #1e293b;
-  border-radius: 12px;
-  overflow: hidden;
-  margin: 2rem 1rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
-
-.property-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  background-color: #334155; /* Placeholder color for broken images */
-}
-
-.card-details {
-  padding: 1.5rem;
-  color: #fff;
-}
+footer { padding: 40px; text-align: center; border-top: 1px solid #1e293b; color: var(--text-dim); }
