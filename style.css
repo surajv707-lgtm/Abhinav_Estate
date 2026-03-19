@@ -1,143 +1,108 @@
-/* --- Root Variables --- */
 :root {
-    --bg-main: #020617;
-    --bg-card: #0f172a;
+    --primary: #020617;
+    --secondary: #0f172a;
     --accent: #38bdf8;
-    --text-light: #f1f5f9;
-    --text-dim: #94a3b8;
-    --red-btn: #ef4444;
+    --text: #f1f5f9;
+    --red: #ef4444;
 }
 
-/* --- Base Setup --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    background-color: var(--bg-main); 
-    color: var(--text-light); 
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+body { background: var(--primary); color: var(--text); overflow-x: hidden; }
 
-/* --- Navbar (Toggle on Right) --- */
+/* Navbar Setup */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    background: var(--bg-main);
+    background: var(--primary);
     border-bottom: 1px solid #1e293b;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
-.logo { font-size: 1.4rem; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; }
-.menu-toggle { font-size: 2rem; cursor: pointer; color: white; }
 
-/* --- Navigation Links --- */
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+
+/* Menu Toggle Button (Right Side) */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+}
+
+/* Nav Menu (Hidden by Default) */
 .nav-links {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--bg-card);
-    padding: 2rem 5%;
-    list-style: none;
+    background: var(--secondary);
+    padding: 20px 5%;
 }
-.nav-links.active { display: block; }
-.nav-links li { margin-bottom: 1.2rem; }
-.nav-links a, .drop-trigger { 
-    color: var(--text-light); 
-    text-decoration: none; 
+
+.nav-links.show { display: block; }
+.nav-links ul { list-style: none; }
+.nav-links li { margin-bottom: 15px; }
+.nav-links a, .drop-btn {
+    color: white;
+    text-decoration: none;
     font-size: 1.1rem;
-    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-/* --- Dropdown Logic --- */
-.dropdown-menu, .sub-menu { 
-    display: none; 
-    padding: 10px 0 0 15px; 
-    list-style: none;
+/* Submenu Styling */
+.submenu, .submenu-inner {
+    display: none;
+    padding: 10px 0 0 20px;
     border-left: 2px solid var(--accent);
-    margin-top: 10px;
 }
-.dropdown-menu.active, .sub-menu.active { display: block; }
+.submenu.active, .submenu-inner.active { display: block; }
 
-/* --- Buttons --- */
-.btn-list {
-    background: var(--red-btn);
-    color: white !important;
-    padding: 12px;
-    border-radius: 8px;
-    text-align: center;
+/* Buttons */
+.btn-list-project {
+    background: var(--red);
+    padding: 10px 20px;
+    border-radius: 5px;
     display: block;
+    text-align: center;
 }
-.view-all {
+.view-btn {
     display: inline-block;
     margin-top: 15px;
     color: var(--accent);
     text-decoration: none;
-    font-weight: bold;
     border: 1px solid var(--accent);
     padding: 8px 20px;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
-/* --- Hero Section --- */
-.hero {
-    padding: 100px 5%;
-    text-align: center;
-    background: linear-gradient(rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.7)), url('https://images.unsplash.com/photo-1582408921715-18e7806365c1?auto=format&fit=crop&w=1000');
-    background-size: cover;
-    background-position: center;
-}
-.hero h1 { font-size: 2.8rem; margin-bottom: 15px; }
-.hero p { color: var(--text-dim); font-size: 1.2rem; }
+/* Hero & Content */
+.hero { padding: 80px 5%; text-align: center; }
+.search-container { background: white; border-radius: 10px; padding: 10px; margin-top: 30px; }
+.search-tabs { display: flex; gap: 10px; margin-bottom: 10px; }
+.tab { background: #e2e8f0; border: none; padding: 5px 15px; border-radius: 20px; color: black; cursor: pointer; }
+.tab.active { background: var(--accent); color: white; }
+.search-bar { display: flex; }
+.search-bar input { flex: 1; border: none; padding: 10px; outline: none; }
+.search-btn { background: var(--accent); border: none; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
 
-/* --- Preview Boxes --- */
-.section { padding: 80px 5%; text-align: center; }
-.bg-dark-alt { background: #010409; }
-.preview-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 25px; 
-    margin-top: 40px; 
-}
-.preview-box {
-    background: #1e293b;
-    padding: 40px;
-    border-radius: 15px;
-    border: 1px solid #334155;
-    text-align: left;
-}
-.preview-box h3 { color: var(--accent); margin-bottom: 15px; }
-.preview-box p { color: var(--text-dim); }
-.wide { max-width: 800px; margin: 0 auto; text-align: center; }
-
-/* --- Search UI --- */
-.search-container { 
-    max-width: 600px; 
-    margin: 40px auto 0; 
-    background: white; 
-    padding: 8px; 
-    border-radius: 50px; 
-    display: flex;
-}
-.search-container input { 
-    border: none; 
-    outline: none; 
-    padding: 10px 20px; 
-    flex: 1; 
-    border-radius: 50px;
-    font-size: 1rem;
-}
-.search-go { 
-    background: var(--accent); 
-    border: none; 
-    padding: 10px 25px; 
-    border-radius: 50px; 
-    color: white; 
-    font-weight: bold;
-    cursor: pointer;
-}
-
-footer { padding: 40px; text-align: center; border-top: 1px solid #1e293b; color: var(--text-dim); }
+/* Cards */
+.section { padding: 50px 5%; }
+.gray-bg { background: #010409; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.info-card { background: #1e293b; padding: 30px; border-radius: 10px; border: 1px solid #334155; }
+.wide { text-align: center; max-width: 800px; margin: 0 auto; }
+footer { text-align: center; padding: 20px; border-top: 1px solid #1e293b; color: #64748b; }
