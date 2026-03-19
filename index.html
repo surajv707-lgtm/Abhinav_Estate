@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhinav Estates | Premium Real Estate Solutions</title>
+    <title>Abhinav Estates | Premium Property Hub</title>
     
-    <meta name="description" content="Abhinav Estates - Your trusted partner for Residential and Commercial property sales and rentals. Find your dream home or office today.">
-    <meta name="keywords" content="Abhinav Estates, Real Estate, Buy House, Commercial Property, Rent Flat">
+    <meta name="description" content="Abhinav Estates - Buy, Sell, or Rent premium residential and commercial properties with trust.">
+    <meta name="keywords" content="Abhinav Estates, Property Sale, Residential Rent, Commercial Office">
     
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -15,136 +15,104 @@
 
     <header class="navbar">
         <div class="logo">Abhinav Estates</div>
-        <div class="menu-toggle" onclick="openNav()">☰</div>
+        <div class="menu-btn" onclick="openNav()">☰</div>
     </header>
 
-    <nav id="rightNav" class="side-nav">
-        <div class="close-btn" onclick="closeNav()">&times;</div>
-        <ul class="nav-links">
+    <div id="sideNav" class="side-nav">
+        <span class="close-btn" onclick="closeNav()">&times;</span>
+        <ul class="menu-list">
             <li><a href="index.html">Home</a></li>
-            
-            <li class="dropdown">
-                <div class="drop-label" onclick="toggleProject()">Project ▾</div>
-                <ul id="projectMenu" class="submenu">
+            <li class="has-submenu">
+                <div class="menu-label" onclick="toggleItem('projList')">Project ▾</div>
+                <ul id="projList" class="submenu">
                     <li>
-                        <div class="drop-label" onclick="toggleResidential()">Residential ▸</div>
-                        <ul id="resOptions" class="submenu-inner">
+                        <div class="menu-label" onclick="toggleItem('resList', 'commList')">Residential ▸</div>
+                        <ul id="resList" class="submenu-inner">
                             <li><a href="residential-sale.html" target="_blank">Residential Sale</a></li>
                             <li><a href="residential-rent.html" target="_blank">Residential Rent</a></li>
                         </ul>
                     </li>
                     <li>
-                        <div class="drop-label" onclick="toggleCommercial()">Commercial ▸</div>
-                        <ul id="commOptions" class="submenu-inner">
+                        <div class="menu-label" onclick="toggleItem('commList', 'resList')">Commercial ▸</div>
+                        <ul id="commList" class="submenu-inner">
                             <li><a href="commercial-sale.html" target="_blank">Commercial Sale</a></li>
                             <li><a href="commercial-rent.html" target="_blank">Commercial Rent</a></li>
                         </ul>
                     </li>
                 </ul>
             </li>
-
             <li><a href="service.html" target="_blank">Service</a></li>
             <li><a href="about.html" target="_blank">About Us</a></li>
             <li><a href="contact.html" target="_blank">Contact Us</a></li>
-            <li class="btn-container"><a href="list-project.html" class="red-btn" target="_blank">List Project</a></li>
+            <li><a href="list-project.html" class="list-proj-btn" target="_blank">List Project</a></li>
         </ul>
-    </nav>
+    </div>
 
     <section class="hero">
-        <div class="hero-overlay">
-            <div class="search-box-container">
-                <div class="search-tabs">
-                    <button class="tab-btn active" onclick="setSearchType('rent', this)">Rent</button>
-                    <button class="tab-btn" onclick="setSearchType('sale', this)">Sale</button>
-                    <button class="tab-btn" onclick="setSearchType('commercial', this)">Commercial</button>
-                </div>
-                <div class="search-bar">
-                    <input type="text" id="propertySearch" placeholder="Search locality or project...">
-                    <button class="gold-search-btn" onclick="executeSearch()">Search</button>
-                </div>
+        <div class="hero-content">
+            <div class="search-tabs">
+                <button class="tab-btn active" onclick="setMode('rent', this)">Rent</button>
+                <button class="tab-btn" onclick="setMode('sale', this)">Sale</button>
+                <button class="tab-btn" onclick="setMode('comm', this)">Commercial</button>
+            </div>
+            <div class="search-container">
+                <input type="text" id="mainSearch" placeholder="Search for properties...">
+                <button class="gold-btn" onclick="doSearch()">Search</button>
             </div>
         </div>
     </section>
 
     <section class="previews">
-        <div class="p-box pink-light">
-            <h3>Our Services</h3>
-            <p>From legal consulting to property management, we handle it all.</p>
-            <a href="service.html" class="view-all">View All</a>
-        </div>
-        <div class="p-box green-light">
-            <h3>About Us</h3>
-            <p>Abhinav Estates is built on a foundation of trust and transparency.</p>
-            <a href="about.html" class="view-all">View All</a>
-        </div>
-        <div class="p-box blue-light">
-            <h3>Contact Us</h3>
-            <p>Get in touch with our expert agents for a free consultation.</p>
-            <a href="contact.html" class="view-all">View All</a>
-        </div>
+        <div class="box pink"><h3>Service</h3><a href="service.html">View All</a></div>
+        <div class="box green"><h3>About Us</h3><a href="about.html">View All</a></div>
+        <div class="box blue"><h3>Contact Us</h3><a href="contact.html">View All</a></div>
     </section>
 
-    <section class="listing-preview">
-        <h2>Residential Sale Preview</h2>
-        <div class="property-grid">
-            <div class="prop-card">Luxury 3BHK Apartment - ₹1.2 Cr</div>
-            <div class="prop-card">Modern Villa - ₹4.5 Cr</div>
+    <section class="listings">
+        <div class="list-section">
+            <h2>Residential Sale Preview</h2>
+            <div class="card-row"><div class="card">Luxury Flat</div><div class="card">Studio Apt</div></div>
+            <a href="residential-sale.html" class="all-btn">View All</a>
         </div>
-        <a href="residential-sale.html" class="view-all-btn">View All Residential</a>
-    </section>
-
-    <section class="listing-preview yellow-bg">
-        <h2>Commercial Sale Preview</h2>
-        <div class="property-grid">
-            <div class="prop-card">Grade-A Office Space - ₹80L</div>
-            <div class="prop-card">Retail Shop Front - ₹55L</div>
+        <div class="list-section yellow-bg">
+            <h2>Commercial Sale Preview</h2>
+            <div class="card-row"><div class="card">Office Space</div><div class="card">Retail Shop</div></div>
+            <a href="commercial-sale.html" class="all-btn">View All</a>
         </div>
-        <a href="commercial-sale.html" class="view-all-btn">View All Commercial</a>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-info">
-                <h4>Abhinav Estates</h4>
-                <p>Premium Real Estate Services</p>
-                <p>Email: info@abhinavestates.com</p>
-                <p>Phone: +91 9999999999</p>
-            </div>
-            <div class="footer-links">
-                <a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a>
-            </div>
+        <div class="foot-info">
+            <h3>Abhinav Estates</h3>
+            <p>Email: info@abhinavestates.com | +91 9999999999</p>
         </div>
-        <p class="copy">© 2026 Abhinav Estates. All Rights Reserved.</p>
+        <div class="foot-links">
+            <a href="index.html">Home</a> <a href="about.html">About</a> <a href="contact.html">Contact</a>
+        </div>
+        <p>© 2026 Abhinav Estates</p>
     </footer>
 
     <script>
-        let currentSearchType = 'rent';
+        let searchMode = 'rent';
+        function openNav() { document.getElementById("sideNav").style.width = "50%"; }
+        function closeNav() { document.getElementById("sideNav").style.width = "0"; }
 
-        function openNav() { document.getElementById("rightNav").style.width = "50%"; }
-        function closeNav() { document.getElementById("rightNav").style.width = "0"; }
-
-        function toggleProject() { document.getElementById("projectMenu").classList.toggle("active"); }
-        
-        function toggleResidential() {
-            document.getElementById("resOptions").classList.toggle("active");
-            document.getElementById("commOptions").classList.remove("active"); // Exclusive logic
+        function toggleItem(id, siblingId) {
+            if (siblingId) document.getElementById(siblingId).classList.remove("open");
+            document.getElementById(id).classList.toggle("open");
+            event.stopPropagation();
         }
 
-        function toggleCommercial() {
-            document.getElementById("commOptions").classList.toggle("active");
-            document.getElementById("resOptions").classList.remove("active"); // Exclusive logic
-        }
-
-        function setSearchType(type, btn) {
-            currentSearchType = type;
+        function setMode(mode, btn) {
+            searchMode = mode;
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
         }
 
-        function executeSearch() {
-            if (currentSearchType === 'rent') window.open('residential-rent.html', '_blank');
-            else if (currentSearchType === 'sale') window.open('residential-sale.html', '_blank');
-            else if (currentSearchType === 'commercial') window.open('commercial-sale.html', '_blank');
+        function doSearch() {
+            if (searchMode === 'rent') window.open('residential-rent.html', '_blank');
+            else if (searchMode === 'sale') window.open('residential-sale.html', '_blank');
+            else window.open('commercial-sale.html', '_blank');
         }
     </script>
 </body>
