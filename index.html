@@ -1,202 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhinav Estates | Premium Real Estate Buy & Sell</title>
-    
-    <meta name="description" content="Find premium residential and commercial properties with Abhinav Estates. Expert real estate services for buying, selling, and renting.">
-    <meta name="keywords" content="Abhinav Estates, Mumbai Real Estate, Buy 2BHK, Office Space for Sale">
-    
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhinav Estate</title>
+
+<!-- SEO -->
+<meta name="description" content="Abhinav Estate - Buy, Sell, Rent Commercial and Residential Properties">
+<meta name="keywords" content="Real Estate, Property, Rent, Sale, Commercial, Residential">
+<meta name="author" content="Abhinav Estate">
+
+<style>
+
+/* ===== GLOBAL ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(45deg, gold, red, blue, green);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    cursor: pointer;
+}
+
+/* ===== SIDEBAR MENU ===== */
+.sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    width: 260px;
+    height: 100%;
+    background: #111;
+    color: white;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    color: gold;
+}
+
+/* ===== PAGE ===== */
+.page {
+    display: none;
+    padding: 20px;
+}
+
+.active {
+    display: block;
+}
+
+/* ===== HOME PREVIEW BOX ===== */
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 15px;
+}
+
+.preview-box {
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+/* preview colors */
+.box1 {background: purple;}
+.box2 {background: pink;}
+.box3 {background: gray;}
+.box4 {background: goldenrod;}
+
+/* ===== BUTTON ===== */
+.btn {
+    padding: 10px 15px;
+    background: #111;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #111;
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:600px){
+    header {
+        flex-direction: column;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
-    <header class="navbar">
-        <div class="logo">Abhinav Estates</div>
-        <div class="menu-btn" onclick="openNav()">☰</div>
-    </header>
+<header>
+    <h2>Abhinav Estate</h2>
+    <div class="menu" onclick="toggleMenu()">☰ Menu</div>
+</header>
 
-    <div id="sideNav" class="side-nav">
-        <span class="close-btn" onclick="closeNav()">&times;</span>
-        <ul class="menu-list">
-            <li><a href="index.html">Home</a></li>
-            <li class="has-submenu">
-                <div class="menu-label" onclick="toggleItem('projList')">Project ▾</div>
-                <ul id="projList" class="submenu">
-                    <li>
-                        <div class="menu-label" onclick="toggleItem('resList', 'commList')">Residential ▸</div>
-                        <ul id="resList" class="submenu-inner">
-                            <li><a href="residential-sale.html" target="_blank">Residential Sale</a></li>
-                            <li><a href="residential-rent.html" target="_blank">Residential Rent</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="menu-label" onclick="toggleItem('commList', 'resList')">Commercial ▸</div>
-                        <ul id="commList" class="submenu-inner">
-                            <li><a href="commercial-sale.html" target="_blank">Commercial Sale</a></li>
-                            <li><a href="commercial-rent.html" target="_blank">Commercial Rent</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="service.html" target="_blank">Service</a></li>
-            <li><a href="about.html" target="_blank">About Us</a></li>
-            <li><a href="contact.html" target="_blank">Contact Us</a></li>
-            <li><a href="list-project.html" class="list-proj-btn" target="_blank">List Project</a></li>
-        </ul>
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+    <a onclick="openPage('home')">Home</a>
+    <a onclick="openPage('projects')">Projects</a>
+    <a onclick="openPage('commercial')">Commercial</a>
+    <a onclick="openPage('residential')">Residential</a>
+    <a onclick="openPage('services')">Services</a>
+    <a onclick="openPage('about')">About</a>
+    <a onclick="openPage('contact')">Contact</a>
+</div>
+
+<!-- HOME -->
+<div id="home" class="page active">
+    <h1>Welcome to Abhinav Estate</h1>
+
+    <div class="preview-grid">
+        <div class="preview-box box1">
+            <h3>Projects</h3>
+            <p>View all properties</p>
+            <button class="btn" onclick="openPage('projects')">View All</button>
+        </div>
+
+        <div class="preview-box box2">
+            <h3>Commercial</h3>
+            <p>Rent & Sale</p>
+            <button class="btn" onclick="openPage('commercial')">View All</button>
+        </div>
+
+        <div class="preview-box box3">
+            <h3>Residential</h3>
+            <p>Homes & Flats</p>
+            <button class="btn" onclick="openPage('residential')">View All</button>
+        </div>
+
+        <div class="preview-box box4">
+            <h3>Services</h3>
+            <p>What we offer</p>
+            <button class="btn" onclick="openPage('services')">View All</button>
+        </div>
     </div>
+</div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="search-tabs">
-                <button class="tab-btn active" onclick="setMode('rent', this)">Rent</button>
-                <button class="tab-btn" onclick="setMode('sale', this)">Sale</button>
-                <button class="tab-btn" onclick="setMode('comm', this)">Commercial</button>
-            </div>
-            <div class="search-wrapper">
-                <input type="text" id="mainSearch" placeholder="Search Locality, Project...">
-                <button class="gold-inner-btn" onclick="doSearch()">Search</button>
-            </div>
-        </div>
-    </section>
+<!-- PROJECTS -->
+<div id="projects" class="page">
+    <h1>Projects</h1>
+    <button class="btn" onclick="openPage('commercial')">Commercial</button>
+    <button class="btn" onclick="openPage('residential')">Residential</button>
+</div>
 
-    <section class="previews">
-        <div class="box pink">
-            <h3>Our Services</h3>
-            <p>End-to-end property solutions including legal paperwork and loan assistance.</p>
-            <a href="service.html">View Details</a>
-        </div>
-        <div class="box green">
-            <h3>About Us</h3>
-            <p>Trusted for over 10 years in the luxury real estate market with transparent dealings.</p>
-            <a href="about.html">Read Story</a>
-        </div>
-        <div class="box blue">
-            <h3>Contact Us</h3>
-            <p>Available 24/7. Call: +91 9999999999 or Email: info@abhinavestates.com</p>
-            <a href="contact.html">Get in Touch</a>
-        </div>
-    </section>
+<!-- COMMERCIAL -->
+<div id="commercial" class="page">
+    <h1>Commercial</h1>
+    <button class="btn">Rent for Commercial</button>
+    <button class="btn">Sale for Commercial</button>
+</div>
 
-    <section class="listings">
-        <div class="list-section">
-            <h2 class="section-title">Residential Sale Preview</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-left">
-                        <h4>Skyline 2BHK</h4>
-                        <p>📍 Andheri West</p>
-                        <span class="price">₹95 Lakhs</span>
-                    </div>
-                    <div class="card-right">
-                        <p>1250 sqft</p>
-                        <p>Pool View</p>
-                        <button class="call-btn">Contact</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-left">
-                        <h4>Royal Villa</h4>
-                        <p>📍 Juhu</p>
-                        <span class="price">₹5.2 Cr</span>
-                    </div>
-                    <div class="card-right">
-                        <p>4500 sqft</p>
-                        <p>Private Garden</p>
-                        <button class="call-btn">Contact</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-left">
-                        <h4>Green Terrace</h4>
-                        <p>📍 Powai</p>
-                        <span class="price">₹1.8 Cr</span>
-                    </div>
-                    <div class="card-right">
-                        <p>1800 sqft</p>
-                        <p>Near Lake</p>
-                        <button class="call-btn">Contact</button>
-                    </div>
-                </div>
-            </div>
-            <a href="residential-sale.html" class="all-btn">View All Residential</a>
-        </div>
+<!-- RESIDENTIAL -->
+<div id="residential" class="page">
+    <h1>Residential</h1>
+    <button class="btn">Rent for Residential</button>
+    <button class="btn">Sale for Residential</button>
+</div>
 
-        <div class="list-section yellow-tint">
-            <h2 class="section-title">Commercial Sale Preview</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-left">
-                        <h4>Biz Center</h4>
-                        <p>📍 BKC</p>
-                        <span class="price">₹2.5 Cr</span>
-                    </div>
-                    <div class="card-right">
-                        <p>Office Space</p>
-                        <p>High ROI</p>
-                        <button class="call-btn">Enquire</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-left">
-                        <h4>Retail Hub</h4>
-                        <p>📍 Colaba</p>
-                        <span class="price">₹75 Lakhs</span>
-                    </div>
-                    <div class="card-right">
-                        <p>Shop Front</p>
-                        <p>Main Road</p>
-                        <button class="call-btn">Enquire</button>
-                    </div>
-                </div>
-            </div>
-            <a href="commercial-sale.html" class="all-btn">View All Commercial</a>
-        </div>
-    </section>
+<!-- SERVICES -->
+<div id="services" class="page">
+    <h1>Services</h1>
+    <p>Property Buying, Selling, Renting, Consulting</p>
+</div>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="foot-col">
-                <h3>Abhinav Estates</h3>
-                <p>Premium Real Estate Experience.</p>
-                <p>📍 Mumbai, India</p>
-                <p>📞 +91 9999999999</p>
-            </div>
-            <div class="foot-col">
-                <h4>Navigation</h4>
-                <ul class="foot-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="service.html">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="list-project.html">List Project</a></li>
-                </ul>
-            </div>
-        </div>
-        <p class="copy">© 2026 Abhinav Estates</p>
-    </footer>
+<!-- ABOUT -->
+<div id="about" class="page">
+    <h1>About Us</h1>
+    <p>Abhinav Estate provides best real estate solutions.</p>
+</div>
 
-    <script>
-        let searchMode = 'rent';
-        function openNav() { document.getElementById("sideNav").style.width = "50%"; }
-        function closeNav() { document.getElementById("sideNav").style.width = "0"; }
-        function toggleItem(id, siblingId) {
-            if (siblingId) document.getElementById(siblingId).classList.remove("open");
-            document.getElementById(id).classList.toggle("open");
-            event.stopPropagation();
-        }
-        function setMode(mode, btn) {
-            searchMode = mode;
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-        }
-        function doSearch() {
-            if (searchMode === 'rent') window.open('residential-rent.html', '_blank');
-            else if (searchMode === 'sale') window.open('residential-sale.html', '_blank');
-            else window.open('commercial-sale.html', '_blank');
-        }
-    </script>
+<!-- CONTACT -->
+<div id="contact" class="page">
+    <h1>Contact Us</h1>
+    <p>Email: abhinavestate@gmail.com</p>
+    <p>Phone: 9999999999</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Abhinav Estate</p>
+    <p>
+        <a onclick="openPage('home')">Home</a> |
+        <a onclick="openPage('about')">About</a> |
+        <a onclick="openPage('commercial')">Commercial</a> |
+        <a onclick="openPage('residential')">Residential</a>
+    </p>
+</footer>
+
+<script>
+
+/* MENU TOGGLE */
+function toggleMenu(){
+    let menu = document.getElementById("sidebar");
+    menu.style.left = (menu.style.left === "0px") ? "-260px" : "0px";
+}
+
+/* PAGE NAVIGATION */
+function openPage(pageId){
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById(pageId).classList.add("active");
+
+    history.pushState({page: pageId}, "", "#" + pageId);
+}
+
+/* BACK BUTTON LOGIC */
+window.onpopstate = function(event){
+    if(event.state){
+        openPage(event.state.page);
+    } else {
+        // if home then exit
+        window.close();
+    }
+};
+
+</script>
+
 </body>
 </html>
