@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,109 +7,92 @@
 
 <title>Abhinav Estate | Buy Rent Sell Properties</title>
 
-<meta name="description" content="Abhinav Estate offers premium residential and commercial properties for rent and sale. Find flats, offices, and homes easily.">
-<meta name="keywords" content="real estate, flats, rent, sale, commercial property, residential property">
+<meta name="description" content="Abhinav Estate offers best residential and commercial properties for rent and sale with modern flats and offices.">
+<meta name="keywords" content="real estate, flats, rent, sale, commercial, residential">
 <meta name="author" content="Abhinav Estate">
 
 <style>
 
-/* ===== RESET ===== */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
+/* ===== GLOBAL ===== */
 body{
-    font-family: Arial;
-    background:#f4f4f4;
+    margin:0;
+    font-family:Arial;
+    background:#f5f5f5;
 }
 
 /* ===== HEADER ===== */
 header{
-    background: linear-gradient(45deg,gold,red,blue,green);
+    background:linear-gradient(45deg,gold,red,blue,green);
     color:white;
     padding:15px;
     display:flex;
     justify-content:space-between;
-    align-items:center;
 }
 
-.menu-btn{
-    font-size:20px;
-    cursor:pointer;
-}
-
-/* ===== SIDEBAR ===== */
+/* ===== MENU ===== */
 .sidebar{
     position:fixed;
-    left:-250px;
+    left:-260px;
     top:0;
-    width:250px;
+    width:260px;
     height:100%;
     background:#111;
-    padding:20px;
+    color:white;
+    padding:15px;
     transition:0.3s;
-    z-index:1000;
+    overflow:auto;
 }
 
 .sidebar a{
     display:block;
-    color:white;
     padding:10px;
+    color:white;
     text-decoration:none;
 }
 
-.sidebar a:hover{
-    background:gold;
-    color:black;
-}
+.sidebar a:hover{background:gold;color:black;}
+
+.sub{padding-left:15px;font-size:14px}
 
 /* ===== PAGE ===== */
-.page{
-    display:none;
-    padding:20px;
-}
+.page{display:none;padding:20px;}
+.active{display:block}
 
-.active{
-    display:block;
-}
-
-/* ===== CARDS ===== */
+/* ===== PREVIEW ===== */
 .card{
+    background:#eee;
     padding:20px;
     margin:10px 0;
     border-radius:10px;
-    color:white;
 }
 
-.purple{background:purple;}
-.pink{background:pink;color:black;}
-.gray{background:gray;}
-.yellow{background:gold;color:black;}
-
-/* ===== BUTTON ===== */
-.btn{
-    padding:10px;
-    background:black;
-    color:white;
-    border:none;
-    margin-top:10px;
-    cursor:pointer;
-}
-
-/* ===== PROPERTY GRID ===== */
+/* ===== GRID ===== */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
     gap:10px;
 }
 
 .flat{
     background:white;
-    padding:10px;
     border-radius:8px;
-    font-size:14px;
+    overflow:hidden;
+    font-size:12px;
+}
+
+.flat img{
+    width:100%;
+    height:90px;
+    object-fit:cover;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+    padding:8px;
+    background:black;
+    color:white;
+    border:none;
+    margin-top:8px;
 }
 
 /* ===== FOOTER ===== */
@@ -119,12 +103,6 @@ footer{
     margin-top:20px;
 }
 
-/* ===== TEXT ===== */
-p{
-    margin:10px 0;
-    line-height:1.6;
-}
-
 </style>
 </head>
 
@@ -132,15 +110,35 @@ p{
 
 <header>
 <h2>Abhinav Estate</h2>
-<span class="menu-btn" onclick="toggleMenu()">☰</span>
+<span onclick="toggleMenu()">☰</span>
 </header>
 
+<!-- MENU -->
 <div class="sidebar" id="menu">
+
 <a onclick="openPage('home')">Home</a>
-<a onclick="openPage('projects')">Projects</a>
+
+<a onclick="toggleSub('projectMenu')">Projects ▼</a>
+<div id="projectMenu" class="sub" style="display:none;">
+
+<a onclick="toggleSub('commercialMenu')">Commercial ▼</a>
+<div id="commercialMenu" class="sub" style="display:none;">
+<a onclick="openPage('rentCommercial')">Rent Commercial</a>
+<a onclick="openPage('saleCommercial')">Sale Commercial</a>
+</div>
+
+<a onclick="toggleSub('residentialMenu')">Residential ▼</a>
+<div id="residentialMenu" class="sub" style="display:none;">
+<a onclick="openPage('rentResidential')">Rent Residential</a>
+<a onclick="openPage('saleResidential')">Sale Residential</a>
+</div>
+
+</div>
+
 <a onclick="openPage('services')">Services</a>
 <a onclick="openPage('about')">About</a>
 <a onclick="openPage('contact')">Contact</a>
+
 </div>
 
 <!-- HOME -->
@@ -149,74 +147,51 @@ p{
 <h1>Welcome to Abhinav Estate</h1>
 
 <p>
-Abhinav Estate is one of the most trusted real estate platforms where you can explore high-quality residential and commercial properties. 
-We provide the best opportunities for buying, selling, and renting flats, homes, and offices at the most competitive prices.
-Our mission is to make property search simple, transparent, and fast for every user.
+Abhinav Estate provides modern solutions for buying, renting, and selling properties.
+We offer premium flats, apartments, offices, and commercial spaces with verified listings.
+Our platform ensures transparency, trust, and best pricing for all customers.
 </p>
 
-<div class="card purple">
-<h3>Projects</h3>
-<button class="btn" onclick="openPage('projects')">View All</button>
+<div class="card">
+<h3>Commercial Properties</h3>
+<p>Explore offices, shops, and business spaces available for rent and sale.</p>
+<div id="homeCommercial"></div>
 </div>
 
-<div class="card pink">
-<h3>Commercial</h3>
-<button class="btn" onclick="toggleSection('commercialSection')">View Options</button>
-<div id="commercialSection"></div>
-</div>
-
-<div class="card gray">
-<h3>Residential</h3>
-<button class="btn" onclick="toggleSection('residentialSection')">View Options</button>
-<div id="residentialSection"></div>
+<div class="card">
+<h3>Residential Properties</h3>
+<p>Find best flats, apartments, and homes for your family.</p>
+<div id="homeResidential"></div>
 </div>
 
 </div>
 
-<!-- PROJECTS -->
-<div id="projects" class="page">
-<h1>Projects</h1>
-
-<button class="btn" onclick="toggleSection('commercialList')">Commercial</button>
-<div id="commercialList"></div>
-
-<button class="btn" onclick="toggleSection('residentialList')">Residential</button>
-<div id="residentialList"></div>
-
-</div>
+<!-- PROPERTY PAGES -->
+<div id="rentCommercial" class="page"><h2>Rent Commercial</h2><div id="rc"></div></div>
+<div id="saleCommercial" class="page"><h2>Sale Commercial</h2><div id="sc"></div></div>
+<div id="rentResidential" class="page"><h2>Rent Residential</h2><div id="rr"></div></div>
+<div id="saleResidential" class="page"><h2>Sale Residential</h2><div id="sr"></div></div>
 
 <!-- SERVICES -->
 <div id="services" class="page">
 <h1>Services</h1>
-
-<p>
-We provide complete real estate services including property buying, selling, renting, and investment consultation.
-Our expert team ensures that you get the best deal with full transparency and trust.
-</p>
-
+<p>We provide buying, selling, renting, and consulting services.</p>
 </div>
 
 <!-- ABOUT -->
 <div id="about" class="page">
-<h1>About Us</h1>
-
-<p>
-Abhinav Estate is dedicated to providing premium real estate services across residential and commercial sectors.
-We focus on customer satisfaction, reliability, and long-term relationships with our clients.
-</p>
-
+<h1>About</h1>
+<p>We are trusted real estate experts delivering best deals.</p>
 </div>
 
 <!-- CONTACT -->
 <div id="contact" class="page">
-<h1>Contact Us</h1>
+<h1>Contact</h1>
 <p>Email: abhinavestate@gmail.com</p>
-<p>Phone: 9999999999</p>
 </div>
 
 <footer>
-<p>© 2026 Abhinav Estate</p>
-<p>Home | About | Contact</p>
+<p>© Abhinav Estate</p>
 </footer>
 
 <script>
@@ -224,13 +199,23 @@ We focus on customer satisfaction, reliability, and long-term relationships with
 /* MENU */
 function toggleMenu(){
 let m=document.getElementById("menu");
-m.style.left = (m.style.left==="0px")?"-250px":"0px";
+m.style.left=(m.style.left==="0px")?"-260px":"0px";
 }
 
-/* PAGE NAV */
+/* SUB MENU */
+function toggleSub(id){
+let el=document.getElementById(id);
+el.style.display=(el.style.display==="none")?"block":"none";
+}
+
+/* PAGE */
 function openPage(id){
 document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 document.getElementById(id).classList.add("active");
+
+/* CLOSE MENU */
+document.getElementById("menu").style.left="-260px";
+
 history.pushState({page:id},"","#"+id);
 }
 
@@ -239,31 +224,30 @@ window.onpopstate=function(e){
 if(e.state){openPage(e.state.page);}
 }
 
-/* GENERATE 50 FLATS */
-function generateFlats(){
+/* GENERATE FLATS WITH IMAGES */
+function flats(id,count){
 let html='<div class="grid">';
-for(let i=1;i<=50;i++){
-html+=`<div class="flat">Flat ${i}<br>₹${10+i} Lakhs</div>`;
+for(let i=1;i<=count;i++){
+html+=`
+<div class="flat">
+<img src="https://source.unsplash.com/300x200/?apartment,house&sig=${i}">
+<div style="padding:5px">
+Flat ${i}<br>₹${10+i} Lakhs
+</div>
+</div>`;
 }
 html+='</div>';
-return html;
+document.getElementById(id).innerHTML=html;
 }
 
-/* TOGGLE SECTIONS */
-function toggleSection(id){
-let el=document.getElementById(id);
+/* LOAD DATA */
+flats("homeCommercial",6);
+flats("homeResidential",6);
 
-if(el.innerHTML===""){
-el.innerHTML = `
-<h4>Rent</h4>
-${generateFlats()}
-<h4>Sale</h4>
-${generateFlats()}
-`;
-}else{
-el.innerHTML="";
-}
-}
+flats("rc",25);
+flats("sc",25);
+flats("rr",25);
+flats("sr",25);
 
 </script>
 
