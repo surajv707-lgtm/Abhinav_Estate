@@ -1,291 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhinav Estates</title><!-- SEO --><meta name="description" content="Abhinav Estates Mumbai - Buy, Sell, Rent Properties">
+<meta name="keywords" content="real estate Mumbai, flats, rent, buy property"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+body{background:#fff}
 
-<title>Abhinav Estates | Luxury Real Estate Mumbai</title>
+header{display:flex;justify-content:space-between;padding:15px;background:#0a1f44;color:#fff}
+.logo{color:gold;font-weight:700}
 
-<meta name="description" content="Abhinav Estates - Premium real estate in Mumbai. Buy, sell, rent flats, villas, offices & commercial properties.">
-<meta name="keywords" content="Mumbai real estate, buy flats Mumbai, rent property Mumbai, Abhinav Estates">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
-body{background:#fff;color:#111;scroll-behavior:smooth}
-
-/* NAVBAR */
-header{
-position:fixed;width:100%;top:0;
-background:rgba(10,31,68,0.8);
-backdrop-filter:blur(10px);
-color:#fff;
-display:flex;justify-content:space-between;align-items:center;
-padding:15px 20px;z-index:1000;
-}
-
-.logo{color:gold;font-weight:700;font-size:20px}
-
-/* MENU */
+.menu-toggle{font-size:25px;cursor:pointer;display:none}
 nav{display:flex;gap:20px}
 nav a{color:#fff;text-decoration:none}
 
-.menu-toggle{display:none;font-size:25px;cursor:pointer}
-
 @media(max-width:768px){
-nav{
-position:absolute;top:60px;left:0;width:100%;
-background:#0a1f44;flex-direction:column;
-display:none;padding:10px;
-}
+nav{display:none;flex-direction:column;position:absolute;top:60px;background:#0a1f44;width:100%}
 nav.active{display:flex}
 .menu-toggle{display:block}
 }
 
-/* HERO */
-.hero{
-height:100vh;
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1560185127-6ed189bf02f4');
-background-size:cover;
-display:flex;flex-direction:column;justify-content:center;align-items:center;
-color:#fff;text-align:center;
-padding-top:60px;
-}
+.hero{padding:80px;text-align:center;background:#eee}
 
-.hero h1{font-size:45px}
-.hero p{color:gold;margin:10px 0}
+.preview{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:20px}
+.card{border:1px solid #ddd;padding:10px}
 
-/* SEARCH */
-.search-box{
-margin-top:20px;
-display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
-}
+.btn{background:red;color:#fff;padding:10px;display:inline-block;margin-top:10px;text-decoration:none}
 
-.search-box input,select{
-padding:12px;border-radius:5px;border:none;
-}
-
-.search-box button{
-background:red;color:#fff;border:none;padding:12px 20px;
-cursor:pointer;
-}
-
-/* SECTION */
-.section{padding:80px 20px}
-.section h2{text-align:center;color:#0a1f44;margin-bottom:30px}
-
-/* SERVICES */
-.services{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;
-}
-.service{
-padding:20px;background:#f9f9f9;border-left:5px solid gold;
-transition:0.3s;
-}
-.service:hover{transform:translateY(-5px)}
-
-/* PROPERTIES */
-.properties{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;
-}
-
-.card{
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
-transition:0.3s;cursor:pointer;
-background:#fff;
-}
-.card:hover{transform:scale(1.05)}
-
-.card img{width:100%;height:180px;object-fit:cover}
-.card-body{padding:15px}
-.price{color:red;font-weight:bold}
-
-/* MODAL */
-.modal{
-display:none;position:fixed;top:0;left:0;width:100%;height:100%;
-background:rgba(0,0,0,0.7);
-justify-content:center;align-items:center;
-z-index:2000;
-}
-.modal-content{
-background:#fff;padding:20px;max-width:400px;border-radius:10px;
-}
-
-/* CONTACT */
-form{
-max-width:400px;margin:auto;display:flex;flex-direction:column;gap:10px;
-}
-form input,textarea{padding:10px}
-form button{background:#0a1f44;color:#fff;padding:10px;border:none}
-
-/* FLOAT BUTTONS */
-.whatsapp,.call{
-position:fixed;bottom:20px;padding:15px;border-radius:50%;
-color:#fff;text-decoration:none;
-}
-.whatsapp{right:20px;background:green}
-.call{left:20px;background:red}
-
-footer{
-background:#0a1f44;color:#fff;text-align:center;padding:20px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
+</style></head>
+<body><header>
 <div class="logo">Abhinav Estates</div>
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 <nav id="nav">
-<a href="#">Home</a>
-<a href="#services">Services</a>
-<a href="#properties">Properties</a>
-<a href="#contact">Contact</a>
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="properties.html">Properties</a>
+<a href="contact.html">Contact</a>
 </nav>
-</header>
+</header><section class="hero">
+<h1>Luxury Living. Smart Investments.</h1>
+<input id="search" placeholder="Search location">
+<button onclick="goSearch()">Search</button>
+</section><h2 style="text-align:center;margin-top:20px">Property Preview</h2>
+<div class="preview" id="preview"></div><div style="text-align:center">
+<a class="btn" href="properties.html">View All</a>
+</div><script>
 
-<section class="hero">
-<h1>Luxury Living. Smart Investments. Trusted Deals.</h1>
-<p>Premium Real Estate in Mumbai</p>
-
-<div class="search-box">
-<input id="search" placeholder="Location">
-<select id="type">
-<option value="">Type</option>
-<option>Flat</option>
-<option>Villa</option>
-<option>Office</option>
-<option>Shop</option>
-</select>
-<select id="price">
-<option value="">Price</option>
-<option value="low">Under 50L</option>
-<option value="high">Above 50L</option>
-</select>
-<button onclick="filter()">Search</button>
-</div>
-</section>
-
-<section class="section" id="services">
-<h2>Our Services</h2>
-<div class="services">
-<div class="service">Buy Property</div>
-<div class="service">Sell Property</div>
-<div class="service">Rent Property</div>
-<div class="service">Commercial Property</div>
-<div class="service">Residential Property</div>
-<div class="service">Investment Consulting</div>
-<div class="service">Property Management</div>
-</div>
-</section>
-
-<section class="section" id="properties">
-<h2>Featured Properties</h2>
-<div class="properties" id="list"></div>
-</section>
-
-<section class="section" id="contact">
-<h2>Contact Us</h2>
-<form onsubmit="sendWhatsApp(event)">
-<input placeholder="Your Name" required>
-<input placeholder="Your Phone" required>
-<textarea placeholder="Requirement"></textarea>
-<button>Send Enquiry</button>
-</form>
-</section>
-
-<footer>© 2026 Abhinav Estates</footer>
-
-<a class="whatsapp" href="https://wa.me/919172660105">W</a>
-<a class="call" href="tel:9172660105">C</a>
-
-<div class="modal" id="modal" onclick="closeModal()">
-<div class="modal-content" id="modalContent"></div>
-</div>
-
-<script>
-
-// MENU
 function toggleMenu(){
 document.getElementById("nav").classList.toggle("active");
 }
 
-// DATA
-let types=["Flat","Villa","Office","Shop"];
-let locations=["Andheri","Bandra","Thane","Dadar","Navi Mumbai"];
+function goSearch(){
+let val=document.getElementById("search").value;
+window.location.href="properties.html?search="+val;
+}
 
+// SAMPLE DATA
 let data=[];
-for(let i=1;i<=50;i++){
-data.push({
-title:"Luxury Property "+i,
-price:(i*5),
-location:locations[i%5],
-type:types[i%4],
-image:"https://images.unsplash.com/photo-1560185127-6ed189bf02f4"
-});
+for(let i=1;i<=6;i++){
+data.push({title:"Property "+i,location:"Mumbai"});
 }
 
-// SHOW
-function show(arr){
 let html="";
-arr.forEach(p=>{
-html+=`
-<div class="card" onclick='openModal(${JSON.stringify(p)})'>
-<img src="${p.image}">
-<div class="card-body">
-<h4>${p.title}</h4>
-<p>${p.location}</p>
-<p>${p.type}</p>
-<p class="price">₹${p.price} Lakh</p>
-</div>
-</div>`;
+data.forEach(p=>{
+html+=`<div class="card"><h4>${p.title}</h4><p>${p.location}</p></div>`;
 });
-document.getElementById("list").innerHTML=html;
-}
-show(data);
+document.getElementById("preview").innerHTML=html;
 
-// FILTER
-function filter(){
-let s=document.getElementById("search").value.toLowerCase();
-let t=document.getElementById("type").value;
-let pr=document.getElementById("price").value;
-
-let f=data.filter(p=>{
-return p.location.toLowerCase().includes(s)
-&& (t==""||p.type==t)
-&& (pr==""||(pr=="low"?p.price<50:p.price>=50));
-});
-show(f);
-}
-
-// MODAL
-function openModal(p){
-document.getElementById("modal").style.display="flex";
-document.getElementById("modalContent").innerHTML=`
-<h3>${p.title}</h3>
-<img src="${p.image}" style="width:100%">
-<p>${p.location}</p>
-<p>${p.type}</p>
-<p>₹${p.price} Lakh</p>
-`;
-}
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-
-// WHATSAPP FORM
-function sendWhatsApp(e){
-e.preventDefault();
-let text="Hello, I am interested in property.";
-window.open("https://wa.me/919172660105?text="+encodeURIComponent(text));
-}
-
-</script>
-
-</body>
+</script></body>
 </html>
