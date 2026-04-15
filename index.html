@@ -1,15 +1,4 @@
-/* ================== ABHINAV ESTATES - ULTRA PRO SYSTEM ================== */
-
-/* NOTE: This file = index.html (HOME PAGE IMPROVED) I fixed:
-
-UI (premium look)
-
-menu toggle (smooth + clean)
-
-property preview cards (modern)
-
-hero section spacing */
-
+/* ================== ABHINAV ESTATES FINAL HOME (FIXED MENU + PREVIEW) ================== */
 
 <!DOCTYPE html><html lang="en">
 <head>
@@ -17,9 +6,8 @@ hero section spacing */
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abhinav Estates</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"><style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
-body{background:#f5f7fb;color:#111}
+body{background:#f5f7fb}
 
-/* NAVBAR */
 header{
 position:fixed;width:100%;top:0;
 display:flex;justify-content:space-between;align-items:center;
@@ -28,23 +16,25 @@ background:#0a1f44;color:#fff;z-index:1000;
 }
 
 .logo{color:gold;font-size:20px;font-weight:700}
-
 .menu-toggle{font-size:26px;cursor:pointer}
 
+/* SIDE MENU */
 nav{
 position:fixed;top:0;right:-100%;
-width:70%;height:100%;
+width:75%;height:100%;
 background:#0a1f44;
 display:flex;flex-direction:column;
-padding:40px 20px;
+padding:30px 20px;
 transition:0.3s;
 }
+nav.active{right:0}
 
 nav a{color:#fff;text-decoration:none;margin:10px 0;font-size:18px}
 
-nav.active{right:0}
+/* DROPDOWN */
+.submenu{display:none;padding-left:10px}
+.submenu a{font-size:16px;color:#ddd}
 
-/* HERO */
 .hero{
 margin-top:70px;
 padding:60px 20px;
@@ -53,26 +43,11 @@ background:linear-gradient(135deg,#0a1f44,#1c3c78);
 color:#fff;
 }
 
-.hero h1{font-size:32px;line-height:1.4}
-.hero p{color:gold;margin:10px 0}
+.search-box{margin-top:20px}
+.search-box input{padding:10px;width:60%;border:none;border-radius:5px}
+.search-box button{padding:10px;background:red;color:#fff;border:none;border-radius:5px}
 
-.search-box{
-margin-top:20px;
-display:flex;gap:10px;justify-content:center;
-}
-
-.search-box input{
-padding:10px;width:60%;border-radius:5px;border:none;
-}
-
-.search-box button{
-padding:10px 15px;background:red;color:#fff;border:none;border-radius:5px;
-}
-
-/* PREVIEW */
-.section-title{
-text-align:center;margin:30px 0 10px;font-size:22px;font-weight:700
-}
+.section-title{text-align:center;margin:30px 0;font-size:22px}
 
 .preview{
 display:grid;
@@ -85,45 +60,60 @@ background:#fff;
 border-radius:10px;
 padding:15px;
 box-shadow:0 4px 10px rgba(0,0,0,0.08);
-transition:0.3s;
 }
 
-.card:hover{transform:translateY(-5px)}
-
-.card h4{font-size:16px}
-.card p{color:#555;font-size:14px}
-
-/* BUTTON */
 .btn{
-display:inline-block;margin:20px auto;
-background:red;color:#fff;padding:12px 20px;
-border-radius:5px;text-decoration:none;
+display:block;width:80%;margin:20px auto;
+background:red;color:#fff;padding:12px;border-radius:5px;text-align:center;text-decoration:none
 }
-
-.center{text-align:center}
 
 </style></head>
 <body><header>
 <div class="logo">Abhinav Estates</div>
 <div class="menu-toggle" onclick="toggleMenu()">☰</div><nav id="nav">
-<a href="index.html">Home</a>
-<a href="properties.html">Properties</a>
-<a href="services.html">Services</a>
-<a href="contact.html">Contact</a>
+<a href="index.html">Home</a><a onclick="toggleSubmenu('projectMenu')">Projects ▼</a>
+
+<div id="projectMenu" class="submenu"><a onclick="toggleSubmenu('commercialMenu')">Commercial ▼</a>
+
+<div id="commercialMenu" class="submenu">
+<a href="properties.html?type=commercial&mode=rent">Rent for Commercial</a>
+<a href="properties.html?type=commercial&mode=sale">Sale for Commercial</a>
+</div><a onclick="toggleSubmenu('residentialMenu')">Residential ▼</a>
+
+<div id="residentialMenu" class="submenu">
+<a href="properties.html?type=residential&mode=rent">Rent for Residential</a>
+<a href="properties.html?type=residential&mode=sale">Sale for Residential</a>
+</div></div><a href="services.html">Services</a> <a href="contact.html">Contact</a>
+
 </nav>
 </header><section class="hero">
-<h1>Luxury Living. Smart Investments.</h1>
-<p>Trusted Real Estate in Mumbai</p><div class="search-box">
+<h1>Luxury Living. Smart Investments.</h1><div class="search-box">
 <input id="search" placeholder="Search location">
 <button onclick="goSearch()">Search</button>
 </div>
-</section><h2 class="section-title">Property Preview</h2>
-<div class="preview" id="preview"></div><div class="center">
-<a class="btn" href="properties.html">View All Properties</a>
-</div><script>
+</section><!-- PROPERTY PREVIEW --><h2 class="section-title">Property Preview</h2>
+<div class="preview" id="preview"></div>
+<a class="btn" href="properties.html">View All Properties</a><!-- SERVICES PREVIEW --><h2 class="section-title">Services Preview</h2>
+<div class="preview">
+<div class="card">Buy Property</div>
+<div class="card">Sell Property</div>
+<div class="card">Rent Property</div>
+<div class="card">Investment Consulting</div>
+</div>
+<a class="btn" href="services.html">View All Services</a><!-- CONTACT PREVIEW --><h2 class="section-title">Contact Us</h2>
+<div class="preview">
+<div class="card">📞 9172660105</div>
+<div class="card">📍 Mumbai</div>
+</div>
+<a class="btn" href="contact.html">Go to Contact</a><script>
 
 function toggleMenu(){
 document.getElementById("nav").classList.toggle("active");
+}
+
+function toggleSubmenu(id){
+let el=document.getElementById(id);
+el.style.display = el.style.display === "block" ? "none" : "block";
 }
 
 function goSearch(){
@@ -131,7 +121,7 @@ let val=document.getElementById("search").value;
 window.location.href="properties.html?search="+val;
 }
 
-// SAMPLE PREVIEW
+// SAMPLE PROPERTY PREVIEW
 let data=[];
 for(let i=1;i<=6;i++){
 data.push({title:"Luxury Property "+i,location:"Mumbai"});
@@ -145,18 +135,4 @@ html+=`<div class="card"><h4>${p.title}</h4><p>${p.location}</p></div>`;
 document.getElementById("preview").innerHTML=html;
 
 </script></body>
-</html>/* ================= NEXT STEP ================= I will now create:
-
-1. properties.html (full logic + filters + URL search)
-
-
-2. services.html (premium UI)
-
-
-3. contact.html (form + WhatsApp + Firebase)
-
-
-4. Firebase backend setup */
-
-
-
+</html>
