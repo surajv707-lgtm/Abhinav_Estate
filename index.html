@@ -1,49 +1,125 @@
+/* ================== ABHINAV ESTATES - ULTRA PRO SYSTEM ================== */
+
+/* NOTE: This file = index.html (HOME PAGE IMPROVED) I fixed:
+
+UI (premium look)
+
+menu toggle (smooth + clean)
+
+property preview cards (modern)
+
+hero section spacing */
+
+
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abhinav Estates</title><!-- SEO --><meta name="description" content="Abhinav Estates Mumbai - Buy, Sell, Rent Properties">
-<meta name="keywords" content="real estate Mumbai, flats, rent, buy property"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"><style>
+<title>Abhinav Estates</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"><style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
-body{background:#fff}
+body{background:#f5f7fb;color:#111}
 
-header{display:flex;justify-content:space-between;padding:15px;background:#0a1f44;color:#fff}
-.logo{color:gold;font-weight:700}
-
-.menu-toggle{font-size:25px;cursor:pointer;display:none}
-nav{display:flex;gap:20px}
-nav a{color:#fff;text-decoration:none}
-
-@media(max-width:768px){
-nav{display:none;flex-direction:column;position:absolute;top:60px;background:#0a1f44;width:100%}
-nav.active{display:flex}
-.menu-toggle{display:block}
+/* NAVBAR */
+header{
+position:fixed;width:100%;top:0;
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 20px;
+background:#0a1f44;color:#fff;z-index:1000;
 }
 
-.hero{padding:80px;text-align:center;background:#eee}
+.logo{color:gold;font-size:20px;font-weight:700}
 
-.preview{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:20px}
-.card{border:1px solid #ddd;padding:10px}
+.menu-toggle{font-size:26px;cursor:pointer}
 
-.btn{background:red;color:#fff;padding:10px;display:inline-block;margin-top:10px;text-decoration:none}
+nav{
+position:fixed;top:0;right:-100%;
+width:70%;height:100%;
+background:#0a1f44;
+display:flex;flex-direction:column;
+padding:40px 20px;
+transition:0.3s;
+}
+
+nav a{color:#fff;text-decoration:none;margin:10px 0;font-size:18px}
+
+nav.active{right:0}
+
+/* HERO */
+.hero{
+margin-top:70px;
+padding:60px 20px;
+text-align:center;
+background:linear-gradient(135deg,#0a1f44,#1c3c78);
+color:#fff;
+}
+
+.hero h1{font-size:32px;line-height:1.4}
+.hero p{color:gold;margin:10px 0}
+
+.search-box{
+margin-top:20px;
+display:flex;gap:10px;justify-content:center;
+}
+
+.search-box input{
+padding:10px;width:60%;border-radius:5px;border:none;
+}
+
+.search-box button{
+padding:10px 15px;background:red;color:#fff;border:none;border-radius:5px;
+}
+
+/* PREVIEW */
+.section-title{
+text-align:center;margin:30px 0 10px;font-size:22px;font-weight:700
+}
+
+.preview{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:15px;padding:15px;
+}
+
+.card{
+background:#fff;
+border-radius:10px;
+padding:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{transform:translateY(-5px)}
+
+.card h4{font-size:16px}
+.card p{color:#555;font-size:14px}
+
+/* BUTTON */
+.btn{
+display:inline-block;margin:20px auto;
+background:red;color:#fff;padding:12px 20px;
+border-radius:5px;text-decoration:none;
+}
+
+.center{text-align:center}
 
 </style></head>
 <body><header>
 <div class="logo">Abhinav Estates</div>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-<nav id="nav">
+<div class="menu-toggle" onclick="toggleMenu()">☰</div><nav id="nav">
 <a href="index.html">Home</a>
-<a href="services.html">Services</a>
 <a href="properties.html">Properties</a>
+<a href="services.html">Services</a>
 <a href="contact.html">Contact</a>
 </nav>
 </header><section class="hero">
 <h1>Luxury Living. Smart Investments.</h1>
+<p>Trusted Real Estate in Mumbai</p><div class="search-box">
 <input id="search" placeholder="Search location">
 <button onclick="goSearch()">Search</button>
-</section><h2 style="text-align:center;margin-top:20px">Property Preview</h2>
-<div class="preview" id="preview"></div><div style="text-align:center">
-<a class="btn" href="properties.html">View All</a>
+</div>
+</section><h2 class="section-title">Property Preview</h2>
+<div class="preview" id="preview"></div><div class="center">
+<a class="btn" href="properties.html">View All Properties</a>
 </div><script>
 
 function toggleMenu(){
@@ -55,17 +131,32 @@ let val=document.getElementById("search").value;
 window.location.href="properties.html?search="+val;
 }
 
-// SAMPLE DATA
+// SAMPLE PREVIEW
 let data=[];
 for(let i=1;i<=6;i++){
-data.push({title:"Property "+i,location:"Mumbai"});
+data.push({title:"Luxury Property "+i,location:"Mumbai"});
 }
 
 let html="";
 data.forEach(p=>{
 html+=`<div class="card"><h4>${p.title}</h4><p>${p.location}</p></div>`;
 });
+
 document.getElementById("preview").innerHTML=html;
 
 </script></body>
-</html>
+</html>/* ================= NEXT STEP ================= I will now create:
+
+1. properties.html (full logic + filters + URL search)
+
+
+2. services.html (premium UI)
+
+
+3. contact.html (form + WhatsApp + Firebase)
+
+
+4. Firebase backend setup */
+
+
+
