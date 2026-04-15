@@ -1,5 +1,3 @@
-/* ================== ABHINAV ESTATES FINAL HOME (FIXED MENU + PREVIEW) ================== */
-
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,14 +6,15 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
 body{background:#f5f7fb}
 
+/* HEADER */
 header{
-position:fixed;width:100%;top:0;
+position:fixed;top:0;width:100%;
 display:flex;justify-content:space-between;align-items:center;
 padding:15px 20px;
-background:#0a1f44;color:#fff;z-index:1000;
+background:linear-gradient(90deg,#0a1f44,#1c3c78);
+z-index:1000;color:#fff;
 }
-
-.logo{color:gold;font-size:20px;font-weight:700}
+.logo{color:gold;font-size:22px;font-weight:700}
 .menu-toggle{font-size:26px;cursor:pointer}
 
 /* SIDE MENU */
@@ -23,48 +22,72 @@ nav{
 position:fixed;top:0;right:-100%;
 width:75%;height:100%;
 background:#0a1f44;
-display:flex;flex-direction:column;
 padding:30px 20px;
 transition:0.3s;
+overflow-y:auto;
 }
 nav.active{right:0}
 
-nav a{color:#fff;text-decoration:none;margin:10px 0;font-size:18px}
-
-/* DROPDOWN */
-.submenu{display:none;padding-left:10px}
-.submenu a{font-size:16px;color:#ddd}
-
-.hero{
-margin-top:70px;
-padding:60px 20px;
-text-align:center;
-background:linear-gradient(135deg,#0a1f44,#1c3c78);
-color:#fff;
+nav a{
+color:#fff;text-decoration:none;
+display:block;padding:10px 0;font-size:18px;
 }
 
-.search-box{margin-top:20px}
-.search-box input{padding:10px;width:60%;border:none;border-radius:5px}
-.search-box button{padding:10px;background:red;color:#fff;border:none;border-radius:5px}
+.submenu{display:none;padding-left:15px}
+.submenu a{font-size:16px;color:#ccc}
 
-.section-title{text-align:center;margin:30px 0;font-size:22px}
+/* HERO FIX (REMOVED GAP + IMAGE BG) */
+.hero{
+margin-top:60px;
+height:90vh;
+background:linear-gradient(rgba(10,31,68,0.7),rgba(10,31,68,0.7)),
+url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
+background-size:cover;
+background-position:center;
+display:flex;flex-direction:column;justify-content:center;align-items:center;
+text-align:center;color:#fff;padding:20px;
+}
 
+.hero h1{font-size:32px;line-height:1.4}
+.hero p{color:gold;margin:10px 0}
+
+.search-box{
+display:flex;gap:10px;margin-top:15px
+}
+.search-box input{padding:12px;border:none;border-radius:5px;width:200px}
+.search-box button{padding:12px;background:red;color:#fff;border:none;border-radius:5px}
+
+/* SECTION */
+.section-title{
+text-align:center;margin:30px 0;font-size:24px;font-weight:700
+}
+
+/* PROPERTY CARDS WITH IMAGE */
 .preview{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+grid-template-columns:repeat(2,1fr);
 gap:15px;padding:15px;
 }
 
 .card{
 background:#fff;
-border-radius:10px;
-padding:15px;
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
+.card img{
+width:100%;height:120px;object-fit:cover;
+}
+
+.card-body{padding:10px}
+.card h4{font-size:15px}
+.card p{color:#666;font-size:13px}
+
 .btn{
-display:block;width:80%;margin:20px auto;
-background:red;color:#fff;padding:12px;border-radius:5px;text-align:center;text-decoration:none
+display:block;width:85%;margin:20px auto;
+background:linear-gradient(90deg,red,#ff4d4d);
+color:#fff;padding:12px;border-radius:8px;text-align:center;text-decoration:none
 }
 
 </style></head>
@@ -87,25 +110,14 @@ background:red;color:#fff;padding:12px;border-radius:5px;text-align:center;text-
 
 </nav>
 </header><section class="hero">
-<h1>Luxury Living. Smart Investments.</h1><div class="search-box">
+<h1>Luxury Living. Smart Investments.</h1>
+<p>Premium Real Estate in Mumbai</p><div class="search-box">
 <input id="search" placeholder="Search location">
 <button onclick="goSearch()">Search</button>
 </div>
-</section><!-- PROPERTY PREVIEW --><h2 class="section-title">Property Preview</h2>
+</section><h2 class="section-title">Property Preview</h2>
 <div class="preview" id="preview"></div>
-<a class="btn" href="properties.html">View All Properties</a><!-- SERVICES PREVIEW --><h2 class="section-title">Services Preview</h2>
-<div class="preview">
-<div class="card">Buy Property</div>
-<div class="card">Sell Property</div>
-<div class="card">Rent Property</div>
-<div class="card">Investment Consulting</div>
-</div>
-<a class="btn" href="services.html">View All Services</a><!-- CONTACT PREVIEW --><h2 class="section-title">Contact Us</h2>
-<div class="preview">
-<div class="card">📞 9172660105</div>
-<div class="card">📍 Mumbai</div>
-</div>
-<a class="btn" href="contact.html">Go to Contact</a><script>
+<a class="btn" href="properties.html">View All Properties</a><script>
 
 function toggleMenu(){
 document.getElementById("nav").classList.toggle("active");
@@ -121,15 +133,26 @@ let val=document.getElementById("search").value;
 window.location.href="properties.html?search="+val;
 }
 
-// SAMPLE PROPERTY PREVIEW
+// PROPERTY WITH IMAGE
 let data=[];
 for(let i=1;i<=6;i++){
-data.push({title:"Luxury Property "+i,location:"Mumbai"});
+data.push({
+title:"Luxury Property "+i,
+location:"Mumbai",
+image:"https://images.unsplash.com/photo-1560185127-6ed189bf02f4"
+});
 }
 
 let html="";
 data.forEach(p=>{
-html+=`<div class="card"><h4>${p.title}</h4><p>${p.location}</p></div>`;
+html+=`
+<div class="card">
+<img src="${p.image}">
+<div class="card-body">
+<h4>${p.title}</h4>
+<p>${p.location}</p>
+</div>
+</div>`;
 });
 
 document.getElementById("preview").innerHTML=html;
