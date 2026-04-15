@@ -1,261 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Abhinav Estates | Luxury Real Estate in Mumbai</title>
-
-<meta name="description" content="Buy, Sell, Rent premium properties in Mumbai with Abhinav Estates. Best deals on flats, offices, villas and commercial spaces.">
-<meta name="keywords" content="real estate Mumbai, buy flats Mumbai, rent property Mumbai, commercial property Mumbai, Abhinav Estates">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
-body{background:#fff;color:#111;}
-
-header{
-background:#0a1f44;
-color:#fff;
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;top:0;z-index:1000;
-}
-
-.logo{
-font-size:22px;
-font-weight:700;
-color:gold;
-}
-
-nav ul{display:flex;list-style:none;gap:20px;}
-nav a{color:#fff;text-decoration:none;}
-
-.hero{
-height:80vh;
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1560185127-6ed189bf02f4');
-background-size:cover;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-color:#fff;
-text-align:center;
-}
-
-.hero h1{font-size:40px;}
-.hero p{margin:10px 0;}
-
-.search-box{
-margin-top:20px;
-display:flex;
-gap:10px;
-}
-
-.search-box input, .search-box select{
-padding:10px;
-border:none;
-border-radius:5px;
-}
-
-.search-box button{
-background:red;
-color:#fff;
-border:none;
-padding:10px 20px;
-cursor:pointer;
-}
-
-.section{
-padding:50px 40px;
-}
-
-.section h2{
-text-align:center;
-margin-bottom:30px;
-color:#0a1f44;
-}
-
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-}
-
-.service{
-padding:20px;
-background:#f9f9f9;
-border-left:5px solid gold;
-}
-
-.properties{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-border:1px solid #ddd;
-border-radius:10px;
-overflow:hidden;
-transition:0.3s;
-}
-
-.card:hover{transform:scale(1.05);}
-
-.card img{width:100%;height:150px;object-fit:cover;}
-
-.card-body{padding:10px;}
-
-.price{color:red;font-weight:bold;}
-
-footer{
-background:#0a1f44;
-color:#fff;
-padding:20px;
-text-align:center;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:green;
-color:#fff;
-padding:15px;
-border-radius:50%;
-text-decoration:none;
-}
-
-.call{
-position:fixed;
-bottom:20px;
-left:20px;
-background:red;
-color:#fff;
-padding:15px;
-border-radius:50%;
-text-decoration:none;
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
+<title>Abhinav Estates | Premium Properties in Mumbai</title>
+<meta name="description" content="Find the best residential and commercial properties in Mumbai with Abhinav Estates. Buy, sell or rent premium properties.">
+<meta name="keywords" content="Mumbai real estate, flats in Mumbai, 2BHK Mumbai, commercial property Mumbai, property for sale Mumbai"><style>
+body{margin:0;font-family:Arial;background:#fff;color:#222}
+header{background:#0b3d91;color:#fff;padding:15px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:bold;color:gold}
+nav a{color:#fff;margin:0 10px;text-decoration:none}
+.hero{padding:60px;text-align:center;background:linear-gradient(to right,#0b3d91,#b8860b);color:#fff}
+.section{padding:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{border:1px solid #ddd;border-radius:10px;padding:10px}
+.btn{background:#0b3d91;color:#fff;padding:10px;border:none;cursor:pointer}
+footer{background:#222;color:#fff;text-align:center;padding:20px}
+</style></head><body><header>
 <div class="logo">Abhinav Estates</div>
 <nav>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#properties">Properties</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
 </nav>
-</header>
-
-<section class="hero">
+</header><section class="hero" id="home">
 <h1>Find Your Dream Property in Mumbai</h1>
-<p>Luxury Living. Smart Investments. Trusted Deals.</p>
-
-<div class="search-box">
-<input type="text" id="search" placeholder="Search location">
-<select id="type">
-<option value="">Type</option>
-<option>Flat</option>
-<option>Villa</option>
-<option>Office</option>
-<option>Shop</option>
-</select>
-<button onclick="filter()">Search</button>
-</div>
-</section>
-
-<section class="section" id="services">
-<h2>Our Services</h2>
-<div class="services">
-<div class="service">Buy Property</div>
-<div class="service">Sell Property</div>
-<div class="service">Rent Property</div>
-<div class="service">Commercial Property</div>
-<div class="service">Residential Property</div>
-<div class="service">Investment Consulting</div>
-<div class="service">Property Management</div>
-</div>
-</section>
-
-<section class="section" id="properties">
+<p>Luxury Living | Smart Investments | Trusted Deals</p>
+<input type="text" id="search" placeholder="Search properties...">
+</section><section class="section">
 <h2>Featured Properties</h2>
-<div class="properties" id="propertyList"></div>
-</section>
-
-<section class="section" id="contact">
+<div class="grid" id="properties"></div>
+</section><section class="section" id="services">
+<h2>Our Services</h2>
+<ul>
+<li>Residential Rent & Sale</li>
+<li>Commercial Rent & Sale</li>
+<li>Property Management</li>
+<li>Consultation</li>
+</ul>
+</section><section class="section" id="about">
+<h2>About Us</h2>
+<p>Abhinav Estates is a modern real estate company in Mumbai providing premium residential and commercial property solutions.</p>
+</section><section class="section" id="contact">
 <h2>Contact Us</h2>
-<p style="text-align:center;">📞 9172660105 | Mumbai</p>
-</section>
-
-<footer>
-© 2026 Abhinav Estates | All Rights Reserved
-</footer>
-
-<a class="whatsapp" href="https://wa.me/919172660105">W</a>
-<a class="call" href="tel:9172660105">C</a>
-
-<script>
-
-// 50 SAMPLE PROPERTIES
+<p>Phone: 9172660105</p>
+<form>
+<input placeholder="Name"><br><br>
+<input placeholder="Phone"><br><br>
+<textarea placeholder="Message"></textarea><br><br>
+<button class="btn">Send</button>
+</form>
+</section><footer>
+<p>© 2026 Abhinav Estates | All Rights Reserved</p>
+</footer><script>
 const properties = [];
-
-const types = ["Flat","Villa","Office","Shop"];
-const locations = ["Andheri","Bandra","Navi Mumbai","Thane","Dadar"];
 
 for(let i=1;i<=50;i++){
 properties.push({
-title:"Property "+i,
-price:"₹"+(20+i)+" Lakh",
-location:locations[i%5],
-type:types[i%4],
-image:"https://images.unsplash.com/photo-1560185127-6ed189bf02f4"
+name:`Property ${i}`,
+price:`₹${(i+1)*10} Lakhs`,
+location:"Mumbai",
 });
 }
 
+const container = document.getElementById("properties");
+
 function display(data){
-let html="";
+container.innerHTML="";
 data.forEach(p=>{
-html+=`
-<div class="card">
-<img src="${p.image}">
-<div class="card-body">
-<h4>${p.title}</h4>
+container.innerHTML+=`
+<div class='card'>
+<h3>${p.name}</h3>
+<p>${p.price}</p>
 <p>${p.location}</p>
-<p>${p.type}</p>
-<p class="price">${p.price}</p>
-</div>
+<button class='btn'>Contact</button>
 </div>`;
 });
-document.getElementById("propertyList").innerHTML=html;
 }
 
 display(properties);
 
-function filter(){
-let search=document.getElementById("search").value.toLowerCase();
-let type=document.getElementById("type").value;
-
-let filtered=properties.filter(p=>
-p.location.toLowerCase().includes(search) &&
-(type==="" || p.type===type)
-);
-
-display(filtered);
-}
-
-</script>
-
-</body>
+document.getElementById("search").addEventListener("input",e=>{
+const val=e.target.value.toLowerCase();
+display(properties.filter(p=>p.name.toLowerCase().includes(val)));
+});
+</script></body>
 </html>
