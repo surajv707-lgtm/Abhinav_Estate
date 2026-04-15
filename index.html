@@ -1,88 +1,307 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abhinav Estates | Premium Properties in Mumbai</title>
-<meta name="description" content="Find the best residential and commercial properties in Mumbai with Abhinav Estates. Buy, sell or rent premium properties.">
-<meta name="keywords" content="Mumbai real estate, flats in Mumbai, 2BHK Mumbai, commercial property Mumbai, property for sale Mumbai"><style>
-body{margin:0;font-family:Arial;background:#fff;color:#222}
-header{background:#0b3d91;color:#fff;padding:15px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:22px;font-weight:bold;color:gold}
-nav a{color:#fff;margin:0 10px;text-decoration:none}
-.hero{padding:60px;text-align:center;background:linear-gradient(to right,#0b3d91,#b8860b);color:#fff}
-.section{padding:40px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{border:1px solid #ddd;border-radius:10px;padding:10px}
-.btn{background:#0b3d91;color:#fff;padding:10px;border:none;cursor:pointer}
-footer{background:#222;color:#fff;text-align:center;padding:20px}
-</style></head><body><header>
+
+<title>Abhinav Estates | Premium Real Estate Mumbai</title>
+
+<meta name="description" content="Abhinav Estates - Buy, Sell, Rent residential and commercial properties in Mumbai. Premium deals & trusted service.">
+<meta name="keywords" content="real estate Mumbai, flats in Mumbai, property buy sell rent Mumbai, Abhinav Estates">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
+body{background:#fff;color:#111;scroll-behavior:smooth}
+
+/* NAVBAR */
+header{
+background:#0a1f44;
+color:#fff;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;top:0;z-index:1000;
+}
+
+.logo{color:gold;font-weight:700;font-size:20px}
+
+nav{display:flex;gap:20px}
+nav a{color:#fff;text-decoration:none}
+
+/* MOBILE MENU */
+.menu-toggle{display:none;font-size:25px;cursor:pointer}
+
+@media(max-width:768px){
+nav{
+position:absolute;
+top:60px;left:0;width:100%;
+background:#0a1f44;
+flex-direction:column;
+display:none;
+}
+nav.active{display:flex}
+.menu-toggle{display:block}
+}
+
+/* HERO */
+.hero{
+height:85vh;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('https://images.unsplash.com/photo-1560185127-6ed189bf02f4');
+background-size:cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:#fff;text-align:center;
+}
+
+.hero h1{font-size:40px}
+.hero p{margin:10px 0;color:gold}
+
+/* SEARCH */
+.search-box{
+margin-top:20px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.search-box input,select{
+padding:10px;border:none;border-radius:5px;
+}
+
+.search-box button{
+background:red;color:#fff;border:none;padding:10px 20px;
+}
+
+/* SECTIONS */
+.section{padding:50px 20px}
+.section h2{text-align:center;color:#0a1f44;margin-bottom:30px}
+
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.service{
+padding:20px;background:#f9f9f9;
+border-left:5px solid gold;
+}
+
+/* PROPERTIES */
+.properties{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+cursor:pointer;
+}
+
+.card img{width:100%;height:160px;object-fit:cover}
+.card-body{padding:10px}
+.price{color:red;font-weight:bold}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;align-items:center;
+}
+
+.modal-content{
+background:#fff;
+padding:20px;
+max-width:400px;
+}
+
+/* BUTTONS */
+.whatsapp,.call{
+position:fixed;
+bottom:20px;
+padding:15px;border-radius:50%;color:#fff;text-decoration:none;
+}
+.whatsapp{right:20px;background:green}
+.call{left:20px;background:red}
+
+footer{
+background:#0a1f44;color:#fff;text-align:center;padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
 <div class="logo">Abhinav Estates</div>
-<nav>
-<a href="#home">Home</a>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<nav id="nav">
+<a href="#">Home</a>
+
+<!-- DROPDOWN -->
+<div>
+<a href="#">Projects ▼</a>
+<div>
+<a href="#">Commercial → Rent</a>
+<a href="#">Commercial → Sale</a>
+<a href="#">Residential → Rent</a>
+<a href="#">Residential → Sale</a>
+</div>
+</div>
+
 <a href="#services">Services</a>
-<a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
-</header><section class="hero" id="home">
-<h1>Find Your Dream Property in Mumbai</h1>
-<p>Luxury Living | Smart Investments | Trusted Deals</p>
-<input type="text" id="search" placeholder="Search properties...">
-</section><section class="section">
-<h2>Featured Properties</h2>
-<div class="grid" id="properties"></div>
-</section><section class="section" id="services">
-<h2>Our Services</h2>
-<ul>
-<li>Residential Rent & Sale</li>
-<li>Commercial Rent & Sale</li>
-<li>Property Management</li>
-<li>Consultation</li>
-</ul>
-</section><section class="section" id="about">
-<h2>About Us</h2>
-<p>Abhinav Estates is a modern real estate company in Mumbai providing premium residential and commercial property solutions.</p>
-</section><section class="section" id="contact">
-<h2>Contact Us</h2>
-<p>Phone: 9172660105</p>
-<form>
-<input placeholder="Name"><br><br>
-<input placeholder="Phone"><br><br>
-<textarea placeholder="Message"></textarea><br><br>
-<button class="btn">Send</button>
-</form>
-</section><footer>
-<p>© 2026 Abhinav Estates | All Rights Reserved</p>
-</footer><script>
-const properties = [];
+</header>
 
+<!-- HERO -->
+<section class="hero">
+<h1>Luxury Living. Smart Investments.</h1>
+<p>Trusted Real Estate Partner in Mumbai</p>
+
+<div class="search-box">
+<input id="search" placeholder="Location">
+<select id="type">
+<option value="">Type</option>
+<option>Flat</option>
+<option>Villa</option>
+<option>Office</option>
+<option>Shop</option>
+</select>
+<select id="price">
+<option value="">Price</option>
+<option value="low">Under 50L</option>
+<option value="high">Above 50L</option>
+</select>
+<button onclick="filter()">Search</button>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+<h2>Our Services</h2>
+<div class="services">
+<div class="service">Buy Property</div>
+<div class="service">Sell Property</div>
+<div class="service">Rent Property</div>
+<div class="service">Commercial Property</div>
+<div class="service">Residential Property</div>
+<div class="service">Investment Consulting</div>
+<div class="service">Property Management</div>
+</div>
+</section>
+
+<!-- PROPERTIES -->
+<section class="section">
+<h2>Featured Properties</h2>
+<div class="properties" id="list"></div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+<h2>Contact</h2>
+<p style="text-align:center">📞 9172660105 | Mumbai</p>
+</section>
+
+<footer>© Abhinav Estates</footer>
+
+<a class="whatsapp" href="https://wa.me/919172660105">W</a>
+<a class="call" href="tel:9172660105">C</a>
+
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="closeModal()">
+<div class="modal-content" id="modalContent"></div>
+</div>
+
+<script>
+
+// MENU TOGGLE
+function toggleMenu(){
+document.getElementById("nav").classList.toggle("active");
+}
+
+// DATA
+let types=["Flat","Villa","Office","Shop"];
+let locations=["Andheri","Bandra","Thane","Dadar","Navi Mumbai"];
+
+let data=[];
 for(let i=1;i<=50;i++){
-properties.push({
-name:`Property ${i}`,
-price:`₹${(i+1)*10} Lakhs`,
-location:"Mumbai",
+data.push({
+title:"Property "+i,
+price: (i*5)+" Lakh",
+location:locations[i%5],
+type:types[i%4],
+image:"https://images.unsplash.com/photo-1560185127-6ed189bf02f4"
 });
 }
 
-const container = document.getElementById("properties");
-
-function display(data){
-container.innerHTML="";
-data.forEach(p=>{
-container.innerHTML+=`
-<div class='card'>
-<h3>${p.name}</h3>
-<p>${p.price}</p>
+// DISPLAY
+function show(arr){
+let html="";
+arr.forEach(p=>{
+html+=`
+<div class="card" onclick='openModal(${JSON.stringify(p)})'>
+<img src="${p.image}">
+<div class="card-body">
+<h4>${p.title}</h4>
 <p>${p.location}</p>
-<button class='btn'>Contact</button>
+<p>${p.type}</p>
+<p class="price">₹${p.price}</p>
+</div>
 </div>`;
 });
+document.getElementById("list").innerHTML=html;
+}
+show(data);
+
+// FILTER
+function filter(){
+let s=document.getElementById("search").value.toLowerCase();
+let t=document.getElementById("type").value;
+let pr=document.getElementById("price").value;
+
+let f=data.filter(p=>{
+let price=parseInt(p.price);
+return p.location.toLowerCase().includes(s)
+&& (t=="" || p.type==t)
+&& (pr=="" || (pr=="low"?price<50:price>=50));
+});
+
+show(f);
 }
 
-display(properties);
+// MODAL
+function openModal(p){
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalContent").innerHTML=`
+<h3>${p.title}</h3>
+<img src="${p.image}" style="width:100%">
+<p>${p.location}</p>
+<p>${p.type}</p>
+<p>₹${p.price}</p>
+`;
+}
 
-document.getElementById("search").addEventListener("input",e=>{
-const val=e.target.value.toLowerCase();
-display(properties.filter(p=>p.name.toLowerCase().includes(val)));
-});
-</script></body>
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+</script>
+
+</body>
 </html>
