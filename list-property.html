@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Property | Abhinav Estates Mumbai</title>
+    <meta name="description"
+        content="List your premium Mumbai property with Abhinav Estates. 33+ years of trust and 45k+ properties listed.">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="list-property.css">
+    <!-- <link rel="icon" href="favicon.ico"> -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    
+<script>
+
+const supabaseUrl =
+"https://uxgnlacknghrxmuzjxzu.supabase.co";
+
+const supabaseKey =
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV4Z25sYWNrbmdocnhtdXpqeHp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzNTAxNDgsImV4cCI6MjA5NDkyNjE0OH0.C70S14_Byz5INTtEzt1oOhM2PYkB4oqE-h3g2GMj7FY";
+
+const supabaseClient =
+window.supabase.createClient(
+supabaseUrl,
+supabaseKey
+);
+
+</script>
+
+
+
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="container flex-between">
+
+            <a href="index.html" class="logo">
+                ABHINAV <span>ESTATES</span>
+            </a>
+
+            <div class="menu-toggle" id="menuToggle">
+                ☰
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+
+                <li><a href="index.html">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#">Project</a>
+
+                    <div class="dropdown-content">
+
+                        <div class="nested-dropdown">
+                            <a href="#">Residential</a>
+
+                            <div class="nested-content">
+                                <a href="res-rent.html">For Rent</a>
+                                <a href="res-sale.html">For Sale</a>
+                            </div>
+                        </div>
+
+                        <div class="nested-dropdown">
+                            <a href="#">Commercial</a>
+
+                            <div class="nested-content">
+                                <a href="com-rent.html">For Rent</a>
+                                <a href="com-sale.html">For Sale</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+
+                <li><a href="services.html">Service</a></li>
+
+                <li><a href="about.html">About</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+                <!-- MOBILE BUTTON -->
+                <li class="mobile-list-btn">
+                    <a href="list-property.html" class="btn-list">
+                        List Property
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- DESKTOP BUTTON -->
+            <div class="nav-right">
+
+                <a href="list-property.html" class="btn-list">
+                    List Property
+                </a>
+
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="luxury-bg-texture reveal">
+        <section class="list-hero-premium">
+            <div class="container text-center">
+                <h1 class="reveal">List Your Flat in <span>Mumbai</span></h1>
+                <p>Reach thousands of verified tenants looking for flats in Mumbai.</p>
+
+                <div class="stats-grid-luxury reveal">
+                    <div class="stat-box">
+                        <h2>30+</h2>
+                        <p>YEARS EXPERIENCE</p>
+                    </div>
+                    <div class="stat-box">
+                        <h2>45K+</h2>
+                        <p>PROPERTIES LISTED</p>
+                    </div>
+                    <div class="stat-box">
+                        <h2>500+</h2>
+                        <p>DEALS / YEAR</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container section-padding reveal">
+            <div class="grid-3 features-designer reveal">
+                <div class="f-card">
+                    <div class="f-icon-wrap">🎯</div>
+                    <h3>Qualified Leads</h3>
+                    <p>We pre-screen every enquiry so you only meet serious, verified tenants.</p>
+                </div>
+                <div class="f-card">
+                    <div class="f-icon-wrap">📸</div>
+                    <h3>Professional Photos</h3>
+                    <p>Our team photographs your property for maximum online appeal and faster closure.</p>
+                </div>
+                <div class="f-card">
+                    <div class="f-icon-wrap">📊</div>
+                    <h3>Market Pricing</h3>
+                    <p>Data-driven pricing advice based on 30+ years of Mumbai real estate experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container form-section-wrap reveal">
+            <div class="compact-form-card reveal">
+                <div class="form-title reveal"></div>
+                <h2>Tell Us About Your Property</h2>
+                <p>Fill in the details below and our team will contact you within 2 hours.</p>
+            </div>
+         <form id="property-form" >
+                <div class="form-grid-2">
+                    <div class="input-luxury">
+                        <label>YOUR NAME *</label>
+                        <input type="text" id="ownerName" name="Name" placeholder="Full name" required>
+                    </div>
+                    <div class="input-luxury">
+                        <label>PHONE / WHATSAPP *</label>
+                        <input type="tel" id="phone" name="Phone" placeholder="+91 98200 75868" required>
+                    </div>
+                    <div class="input-luxury">
+                        <label>EMAIL *</label>
+                        <input type="email" id="email" name="Email" placeholder="you@email.com" required>
+                    </div>
+                    <div class="input-luxury">
+                        <label>LISTING TYPE *</label>
+                        <select id="listingType" name="Listing_Type" required>
+                            <option value="">Select Type</option>
+                            <option>Rent</option>
+                            <option>Sale</option>
+                        </select>
+                    </div>
+                    <div class="input-luxury">
+                        <label>PROPERTY TYPE *</label>
+                        <select id="propertyType" name="Property_Type" required>
+                           <option value="">Select Type</option>
+
+<option value="Residential">
+    Residential
+</option>
+
+<option value="Commercial">
+    Commercial
+</option>
+                        </select>
+                    </div>
+                    <div class="input-luxury">
+                        <label>LOCATION *</label>
+                       <select name="Location" required>
+                         <option value="">Select Location</option>
+                              <option value="Aarey Colony">Aarey Colony</option>
+<option value="Airoli">Airoli</option>
+<option value="Ambernath">Ambernath</option>
+<option value="Andheri East">Andheri East</option>
+<option value="Andheri West">Andheri West</option>
+<option value="Antop Hill">Antop Hill</option>
+
+<option value="Badlapur">Badlapur</option>
+<option value="Ballard Estate">Ballard Estate</option>
+<option value="Bandra East">Bandra East</option>
+<option value="Bandra West">Bandra West</option>
+<option value="Belapur">Belapur</option>
+<option value="Bhandup East">Bhandup East</option>
+<option value="Bhandup West">Bhandup West</option>
+<option value="Bhayandar">Bhayandar</option>
+<option value="Boisar">Boisar</option>
+<option value="Borivali East">Borivali East</option>
+<option value="Borivali West">Borivali West</option>
+<option value="Breach Candy">Breach Candy</option>
+<option value="Byculla">Byculla</option>
+
+<option value="CBD Belapur">CBD Belapur</option>
+<option value="CST">CST</option>
+<option value="Charni Road">Charni Road</option>
+<option value="Chandivali">Chandivali</option>
+<option value="Chembur">Chembur</option>
+<option value="Chinchpokli">Chinchpokli</option>
+<option value="Churchgate">Churchgate</option>
+<option value="Colaba">Colaba</option>
+<option value="Cotton Green">Cotton Green</option>
+<option value="Cuffe Parade">Cuffe Parade</option>
+
+<option value="Dadar East">Dadar East</option>
+<option value="Dadar West">Dadar West</option>
+<option value="Dahisar East">Dahisar East</option>
+<option value="Dahisar West">Dahisar West</option>
+<option value="Deonar">Deonar</option>
+<option value="Dockyard Road">Dockyard Road</option>
+<option value="Dombivli">Dombivli</option>
+
+<option value="Film City">Film City</option>
+<option value="Fort">Fort</option>
+
+<option value="Ghansoli">Ghansoli</option>
+<option value="Ghatkopar East">Ghatkopar East</option>
+<option value="Ghatkopar West">Ghatkopar West</option>
+<option value="Ghodbunder Road">Ghodbunder Road</option>
+<option value="Girgaon">Girgaon</option>
+<option value="Goregaon East">Goregaon East</option>
+<option value="Goregaon West">Goregaon West</option>
+<option value="Govandi">Govandi</option>
+<option value="Grant Road">Grant Road</option>
+
+<option value="Hiranandani Estate">Hiranandani Estate</option>
+
+<option value="Jogeshwari East">Jogeshwari East</option>
+<option value="Jogeshwari West">Jogeshwari West</option>
+<option value="Juhu">Juhu</option>
+
+<option value="Kalina">Kalina</option>
+<option value="Kalwa">Kalwa</option>
+<option value="Kamothe">Kamothe</option>
+<option value="Kandivali East">Kandivali East</option>
+<option value="Kandivali West">Kandivali West</option>
+<option value="Kanjurmarg East">Kanjurmarg East</option>
+<option value="Kanjurmarg West">Kanjurmarg West</option>
+<option value="Kalyan">Kalyan</option>
+<option value="Kasarvadavali">Kasarvadavali</option>
+<option value="Khar West">Khar West</option>
+<option value="Kharghar">Kharghar</option>
+<option value="Kings Circle">Kings Circle</option>
+<option value="Koparkhairane">Koparkhairane</option>
+<option value="Kurla East">Kurla East</option>
+<option value="Kurla West">Kurla West</option>
+
+<option value="Lalbaug">Lalbaug</option>
+<option value="Lokhandwala">Lokhandwala</option>
+<option value="Lower Parel">Lower Parel</option>
+
+<option value="Mahim">Mahim</option>
+<option value="Majiwada">Majiwada</option>
+<option value="Malabar Hill">Malabar Hill</option>
+<option value="Malad East">Malad East</option>
+<option value="Malad West">Malad West</option>
+<option value="Mankhurd">Mankhurd</option>
+<option value="Manpada">Manpada</option>
+<option value="Marine Lines">Marine Lines</option>
+<option value="Marol">Marol</option>
+<option value="Matunga">Matunga</option>
+<option value="Mazgaon">Mazgaon</option>
+<option value="Mira Road">Mira Road</option>
+<option value="Mulund East">Mulund East</option>
+<option value="Mulund West">Mulund West</option>
+<option value="Mumbai Central">Mumbai Central</option>
+
+<option value="Nahur">Nahur</option>
+<option value="Naigaon">Naigaon</option>
+<option value="Nalasopara">Nalasopara</option>
+<option value="Nariman Point">Nariman Point</option>
+<option value="Nerul">Nerul</option>
+
+<option value="Opera House">Opera House</option>
+<option value="Oshiwara">Oshiwara</option>
+
+<option value="Palghar">Palghar</option>
+<option value="Panvel">Panvel</option>
+<option value="Parel">Parel</option>
+<option value="Pedder Road">Pedder Road</option>
+<option value="Powai">Powai</option>
+<option value="Prabhadevi">Prabhadevi</option>
+
+<option value="Ram Mandir">Ram Mandir</option>
+<option value="Reay Road">Reay Road</option>
+
+<option value="Sakinaka">Sakinaka</option>
+<option value="Sandhurst Road">Sandhurst Road</option>
+<option value="Santacruz East">Santacruz East</option>
+<option value="Santacruz West">Santacruz West</option>
+<option value="Sanpada">Sanpada</option>
+<option value="Seawoods">Seawoods</option>
+<option value="Seepz">Seepz</option>
+<option value="Sewri">Sewri</option>
+<option value="Sion">Sion</option>
+
+<option value="Taloja">Taloja</option>
+<option value="Tardeo">Tardeo</option>
+<option value="Thane East">Thane East</option>
+<option value="Thane West">Thane West</option>
+<option value="Tilak Nagar">Tilak Nagar</option>
+<option value="Trombay">Trombay</option>
+
+<option value="Ulwe">Ulwe</option>
+
+<option value="Vakola">Vakola</option>
+<option value="Vashi">Vashi</option>
+<option value="Versova">Versova</option>
+<option value="Vidyavihar">Vidyavihar</option>
+<option value="Vikhroli East">Vikhroli East</option>
+<option value="Vikhroli West">Vikhroli West</option>
+<option value="Vile Parle East">Vile Parle East</option>
+<option value="Vile Parle West">Vile Parle West</option>
+<option value="Virar">Virar</option>
+
+<option value="Wadala">Wadala</option>
+<option value="Wagle Estate">Wagle Estate</option>
+<option value="Worli">Worli</option>
+                                </select>
+                    </div>
+                    <div class="input-luxury">
+                        <label>BUILDING / SOCIETY *</label>
+                        <input type="text" name="Building" placeholder="Building name" required>
+                    </div>
+                    <div class="input-luxury">
+                        <label>BEDROOMS *</label>
+                        <select name="Bedrooms" required>
+                            <option value="">Select</option>
+                           <option>1 BHK</option>
+<option>1.5 BHK</option>
+<option>2 BHK</option>
+<option>2.5 BHK</option>
+<option>3 BHK</option>
+<option>3.5 BHK</option>
+<option>4 BHK</option>
+<option>4.5 BHK</option>
+<option>5 BHK</option>
+<option>6 BHK</option>
+<option>7 BHK</option>
+<option>Studio</option>
+                        </select>
+                    </div>
+                    <div class="input-luxury">
+                        <label>AREA (SQ.FT.) *</label>
+                        <input type="number" name="Area_SqFt" placeholder="e.g. 1200" required>
+                    </div>
+                    <div class="input-luxury">
+                        <label>Rent / Price *</label>
+                        <input type="text" name="Rent_Price" placeholder="e.g. 1,50,000" required>
+                    </div>
+
+
+
+
+<div class="input-luxury">
+    <label>ZONE *</label>
+
+    <select name="Zone" required>
+
+        <option value="">Select Zone</option>
+
+       <option value="South Mumbai">South Mumbai</option>
+
+<option value="South Central Mumbai">South Central Mumbai</option>
+
+<option value="Western Suburbs">Western Suburbs</option>
+
+<option value="Central Suburbs">Central Suburbs</option>
+
+<option value="Eastern Suburbs">Eastern Suburbs</option>
+
+<option value="Harbour Suburbs">Harbour Suburbs</option>
+
+<option value="Navi Mumbai">Navi Mumbai</option>
+
+<option value="Thane Region">Thane Region</option>
+
+<option value="Extended Western Region">Extended Western Region</option>
+
+    </select>
+</div>
+
+<div class="input-luxury">
+    <label>SUB LOCATION *</label>
+
+    <input
+        type="text"
+        name="Sub_Location"
+        placeholder="e.g. Link Road"
+        required
+    >
+</div>
+
+
+
+
+
+
+                    <div class="input-luxury">
+                        <label>FURNISHING *</label>
+                        <select name="Furnishing" required>
+                            <option value="">Select</option>
+                            <option>Fully Furnished</option>
+                            <option>Semi Furnished</option>
+                            <option>Unfurnished</option>
+                        </select>
+                    </div>
+                </div>
+
+<div class="input-luxury full-row">
+
+<label for="property-images" class="upload-btn">
+   Upload Images
+</label>
+
+<input type="file" id="property-images" multiple hidden>
+
+<div id="preview-container"></div>
+
+</div>
+
+
+
+
+
+
+
+                <div class="input-luxury full-row">
+                    <label>ADDITIONAL DETAILS *</label>
+                    <textarea name="Details" rows="3" placeholder="Floor, amenities, availability..."
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit-sky" id="submitBtn">
+
+<span id="btnText">
+Submit Property →
+</span>
+
+<span id="btnLoader" class="loader hidden"></span>
+
+</button>
+            </form>
+            </div>
+
+            <div class="whatsapp-luxury-box reveal">
+                <div class="w-inne r">
+                    <div class="w-icon-large">💬</div>
+                    <div class="w-info">
+                        <h3>Prefer WhatsApp?</h3>
+                        <p>Send your property details directly — <strong><a href="https://wa.me/919833838360">Message us
+                                    on WhatsApp</a></strong> or <strong><a href="tel:+919833838360">call us</a></strong>
+                            and we'll take it from there.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer reveal">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Abhinav Estates</h4>
+                <p>Leading the Mumbai property market with integrity and expertise since 1993.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="list-property.html">Complete Your Listing</a>
+            </div>
+            <div class="footer-col">
+                <h4>Get Support</h4>
+                <p>📞 +91 9833838360</p>
+                <p>✉️ abhinavestate@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Abhinav Estates | RERA No. ABH-9833838360</p>
+        </div>
+    </footer>
+
+
+    <script>
+
+        /* GLOBAL PROFESSIONAL ANIMATION */
+
+        const revealElements = document.querySelectorAll('.reveal');
+
+        function revealOnScroll() {
+
+            const windowHeight = window.innerHeight;
+
+            revealElements.forEach((element) => {
+
+                const top = element.getBoundingClientRect().top;
+
+                const bottom = element.getBoundingClientRect().bottom;
+
+                if (top < windowHeight - 100 && bottom > 100) {
+
+                    element.classList.add('active');
+
+                }
+
+                else {
+
+                    element.classList.remove('active');
+
+                }
+
+            });
+
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+
+        window.addEventListener('load', revealOnScroll);
+
+    </script>
+
+
+
+
+    <script>
+
+        const menuToggle =
+            document.getElementById('menuToggle');
+
+        const navLinks =
+            document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+
+            navLinks.classList.toggle('active');
+
+        });
+
+    </script>
+
+
+
+<script>
+    console.log("FORM SUBMIT STARTED");
+
+const propertyForm =
+document.getElementById("property-form");
+
+const imagePreviewContainer =
+document.getElementById("preview-container");
+
+
+const submitBtn =
+document.getElementById("submitBtn");
+
+const btnText =
+document.getElementById("btnText");
+
+const btnLoader =
+document.getElementById("btnLoader");
+
+
+
+
+propertyForm.addEventListener(
+"submit",
+async function(e){
+
+e.preventDefault();
+
+const successPopup =
+document.getElementById("successPopup");
+
+submitBtn.classList.add("loading");
+
+btnText.innerHTML = "Please wait...";
+
+btnLoader.classList.remove("hidden");
+
+btnLoader.classList.add("show");
+
+
+
+const imageFiles = selectedFiles;
+
+if(imageFiles.length === 0){
+
+alert("Please upload images");
+
+submitBtn.classList.remove("loading");
+
+btnText.innerHTML = "Submit Property →";
+
+btnLoader.classList.remove("show");
+
+btnLoader.classList.add("hidden");
+
+return;
+
+}
+
+let imageUrl = [];
+
+/* MULTIPLE IMAGE UPLOAD */
+
+/* FAST MULTIPLE IMAGE UPLOAD */
+
+const uploadPromises = imageFiles.map(async (file) => {
+
+    const cloudData = new FormData();
+
+    cloudData.append("file", file);
+
+    cloudData.append(
+        "upload_preset",
+        "jmkh0ese"
+    );
+
+    const cloudRes = await fetch(
+        "https://api.cloudinary.com/v1_1/dvw0tjndu/image/upload",
+        {
+            method: "POST",
+            body: cloudData
+        }
+    );
+
+    const cloudJson = await cloudRes.json();
+
+    return cloudJson.secure_url;
+
+});
+
+/* ALL IMAGES UPLOAD TOGETHER */
+
+const imageUrls =
+await Promise.all(uploadPromises);
+
+/* SAVE DATABASE */
+
+const { error } =
+await supabaseClient
+.from("properties")
+.insert([{
+
+owner_name:
+document.getElementById("ownerName").value,
+
+phone:
+document.getElementById("phone").value,
+
+email:
+document.getElementById("email").value,
+
+listing_type:
+document.getElementById("listingType").value,
+
+property_type:
+document.getElementById("propertyType").value,
+
+location:
+propertyForm.elements["Location"].value,
+
+sub_location:
+propertyForm.elements["Sub_Location"].value,
+
+building:
+propertyForm.elements["Building"].value,
+
+bedrooms:
+propertyForm.elements["Bedrooms"].value,
+
+area_sqft:
+propertyForm.elements["Area_SqFt"].value,
+
+rent_price:
+propertyForm.elements["Rent_Price"].value,
+
+zone:
+propertyForm.elements["Zone"].value,
+
+furnishing:
+propertyForm.elements["Furnishing"].value,
+
+details:
+propertyForm.elements["Details"].value,
+
+image_url:
+imageUrls[0],
+
+image_urls:
+imageUrls
+
+}]);
+
+
+
+/* SEND EMAIL USING FORMSPREE */
+
+const emailData = new FormData();
+
+emailData.append(
+"Owner Name",
+document.getElementById("ownerName").value
+);
+
+emailData.append(
+"Phone",
+document.getElementById("phone").value
+);
+
+emailData.append(
+"Email",
+document.getElementById("email").value
+);
+
+emailData.append(
+"Listing Type",
+document.getElementById("listingType").value
+);
+
+emailData.append(
+"Property Type",
+document.getElementById("propertyType").value
+);
+
+emailData.append(
+"Location",
+propertyForm.elements["Location"].value
+);
+
+emailData.append(
+"Sub Location",
+propertyForm.elements["Sub_Location"].value
+);
+
+emailData.append(
+"Building",
+propertyForm.elements["Building"].value
+);
+
+emailData.append(
+"Bedrooms",
+propertyForm.elements["Bedrooms"].value
+);
+
+emailData.append(
+"Area SqFt",
+propertyForm.elements["Area_SqFt"].value
+);
+
+emailData.append(
+"Rent / Price",
+propertyForm.elements["Rent_Price"].value
+);
+
+emailData.append(
+"Zone",
+propertyForm.elements["Zone"].value
+);
+
+emailData.append(
+"Furnishing",
+propertyForm.elements["Furnishing"].value
+);
+
+emailData.append(
+"Details",
+propertyForm.elements["Details"].value
+);
+
+
+
+fetch(
+"https://formspree.io/f/xjgzorzq",
+{
+method: "POST",
+body: emailData,
+headers: {
+'Accept': 'application/json'
+}
+}
+);
+
+
+
+
+
+
+if(error){
+
+console.log(error.message);
+
+// 
+
+alert(error.message);
+
+submitBtn.classList.remove("loading");
+
+btnText.innerHTML =
+"Submit Property →";
+
+btnLoader.classList.add("hidden");
+
+return;
+
+}
+
+
+successPopup.classList.add("active");
+
+submitBtn.classList.remove("loading");
+
+btnText.innerHTML =
+"Submit Property →";
+
+btnLoader.classList.add("hidden");
+
+propertyForm.reset();
+
+selectedFiles = [];
+
+imagePreviewContainer.innerHTML = "";
+
+
+/* RESET BUTTON STATE */
+
+submitBtn.classList.remove("loading");
+
+btnLoader.classList.remove("show");
+
+btnText.innerHTML =
+"Submit Property →";
+
+
+
+
+
+/* AUTO CLOSE POPUP */
+
+setTimeout(()=>{
+
+successPopup.classList.remove("active");
+
+},3000);
+    
+}
+);
+
+
+</script>
+
+
+
+
+
+
+
+<script>
+const imageInput =
+document.getElementById("property-images");
+
+const previewContainer =
+document.getElementById("preview-container");
+
+/* STORE ALL FILES */
+let selectedFiles = [];
+
+imageInput.addEventListener("change", function () {
+
+    const newFiles =
+        Array.from(this.files);
+
+    /* ADD NEW FILES */
+    selectedFiles =
+        [...selectedFiles, ...newFiles];
+
+    renderPreview();
+
+});
+
+/* PREVIEW FUNCTION */
+function renderPreview() {
+
+    previewContainer.innerHTML = "";
+
+    selectedFiles.forEach((file, index) => {
+
+        const reader =
+            new FileReader();
+
+        reader.onload = function (e) {
+
+            const div =
+                document.createElement("div");
+
+            div.classList.add("preview-image");
+
+            div.innerHTML = `
+
+                <img src="${e.target.result}">
+
+                <p>Image ${index + 1}</p>
+
+                <button type="button"
+                class="remove-img"
+                onclick="removeImage(${index})">
+
+                ✖
+
+                </button>
+
+            `;
+
+            previewContainer.appendChild(div);
+
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
+
+/* REMOVE IMAGE */
+function removeImage(index) {
+
+    selectedFiles.splice(index, 1);
+
+    renderPreview();
+
+}
+
+</script>
+
+
+
+<div id="successPopup" class="success-popup">
+
+<div class="success-box">
+
+<h2>✅ Upload Successful</h2>
+
+<p>Your property has been submitted successfully.</p>
+
+</div>
+
+</div>
+
+
+
+</body>
+
+</html>
